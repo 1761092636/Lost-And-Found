@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<link href="css/SYSFrame.css" rel="stylesheet" type="text/css" />
+		<link href="font/iconfont.css" rel="stylesheet" type="text/css" />
+		<link href="css/module.css" rel="stylesheet" type="text/css" />
+		<link href="css/pages.css" rel="stylesheet" type="text/css" />
+		<title>添加品牌</title>
+		<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+		<script src="js/jquery.nicescroll.js" type="text/javascript"></script>
+		<script src="js/HUpages.js" type="text/javascript"></script>
+		<script type="text/javascript" src="js/layer/layer.js"></script>
+		<script src="js/template.js" type="text/javascript"></script>
+		<!--[if lt IE 9]>
+          <script src="js/html5shiv.js" type="text/javascript"></script>
+          <script src="js/css3-mediaqueries.js"  type="text/javascript"></script>
+        <![endif]-->
+	</head>
+
+	<body id="pagestyle" class="backgrounddd">
+		<div class="box-module">
+			<div class="box-title">品牌信息</div>
+			<div class="box-content padding15" id="brand_details">
+
+			</div>
+		</div>
+	</body>
+	<!--添加商品-->
+	<div id="addproductstyle" style="display: none;">
+		<div class="p_select_list clearfix">
+			<div class="left_produt produt_select_style">
+				<span class="seach_style"><input name="" type="text"  id="seach" class="seach"><i class="iconfont">&#xe60e</i></span>
+				<div id="select_style" class="datatable_height"></div>
+			</div>
+			<div class="Switching_btn">
+				<span id="add_all" class="Switching">
+          <input type="button" class="btn button_btn btn-success" value=">>"/>
+          </span>
+				<span id="add" class="Switching">
+          <input type="button" class="btn button_btn bg-deep-blue" value=">"/>
+          </span>
+				<span id="remove" class="Switching">
+          <input type="button" class="btn button_btn bg-deep-blue" value="<"/>
+          </span>
+				<span id="remove_all" class="Switching">
+          <input type="button" class="btn button_btn btn-success" value="<<"/>
+          </span>
+			</div>
+			<div class="right_product produt_select_style ">
+				<div class="title-name">选中产品 <span class="r_f">数量：<em id="quantity"></em>件</span></div>
+				<div class="datatable_height" id="Selected-product">
+				</div>
+			</div>
+		</div>
+	</div>
+</html>
+<script>
+	$(function() {
+		$("#pagestyle").Hupage({
+			scrollbar: function(e) {
+				e.niceScroll({
+					cursorcolor: "#dddddd",
+					cursoropacitymax: 1,
+					touchbehavior: false,
+					cursorwidth: "3px",
+					cursorborder: "0",
+					cursorborderradius: "3px",
+				});
+			},
+			expand: function(thisBox, settings) {
+				settings.scrollbar(thisBox); //设置当前页滚动样式
+			}
+		});
+	});
+	(function($) {
+		$.getUrlParam = function(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+			var r = window.location.search.substr(1).match(reg);
+			if(r != null) return unescape(r[2]);
+			return null;
+		}
+	})(jQuery); //获取设置url
+
+	var brandid = $.getUrlParam('brandid'); //获取其中的参数值
+	var details = function(callback) {
+		$.ajax({
+			url: "json/brand.json",
+			type: "GET",
+			dataType: 'json',
+			success: function(ret) {
+				typeof callback == 'function' && callback(ret);
+			},
+		});
+	};
+	details(function(listArr) {
+		$.ajax({
+			url: "html/brand/addbrand.html",
+			type: "GET",
+			dataType: "html",
+			success: function(result) {
+				$('body').append("<script id='detailshtml' type='text/html'>" + result + "</script\>");
+				var detailshtml = $('#brand_details');
+				var data = listArr.brandlist;
+				for(var i = 0; i < data.length; i++) {
+					if(data[i].id == brandid) {
+						var brandinfo = data[i];
+						contenthtml(brandinfo);
+					} else if(brandid == 0) {
+						var brandinfo = "";
+						contenthtml(brandinfo);
+						return
+					};
+				}
+
+				function contenthtml(brandinfo) {
+					var html = template('detailshtml', {
+						id: brandid,
+						brand: brandinfo,
+						sort: listArr.brandSort
+					});
+					detailshtml.append(html);
+					var radios = document.getElementsByName("statusradio");
+					var sortname = document.getElementById("Competence_sort");
+					for(var i = 0; i < radios.length; i++) {
+						var radioid = radios[i].dataset.id;
+						radios[0].checked = true;
+						if(brandinfo.status == radioid) {
+							radios[i].checked = true;
+						} else {
+							radios[i].checked = false;
+						}
+					};
+					for(var s = 0; s < sortname.options.length; s++) {
+						var text = sortname.options[s].text;
+						var sortid = sortname.options[s].value;
+						if(brandinfo.sort == sortid) {
+							sortname.options[s].selected = true;
+						}
+					};
+				}
+
+				$("#detailshtml").remove(); //加载完毕删除模版路径
+			}
+		});
+	});
+	//添加商品操作
+	function addproducts(id) {
+		layer.open({
+			type: 1,
+			title: '添加商品',
+			maxmin: true,
+			shadeClose: false, //点击遮罩关闭层
+			area: ['800px', '600px'],
+			content: $('#addproductstyle'),
+			btn: ['提交', '取消'],
+			yes: function(index, layero) {
+
+			}
+		});
+		var product = function(callback) {
+			$.ajax({
+				url: "json/products.json",
+				type: "GET",
+				dataType: 'json',
+				success: function(ret) {
+					typeof callback == 'function' && callback(ret);
+				},
+			});
+		};
+		product(function(dataArr) {
+			var products = dataArr.data;
+			var productlist = products.filter(function(e) {
+				return e.bid == "";
+			});
+			var selected = products.filter(function(e) {
+				return e.bid ==id;
+			});
+			var product = "";
+			var product1="";
+			var seach = $("#seach");	
+			var product = "<select multiple='multiple' id='select1' class='select'>";
+			seach.keyup(function(event) {
+				//获取当前文本框的值
+				var seachText = $("#seach").val();	
+				if(seachText != "") {
+					$.each(productlist, function(id, item) {
+						//如果包含则为select赋值
+						if(item.name.indexOf(seachText) != -1) {
+							product += "<option value=" + item.id + ">" + item.name + "</option>";
+						}
+					})
+					$("#select_style").html(product);
+				} else {
+					$.each(productlist, function(id, item) {
+						product += "<option value=" + item.id + ">" + item.name + "</option>";
+					})
+					$("#select_style").html(product);
+				}
+			});
+			product1 += "<select multiple='multiple' id='select2' class='select'>";
+			$.each(productlist, function(id, item) {
+				product += "<option value=" + item.id + " title=" + item.name + ">" + item.name + "</option>";
+			});
+			product + "</select>";
+			 if(selected==""){
+			 	product1+="<option class='bare_prompt' value='0'>暂时还没有该分类下的商品，赶快去添加吧！</option>";
+			 }else{
+	          $.each(selected, function(id, item) {				
+				product1 += "<option value=" + item.id + " title=" + item.name + ">" + item.name + "</option>";
+			  });
+			 
+			 }
+			 product1 + "</select>";
+			$("#Selected-product").html(product1);
+			$("#quantity").html(selected.length);
+			$("#select_style").html(product);		
+			function selects(){
+			var psname=document.getElementById("select2");
+			 if(psname.options[0].value==0){
+			 	psname.options[0].remove();	
+			 }
+			  var sl= psname.options.length;
+			  $("#quantity").html(sl);
+			}
+		//下拉框交换JQuery
+		//移到右边
+		$('#add').click(function() {
+			//获取选中的选项，删除并追加给对方
+			$('#select1 option:selected').appendTo('#select2');
+			selects();
+			
+		});
+		//移到左边
+		$('#remove').click(function() {
+			$('#select2 option:selected').appendTo('#select1');
+		});
+		//全部移到右边
+		$('#add_all').click(function() {		
+			//获取全部的选项,删除并追加给对方
+			$('#select1 option').appendTo('#select2');
+			selects();
+		});
+		//全部移到左边
+		$('#remove_all').click(function() {
+			$('#select2 option').appendTo('#select1');
+		});
+		//双击选项
+		$('#select1').dblclick(function() { //绑定双击事件
+			//获取全部的选项,删除并追加给对方
+			$("option:selected", this).appendTo('#select2'); //追加给对方
+		});
+		//双击选项
+		$('#select2').dblclick(function() {
+			$("option:selected", this).appendTo('#select1');
+		});
+		});
+	}
+</script>
+<script src="js/common.js" type="text/javascript"></script>

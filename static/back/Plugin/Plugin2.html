@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<link href="../css/SYSFrame.css" rel="stylesheet" type="text/css" />
+		<link href="../font/iconfont.css" rel="stylesheet" type="text/css" />
+		<link href="../css/module.css" rel="stylesheet" type="text/css" />
+		<link href="../css/pages.css" rel="stylesheet" type="text/css" />
+		<link href="../js/built/built-editor.css" type="text/css" rel="stylesheet">
+		<script src="../js/jquery-1.9.1.min.js" type="text/javascript"></script>
+		<script src="../js/jquery.nicescroll.js" type="text/javascript"></script>
+		<script src="../js/HUpages.js" type="text/javascript"></script>
+		<script src="../js/template.js" type="text/javascript"></script>
+		<!--[if lt IE 9]>
+          <script src="../js/html5shiv.js" type="text/javascript"></script>
+          <script src="../js/css3-mediaqueries.js"  type="text/javascript"></script>
+        <![endif]-->
+		<script src="../js/built/built-editor.min.js"></script>
+		<script>
+			require(["orion/editor/edit"], function(edit) {
+				edit({
+					className: "editor"
+				});
+			});
+		</script>
+	</head>
+
+	<body id="pagestyle" class="backgroundf0">
+		<div class="box-module margin15">
+			<div class="box-title">table表格功能<b class="colorgreen">(原生js)</b></div>
+			<div class="box-content ">
+				<div class="col-lg-6 col-sm-6 height100b" id="pluginhtml">
+					<div class="title-name text-left">示例代码</div>
+					<div class="info_list clearfix padding15" id="pluginContent">				
+				  </div>	
+				</div>
+				<div class="col-lg-6 col-sm-6 height100b" id="pluginjavascript">
+					<pre class="editor" data-editor-lang="js" data-editor-show-annotation-ruler="false" data-editor-show-overview-ruler="false" data-editor-show-folding-ruler="false">
+/*
+ **************** table表格功能 （排序，checkbox全选，表格列宽拖拽）*************************
+ */
+function TableSorter(table) {
+	this.Table = this.$(table);
+	// alert(this.Table.innerHTML); 
+	if(this.Table.rows.length <= 1) {
+		return;
+	}
+	this.Init(arguments);
+	this.checksName();
+}
+var tTD;
+// 以下样式针对表头的单元格. 
+TableSorter.prototype.NormalCss = "NormalCss"; // 没有执行排序时的样式.
+TableSorter.prototype.SortAscCss = "SortAscCss"; // 升序排序时的样式. 
+TableSorter.prototype.SortDescCss = "SortDescCss"; // 降序排序时的样式.
+
+// 初始化table的信息和操作. 
+TableSorter.prototype.Init = function(args) {
+	this.ViewState = [];
+	// 设置表头的状态位，排序时根据状态判断升降序 
+	for(var x = 0; x < this.Table.rows[0].cells.length; x++) {
+		this.ViewState[x] = false;
+	}
+	// 参数args为数组，判断表头的那些字段需要排序，数组的第一个参数为要排序的表 
+	if(args.length > 1) {
+		for(var x = 1; x < args.length; x++) {
+			// 循环判断每一个需要排序的表头字段的下标，是否大于表头的最大下标； 
+			// 如果大的话说明是一个手误 
+			// 如果正确在需要排序的表头字段添加onclick方法和相对的样式 
+			// 代码:new TableSorter("tb2", 0, 2, 5, 6);<br /> 
+			// 效果:点击表头0,2,5,6列可执行排序.<br /> 
+			if(args[x] > this.Table.rows[0].cells.length) {
+				continue;
+			} else {
+				var newDiv = document.createElement("em");
+				newDiv.className = this.NormalCss;
+				//this.Table.rows[0].cells[args[x]].className = this.NormalCss; 
+				this.Table.rows[0].cells[args[x]].appendChild(newDiv);
+				this.Table.rows[0].cells[args[x]].onclick = this.GetFunction(this, "Sort", args[x]);
+				this.Table.rows[0].cells[args[x]].style.cursor = "pointer";
+			}
+		}
+
+	}
+	// 参数不大于1，说明所有的字段都需要排序 
+	else {
+		for(var x = 0; x < this.Table.rows[0].cells.length; x++) {
+			this.Table.rows[0].cells[x].onclick = this.GetFunction(this, "Sort", x);
+			this.Table.rows[0].cells[x].style.cursor = "pointer";
+		}
+	}
+	//checkbox全选选择操作，表格列宽拖拽
+	for(var x = 0; x < this.Table.rows[0].cells.length; x++) {
+		var checkbox = this.Table.rows[0].cells[x].getElementsByTagName('input')[x];
+		checkbox ? this.Table.rows[0].cells[x].onclick = this.GetFunction(this, "checkbox", x) : '';
+		//表格拖拽
+		this.Table.rows[0].cells[x].onmousedown = this.GetFunction(this, "Dragdrop", x);
+		this.Table.rows[0].cells[x].onmouseup = this.GetFunction(this, "onmouseupDrop", x);
+		this.Table.rows[0].cells[x].onmousemove = this.GetFunction(this, "onmousemoveDrop", x);
+	}
+
+}
+//单个checkbox选择操作
+TableSorter.prototype.checksName = function() {
+	for(var x = 1; x < this.Table.rows.length; x++) {
+		var checkbox = this.Table.rows[x].cells[0].getElementsByTagName('input')[0];
+		checkbox ? this.Table.rows[x].cells[0].onclick = this.GetFunction(this, "likecheck", x) : '';
+	}
+}
+//表格拖拽鼠标指针点击时发生
+TableSorter.prototype.Dragdrop = function(col) {
+	tTD = this.Table.rows[0].cells[col];
+	if(event.offsetX > tTD.offsetWidth - 10) {
+		tTD.mouseDown = true;
+		tTD.oldX = event.x;
+		tTD.oldWidth = tTD.offsetWidth;
+	}
+};
+//表格拖拽鼠标按键被松开时发生
+TableSorter.prototype.onmouseupDrop = function(col) {
+	if(tTD == undefined) tTD = this.Table.rows[0].cells[col];
+	tTD.mouseDown = false;
+	tTD.style.cursor = 'default';
+}
+//表格拖拽鼠标指针移动时发生
+TableSorter.prototype.onmousemoveDrop = function(col) {
+	//更改鼠标样式
+	if(event.offsetX > this.Table.rows[0].cells[col].offsetWidth - 5)
+		this.Table.rows[0].cells[col].style.cursor = 'e-resize';
+	else
+		this.Table.rows[0].cells[col].style.cursor = 'default';
+	//取出暂存的Table Cell
+	if(tTD == undefined) tTD = this.Table.rows[0].cells[col];
+	//调整宽度
+	if(tTD.mouseDown != null && tTD.mouseDown == true) {
+		tTD.style.cursor = 'default';
+		if(tTD.oldWidth + (event.x - tTD.oldX) > 0)
+			tTD.width = tTD.oldWidth + (event.x - tTD.oldX);
+		//调整列宽
+		tTD.style.width = tTD.width;
+		tTD.style.cursor = 'e-resize';
+		//调整该列中的每个Cell
+		table = tTD;
+		while(table.tagName != 'TABLE') table = table.parentElement;
+		for(j = 0; j < table.rows.length; j++) {
+			table.rows[j].cells[tTD.cellIndex].width = tTD.width;
+		}
+	}
+}
+// 简写document.getElementById方法. 
+TableSorter.prototype.$ = function(element) {
+	return document.getElementById(element);
+}
+// 取得指定对象的脱壳函数. 
+TableSorter.prototype.GetFunction = function(variable, method, param) {
+	// 在这里需要说明一下，variable-->对应的是this，method-->对应的是"Sort"，param对应的是需要排序表头的下标 
+	// this代表这个类，其中包括所用的方法和属性。下面的方法相当于调用Sort()方法 
+	return function() {
+		variable[method](param);
+	}
+}
+//checkbox全选取消操作
+TableSorter.prototype.checkbox = function(col) {
+	for(var x = 1; x < this.Table.rows.length; x++) {
+		var checkbox = this.Table.rows[x].cells[col].getElementsByTagName('input')[col];
+		for(var y = 0; y < this.Table.rows[0].cells.length; y++) {
+			var checkboxs = this.Table.rows[0].cells[y].getElementsByTagName('input')[y];
+			if(checkboxs) {
+				if(checkboxs.checked == false) {
+					checkbox ? checkbox.checked = false : '';
+					this.Table.rows[x].className = "";
+				} else {
+					checkbox ? checkbox.checked = true : '';
+					this.Table.rows[x].className = "active";
+				}
+			}
+		}
+	}
+}
+//单选操作
+TableSorter.prototype.likecheck = function(col) {
+	for(var x = 0; x < this.Table.rows[0].cells.length; x++) {
+		var checkbox = this.Table.rows[0].cells[x].getElementsByTagName('input')[x];
+		if(checkbox) {
+			if(checkbox.checked == true) {
+				checkbox ? checkbox.checked = false : '';
+			}
+		}
+		var zcheckbox = this.Table.rows[col].cells[0].getElementsByTagName('input')[x];
+		if(zcheckbox) {
+			if(zcheckbox.checked == true) {
+				this.Table.rows[col].className = "active";
+
+			} else {
+				this.Table.rows[col].className = "";
+			}
+			for(var x = 1; x < this.Table.rows.length; x++) {
+				var n = this.Table.querySelectorAll(".active").length;
+				var t = this.Table.rows.length - 1;
+				if(n == t) {
+					checkbox ? checkbox.checked = true : '';
+				}
+			}
+
+		}
+	}
+}
+// 执行排序. 
+TableSorter.prototype.Sort = function(col) {
+	// 定义判断排序字段的一个标志位，数字排序(自己写)和字符排序(JavaScript内置函数) 
+	var SortAsNumber = true;
+	// 为表头设置样式 
+	//for(var x = 0; x < this.Table.rows[0].cells.length; x++){ 
+	//this.Table.rows[0].cells[x].className = this.NormalCss; 
+	//} 
+	// 定义放置需要排序的行数组 
+	var Sorter = [];
+	for(var x = 1; x < this.Table.rows.length; x++) {
+		Sorter[x - 1] = [this.Table.rows[x].cells[col].innerHTML, x];
+		// alert(Sorter[x-1]); 
+		// 判断需要排序字段的类型，分为数字型和非数字型 
+		SortAsNumber = SortAsNumber && this.IsNumeric(Sorter[x - 1][0]);
+		// alert(Sorter[x-1][0]); 
+
+	}
+	// 如果是数字型采用下面的方法排序 
+	if(SortAsNumber) {
+		for(var x = 0; x < Sorter.length; x++) {
+			for(var y = x + 1; y < Sorter.length; y++) {
+				if(parseFloat(Sorter[y][0]) < parseFloat(Sorter[x][0])) {
+					var tmp = Sorter[x];
+					Sorter[x] = Sorter[y];
+					Sorter[y] = tmp;
+				}
+			}
+		}
+	}
+	// 如果是非数字型的可以采用内置方法sort()排序 
+	else {
+		Sorter.sort();
+	}
+	if(this.ViewState[col]) {
+		// JavaScript内置函数，用于颠倒数组中元素的顺序。 
+		Sorter.reverse();
+		this.ViewState[col] = false;
+		this.Table.rows[0].cells[col].lastChild.className = this.SortDescCss;
+	} else {
+		this.ViewState[col] = true;
+		this.Table.rows[0].cells[col].lastChild.className = this.SortAscCss;
+	}
+	var Rank = [];
+	for(var x = 0; x < Sorter.length; x++) {
+		Rank[x] = this.GetRowHtml(this.Table.rows[Sorter[x][1]]);
+	}
+	// alert(Rank[0]); 
+	for(var x = 1; x < this.Table.rows.length; x++) {
+		for(var y = 0; y < this.Table.rows[x].cells.length; y++) {
+			this.Table.rows[x].cells[y].innerHTML = Rank[x - 1][y];
+			// alert(Rank[x-1][y]); 
+		}
+	}
+	this.OnSorted(this.Table.rows[0].cells[col], this.ViewState[col]);
+}
+
+// 取得指定行的内容. 
+TableSorter.prototype.GetRowHtml = function(row) {
+	var result = [];
+	for(var x = 0; x < row.cells.length; x++) {
+		result[x] = row.cells[x].innerHTML;
+	}
+	return result;
+}
+
+TableSorter.prototype.IsNumeric = function(num) {
+	return /^\d+(\.\d+)?$/.test(num);
+}
+
+// 可自行实现排序后的动作. 
+TableSorter.prototype.OnSorted = function(cell, IsAsc) {
+	return;
+}
+ /*
+  **********调用方法*********
+ */      
+  new Wordcount("id名称",设置要排序的列数字);
+  示例:new TableSorter("tableList", 1, 4); //设置
+       		
+                	</pre>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
+<script id="recordinghtml" type="text/html">
+	<table class="table  table_striped table-bordered border" id="tableList">
+		<thead>
+			<tr>
+				<th class="align" width="50px"><label class="checkbox relative"><input type="checkbox" name="checkbox" class="ace"><span class="lbl"></span></label></th>
+				<th class="align">登录IP</th>
+				<th class="align">登录账户</th>
+				<th class="align">登录地点</th>
+				<th width="150px" class="align">状态</th>
+				<th class="align">等级</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% for(var i = 0; i < list.length; i++) { %>
+			<tr>
+				<td><label class="checkbox relative"><input type="checkbox" class="ace" name="checkbox"><span class="lbl"></span></label></td>
+				<td>
+					<%=list[i].ip%>
+				</td>
+				<td>
+					<%=list[i].name%>
+				</td>
+				<td>
+					<%=list[i].address%>
+				</td>
+				<td>
+					<% if(list[i].status==0) {%>
+					<span class="btn btn-green plf10" data-id="0">在线</span>
+					<%} if(list[i].status==1) {%>
+					<span class=" btn btn-gray plf10" data-id="1">离线</span>
+					<%}%>
+				</td>
+				<td>
+					<%=list[i].grade%>
+				</td>
+			</tr>
+			<% } %>
+		</tbody>
+	</table>
+</script>
+<script>
+	$(function() {
+		$("#pagestyle").Hupage({
+			scrollbar: function(e) {
+				e.niceScroll({
+					cursorcolor: "#dddddd",
+					cursoropacitymax: 1,
+					touchbehavior: false,
+					cursorwidth: "5px",
+					cursorborder: "0",
+					cursorborderradius: "5px",
+				});
+			},
+			expand: function(thisBox, settings) {
+				settings.scrollbar(
+					$("#pluginhtml").css({
+						height: $(window).height() - $('.box-title').outerHeight() - (settings.padding * 2)
+					})
+				)
+				settings.scrollbar(	
+					$("#pluginjavascript").css({
+						height: $(window).height() - $('.box-title').outerHeight() - (settings.padding * 2)
+					})
+				); //设置当前页滚动样式
+			}
+		})
+	});
+	//编辑数据
+	var defray = function(callback) {
+		$.ajax({
+			url: "../json/userData.json",
+			type: "GET",
+			dataType: 'json',
+			success: function(ret) {
+				typeof callback == 'function' && callback(ret);
+			},
+		});
+	};
+	defray(function(listArr) {
+		var listhtml = $('#pluginContent');
+		var html = template('recordinghtml', {
+			list: listArr.data
+		});
+		listhtml.append(html);
+		new TableSorter("tableList", 1, 4); //设置
+	});
+</script>
+<script src="../js/common.js" type="text/javascript"></script>

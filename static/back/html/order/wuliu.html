@@ -1,0 +1,54 @@
+<table class="table  table_striped table-bordered border" id="tableList">
+	<thead>
+		<tr>
+			<th class="align" width="5%"><label class="checkbox relative"><input type="checkbox" class="ace" ><span class="lbl"></span></label></th>
+			<th class="align" width="25%">商品</th>
+			<th class="align">总价</th>
+			<th class="align">数量</th>
+			<th class="align">快递公司</th>
+			<th class="align">快递单号</th>
+			<th class="align">发货时间</th>
+			<th class="align">状态</th>
+			<th class="align">操作</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% for(var i = 0; i < order.length; i++) { %>
+			<% if(order[i].status==2){ %>  
+				<tr><td colspan="9" class="backgroundf0">
+				<span class="l_f">订单号：<%=order[i].ordernumber%></span> <span class="r_f">付款时间：<%=timestamp(order[i].Paymenttime,'yyyy-MM-dd hh:mm')%></span>
+			</td></tr>
+			<tr>
+				<td><label class="checkbox relative"><input type="checkbox" class="ace" name="checkbox" ><span class="lbl"></span></label></td>
+				<td class="padding0">
+				<table class="table table_striped producttable">
+					<% for(var j = 0; j < order[i].commodity.length; j++) { %>
+					<tr>
+						<td>
+							<img src="images/product_img/<%=order[i].commodity[j].img%>" class="tableimg">
+							<span class="tabletitle"><%=order[i].commodity[j].name%></span>
+						</td>
+					</tr>
+					<% } %>
+				</table>
+			</td>
+				<td><%=order[i].Totalprice%></td>
+				<td><%=order[i].quantity%></td>
+				<td><%=order[i].kuidi%></td>
+				<td><%=order[i].kuidinumber%></td>
+				<td><%=timestamp(order[i].Deliverytime,'yyyy-MM-dd hh:mm')%></td>
+				<td><% for(var j = 0; j < status.length; j++) { %>
+				<% if(order[i].status==status[j].id){ %>
+				<%=status[j].name%>
+				<% } %>
+				<% } %></td>
+				<td>
+					<button type="buttom" class="btn btn-blue padding10"  onclick="modifybtn(this,<%=order[i].id%>)">修改信息</button>
+					<button type="buttom" class="btn btn-green padding10" data-url="order_detailed.html?detailsid=<%=order[i].id%>" onclick="editorbtn(this)">查看详细</button>
+				</td>
+			</tr>
+				<% } %>
+			
+		<%} %>
+	</tbody>
+</table>

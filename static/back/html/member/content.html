@@ -1,0 +1,114 @@
+				<div class="add_content clearfix mt15 member_content">
+						<ul class="info_list" id="VerifyTips">
+							<li class="clearfix content_look mb15">
+								<label class="label_name">用户头像：</label>
+										<span class="info_data">
+					<div class="gradeimg-style">
+						<div class="Upload-screenshot" >
+							<img class="addImg" src="" onerror="this.src='images/zjbg_03.png',this.onerror=null">
+							<input name="url" type="file" class="upload_input" accept="image/*">
+							<input type="hidden" id="img" name="img">
+							<div class="preBlock">
+								<% if(info[0].id==id){ %>
+									 <% var img="images/memberimg/"+info[0].Headimg+""; %>
+								<% } else{%>
+									<% var img=""; %>
+								<% } %> 
+								<img class="preview" alt="" name="pic" data-src="<%=info[0].Headimg%>" src="<%=img%>"  onerror="this.src='images/zjbg_03.png',this.onerror=null">
+							</div>
+							<img class="delete" src="images/delete.png">
+						</div>
+					</div>
+			    </span>
+							</li>
+							<li class=" clearfix content_look mb15">
+								<label class="label_name"><em style="color:Red;">*</em>用户名：</label>
+								<span class="info_data"><input data-name="用户名" type="text" name="Required" value="<%=info[0].name%>" class="text_input col-sm-4" data-verify="verify" /></span>
+							</li>
+							<li class=" clearfix content_look mb15">
+								<label class="label_name"><em style="color:Red;">*</em>昵称：</label>
+								<span class="info_data"><input data-name="昵称" type="text" name="Required" value="<%=info[0].nickname%>" class="text_input col-sm-4" data-verify="verify" /></span>
+							</li>
+							<li class=" clearfix content_look mb15">
+								<label class="label_name">性别：</label>
+								<span class="info_data">			        			
+		                        <label class="radio relative"><input name="sexradio" type="radio" class="ace" data-id="0"><span class="lbl">保密</span></label>&nbsp;&nbsp;
+								<label class="radio relative"><input name="sexradio" type="radio" class="ace" data-id="1"><span class="lbl">男</span></label>&nbsp;&nbsp;
+								<label class="radio relative"><input name="sexradio" type="radio" class="ace" data-id="2"><span class="lbl">女</span></label>
+								</span>
+							</li>
+							<li class=" clearfix content_look mb15">
+								<label class="label_name">年龄：</label>
+								<span class="info_data"><input data-name="年龄" name="Required" value="<%=info[0].age%>"  type="text" name="" class="text_input col-sm-4" /></span>
+							</li>
+							<li class=" clearfix content_look mb15">
+								<label class="label_name">等级：</label>
+								<span class="info_data">
+									<% for(var s = 0; s < grades.length; s++) { %>
+				                     <% if(grades[s].id==info[0].grade) {%>
+			                 	<%=grades[s].name%>
+				                     <% } %>
+			                       <% } %>									
+								</span>
+							</li>
+								<li class=" clearfix content_look mb15">
+								<label class="label_name">家庭地址：</label>
+								<span class="info_data"><%=info[0].province%>-<%=info[0].city%>-<%=info[0].county%>-<%=info[0].address%></span>
+							</li>
+							<li class=" clearfix content_look mb15">
+								<label class="label_name"><em style="color:Red;">*</em>经验值：</label>
+								<span class="info_data"><input data-name="职位" name="Required" value="<%=info[0].growthvalue%>" type="text"  class="text_input col-sm-4" data-verify="verify"/></span>
+							</li>
+							<li class=" clearfix content_look mb15">
+								<label class="label_name"><em style="color:Red;">*</em>状态：</label>
+								<span class="info_data">
+			        			<label class="radio relative"><input name="statusradio" type="radio" data-id="1" class="ace"><span class="lbl">启用</span></label>&nbsp;&nbsp;
+								<label class="radio relative"><input name="statusradio" type="radio" data-id="0" class="ace"><span class="lbl">关闭</span></label>&nbsp;&nbsp;
+								</span>
+							</li>
+							<li class=" clearfix content_look mb15">
+								<label class="label_name"><em style="color:Red;">*</em>手机：</label>
+								<span class="info_data"><input data-name="手机号码" name="Required" type="text" value="<%=info[0].mobilephone%>" class="text_input col-sm-4" value="" data-prompt="phone" data-verify="verify"/></span>
+							</li>
+							<li class=" clearfix content_look mb15">
+								<label class="label_name"><em style="color:Red;">*</em>固定电话：</label>
+								<span class="info_data"><input data-name="固定电话" name="Required" type="text" value="<%=info[0].phone%>" class="text_input col-sm-4" value="" data-prompt="phone" data-verify="verify"/></span>
+							</li>
+							<li class=" clearfix content_look mb15">
+								<label class="label_name"><em style="color:Red;">*</em>邮箱：</label>
+								<span class="info_data"><input data-name="邮箱" name="Required" type="text" value="<%=info[0].mailbox%>" class="text_input col-sm-4" value="" data-prompt="mailbox" data-verify="verify"/></span>
+							</li>
+							<li class=" clearfix content_look mb15">
+								<label class="label_name">说明：</label>
+								<span class="info_data">
+									<textarea data-name="说明" name="Required" class="form-textarea textarea-info" id="form_textarea" placeholder=""><%=info[0].into%></textarea>
+								</span>
+							</li>
+						</ul>
+						<div class="buttonstyle">
+							<button type="button" class="btn padding10 bg-deep-blue" onclick="modifybtn()">确认修改</button>
+						    <button type="button" class="btn padding10 bg-green" onclick="gradelink(this,<%=info[0].grade%>)">返回上一步</button>
+						</div>
+					</div>
+<script>
+	var api = ""; //调用的api接口
+	var type = 1; //类型
+	//调用图片上传
+	imgUpload(api, type);
+	 new Wordcount("form_textarea",200);
+	 var logo=document.getElementsByClassName("preview");
+	 var classname=document.getElementsByClassName("addImg");
+	 var preBlock=document.getElementsByClassName("preBlock");
+	 var deletes=document.getElementsByClassName("delete");
+	if(logo[0].dataset.src!=""){
+	    classname[0].style.display = 'none'; 
+	    deletes[0].style.display = 'block';
+	    preBlock[0].style.zIndex='1';
+	}else{
+		classname[0].style.display = 'block';
+		deletes[0].style.display = 'none';
+		preBlock[0].style.zIndex='-1';
+	}
+
+	//提交操作
+</script>

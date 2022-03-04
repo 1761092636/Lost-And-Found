@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<link href="../css/SYSFrame.css" rel="stylesheet" type="text/css" />
+		<link href="../font/iconfont.css" rel="stylesheet" type="text/css" />
+		<link href="../css/module.css" rel="stylesheet" type="text/css" />
+		<link href="../css/pages.css" rel="stylesheet" type="text/css" />
+		<link href="../js/built/built-editor.css" type="text/css" rel="stylesheet">
+		<script src="../js/jquery-1.9.1.min.js" type="text/javascript"></script>
+		<script src="../js/jquery.nicescroll.js" type="text/javascript"></script>
+		<script src="../js/HUpages.js" type="text/javascript"></script>
+		<script type="text/javascript" src="../js/sysbox.js"></script>
+		<script src="../js/template.js" type="text/javascript"></script>
+		<script src="../js/common.js" type="text/javascript"></script>
+		<!--[if lt IE 9]>
+          <script src="../js/html5shiv.js" type="text/javascript"></script>
+          <script src="../js/css3-mediaqueries.js"  type="text/javascript"></script>
+        <![endif]-->
+		<script src="../js/built/built-editor.min.js"></script>
+		<script>
+			require(["orion/editor/edit"], function(edit) {
+				edit({
+					className: "editor"
+				});
+			});
+		</script>
+	</head>
+
+	<body id="pagestyle" class="backgroundf0">
+		<div class="box-module margin15">
+			<div class="box-title">弹框插件（支持移动端）<b class="colorgreen">(原生js)</b></div>
+			<div class="box-content ">
+				<div class="col-lg-6 col-sm-6 height100b">
+					<div class="title-name text-left">示例</div>
+					<div class="padding15" id="pluginhtml">
+					  <button class="btn btn-blue padding10" id="testclick1">弹框消息(无时间)</button>
+					  <pre class="editor mt15" data-editor-lang="js">
+&lt;button class="btn btn-blue padding10"  id="testclick1">弹框消息&lt;/button>
+					  	
+var content3 = "&lt;div>开开心心一刻，我们大家去玩耍< /div>";
+    BOX$('testclick1').onclick = function(){
+	    SYSBOX.box.show(content3,0,0,100,0,"提示");
+    }
+					  	
+					  </pre>
+					  	 <button class="btn btn-blue padding10" id="testclick2">弹框消息(2秒关闭)</button>
+					  <pre class="editor mt15" data-editor-lang="js">
+&lt;button class="btn btn-blue padding10"  id="testclick2">弹框消息&lt;/button>
+					  	
+var content2 = "&lt;div>开开心心一刻，我们大家去玩耍< /div>";
+    BOX$('testclick2').onclick = function(){
+	    SYSBOX.box.show(content2,0,0,100,0,"提示",2);
+    }
+					  	
+					  </pre>
+					   <button class="btn btn-blue padding10" id="testclick3">文本内容</button>
+					  <pre class="editor mt15" data-editor-lang="js">
+&lt;button class="btn btn-blue padding10"  id="testclick3">文本内容&lt;/button>
+					  	
+var content3 = "&lt;div>开开心心一刻，我们大家去玩耍&lt;/div>";
+    BOX$('testclick3').onclick = function(){
+	    SYSBOX.box.show(content3,0,0,0,0,"文本内容");
+    }
+					  	
+					  </pre>
+					   <button class="btn btn-blue padding10" id="testclick4">AJAX请求</button>
+					  <pre class="editor mt15" data-editor-lang="js">
+&lt;button class="btn btn-blue padding10"  id="testclick4">AJAX请求&lt;/button>
+    BOX$('testclick4').onclick = function(){
+	    SYSBOX.box.show("../rizhi_list.html",0,1000,600,0,"文本内容");
+    }
+					  	
+					  </pre>
+					  <button class="btn btn-blue padding10" id="testclick5">编辑内容</button>
+					  <pre class="editor mt15" data-editor-lang="js">
+&lt;button class="btn btn-blue padding10"  id="testclick5">编辑内容&lt;/button>
+    BOX$('testclick5').onclick = function(){
+	    SYSBOX.box.show("../home.html",0,700,450,0,"编辑信息");
+    }
+					  	
+					  </pre>
+					</div>
+					<script>						
+						var content1 = "<div>开开心心一刻，我们大家去玩耍</div>";
+                         BOX$('testclick1').onclick = function(){
+	                        SYSBOX.box.show(content1,0,0,100,0,"提示");
+	                        return false
+                        };
+                        var content2 = "<div>开开心心一刻，我们大家去玩耍</div>";
+                         BOX$('testclick2').onclick = function(){
+	                        SYSBOX.box.show(content2,0,0,100,0,"提示",2);
+	                          return false
+                        }
+                         var content3 = "<div class='mb15'>开开心心一刻，我们大家去玩耍</div><span class='colorred'>支持纯文本和HTML</span>";
+                         BOX$('testclick3').onclick = function(){
+	                        SYSBOX.box.show(content3,0,500,300,1,"文本内容");
+	                          return false
+                        }
+                         BOX$('testclick4').onclick = function(){
+	                        SYSBOX.box.show("../rizhi_list.html",1,1000,600,1,"文本内容");
+	                        return false  
+                        }
+                          BOX$('testclick5').onclick = function(){
+	                        SYSBOX.box.show("../home.html",1,700,450,1,"编辑信息");
+	                         return false 
+                        }
+                        function modifybtn(){
+                        	new huprompt("VerifyTips");         
+                        }
+					</script>
+
+				</div>
+				<div class="col-lg-6 col-sm-6 height100b" id="pluginContent">
+					<div class="title-name text-left">示例代码</div>
+					<pre class="editor" data-editor-lang="js" data-editor-show-annotation-ruler="false" data-editor-show-overview-ruler="false" data-editor-show-folding-ruler="false">  
+/*
+ * *************************弹框插件（支持移动pc）***********************************
+ */
+&lt;script type="text/javascript" src="../js/sysbox.js">&lt;/script>
+调用：SYSBOX.box.show(ic,iu,iw,ih,ia,ititle);
+
+var SYSBOX={};
+function BOX$(i){return document.getElementById(i)}
+SYSBOX.box=function(){
+	var 
+	p, //设置窗体div层
+	m,//设置遮罩层
+	b,//内容层
+	ic,//内容（支持文本AJAX请求,AJAX请求为地址链接）
+	iu,//模式（文本还是AJAX请求 ,当为0时为文本模式，支持text和html;当为1时支持AJAX请求模式）
+	iw,//宽度（自定义弹框宽度，移动端默认为全屏的90%）
+	ih,//高度 （自定义高度）
+	ia, // 模式 
+	ititle, //设置标题名称
+	f=0;
+	return{
+		show:function(c,u,w,h,a,title,t){ //设置弹框模块
+			if(!f){
+				p=document.createElement('div'); p.id='sysbox';
+				m=document.createElement('div'); m.id='sysmask';
+				b=document.createElement('div'); b.id='syscontent';
+				document.body.appendChild(m); 
+				document.body.appendChild(p);
+				 dt=document.createElement('div'); dt.id='systitle';
+				 tm=document.createElement('span'); tm.className='sys-title-name';
+				 tb=document.createElement('span'); tb.className='sys-oper-box';
+				 close=document.createElement('a'); close.className='sys-close-oper sys-oper';//
+				 magnify=document.createElement('a'); magnify.className='sys-magnify-oper sys-oper';
+				 shrink=document.createElement('a'); shrink.className='sys-shrink-oper sys-oper';
+				 p.appendChild(dt).className='sys-title'; 
+				 dt.appendChild(tm).innerText=title;
+				 dt.appendChild(tb);
+				 tb.appendChild(magnify).dataset.name='magnify';
+				 tb.appendChild(shrink).dataset.name='shrink';
+				 tb.appendChild(close).dataset.name='close';
+				 tb.appendChild(shrink).href='javascript:SYSBOX.box.size("sysbox",'+w+','+h+',"magnify")';
+				 tb.appendChild(magnify).href='javascript:SYSBOX.box.size("sysbox","","","shrink")';
+				 tb.appendChild(close).href='javascript:SYSBOX.box.hide()';
+				 p.appendChild(b).className="sys-content";					
+				m.onclick=SYSBOX.box.hide;
+				dt = dt || p;
+				dt.onmousedown=SYSBOX.box.dollybox;
+				window.onresize=SYSBOX.box.resize;
+				f=1					
+			}
+			var mobile_flag = this.isMobile();
+				mobile_flag ? p.className=" mobileStyle":'';
+					if(!a&&!u){
+						p.style.width=w?w+'px':'auto'; p.style.height=h?h+'px':'auto';
+						p.style.backgroundImage='none'; b.innerHTML=c;				
+					}else{
+						b.style.display='none'; p.style.width=p.style.height='100px'
+					}			
+			this.mask();
+			ic=c; iu=u; iw=w; ih=h; ia=a; ititle=title;  this.alpha(m,1,80,3);
+			if(t){//设置t的时间，单位秒
+				setTimeout(function(){SYSBOX.box.hide()},1000*t)
+				magnify.remove();
+				p.style.cssText="margin-left:"+(-p.offsetWidth/2)+"px"+";"+"margin-top:"+(-p.offsetHeight/2)+"px";
+			};	
+		},
+		fill:function(c,u,w,h,a,title){
+			if(u){
+				p.style.backgroundImage='';
+				var x=window.XMLHttpRequest?new XMLHttpRequest():new ActiveXObject('Microsoft.XMLHTTP');
+				x.onreadystatechange=function(){
+					if(x.readyState==4&&x.status==200){SYSBOX.box.psh(x.responseText,w,h,a,title)}
+				};
+				x.open('GET',c,1); x.send(null)
+			}else{
+				this.psh(c,w,h,a,title)
+			}
+			
+			
+		},
+		psh:function(c,w,h,a,title){
+			if(a){
+				if(!w||!h){
+					var x=p.style.width, y=p.style.height; b.innerHTML=c;
+					p.style.width=w?w+'px':''; p.style.height=h?h+'px':'';
+					b.style.display='';
+					w=parseInt(b.offsetWidth); h=parseInt(b.offsetHeight);
+					b.style.display='none'; p.style.width=x; p.style.height=y;
+				}else{
+					b.innerHTML=c
+				}
+				this.size(p,w,h)
+			}else{
+				p.style.backgroundImage='none'
+			}
+},
+isMobile:function(mobile_flag){
+var userAgentInfo = navigator.userAgent;
+var mobileAgents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
+var mobile_flag = false;//根据userAgent判断是否是手机
+for(var v = 0; v < mobileAgents.length; v++) {
+if(userAgentInfo.indexOf(mobileAgents[v]) > 0) {
+						mobile_flag = true;
+						break;
+					}
+				}
+				var screen_width = window.screen.width;
+				var screen_height = window.screen.height;
+				//根据屏幕分辨率判断是否是手机
+				if(screen_width < 500 && screen_height < 800) {
+					mobile_flag = true;
+				}
+				return mobile_flag;
+		},
+		hide:function(){
+			SYSBOX.box.alpha(p,-1,0,3);
+		},
+		resize:function(){
+			SYSBOX.box.pos(); SYSBOX.box.mask()
+		},
+		mask:function(){
+			m.style.height=SYSBOX.page.total(1)+'px';
+			m.style.width=''; m.style.width=SYSBOX.page.total(0)+'px';
+			
+		},
+		pos:function(){
+			var t=(SYSBOX.page.height()/2)-(p.offsetHeight/2); t=t<10?10:t;			
+				p.style.top=(t+SYSBOX.page.top())+'px';
+			    p.style.left=(SYSBOX.page.width()/2)-(p.offsetWidth/2)+'px';
+			  
+		},
+		alpha:function(e,d,a){
+			clearInterval(e.ai);
+			if(d==1){
+				e.style.opacity=0; e.style.filter='alpha(opacity=0)';
+				e.style.display='block'; this.pos()
+			}
+			e.ai=setInterval(function(){SYSBOX.box.ta(e,a,d)},20)
+		},
+		ta:function(e,a,d){
+			var o=Math.round(e.style.opacity*100);
+			if(o==a){
+				clearInterval(e.ai);
+				if(d==-1){
+					e.style.display='none';
+					e==p?SYSBOX.box.alpha(m,-1,0,2):b.innerHTML=p.style.backgroundImage=''
+				}else{
+					e==m?this.alpha(p,1,100):SYSBOX.box.fill(ic,iu,iw,ih,ia,ititle)
+				}
+			}else{
+				var n=Math.ceil((o+((a-o)*.5))); n=n==1?0:n;
+				e.style.opacity=n/100; e.style.filter='alpha(opacity='+n+')'
+			}
+		},
+		size:function(e,w,h,s){
+			e=typeof e=='object'?e:BOX$(e); clearInterval(e.si);
+			var ow=e.offsetWidth, oh=e.offsetHeight,
+			wo=ow-parseInt(e.style.width), ho=oh-parseInt(e.style.height);
+			var wd=ow-wo>w?0:1, hd=(oh-ho>h)?0:1;
+			SYSBOX.box.ts(e,w,wo,wd,h,ho,hd);
+			if(s=="shrink"){
+				magnify.style.display="none";
+				shrink.style.display="block"
+				
+			}else if(s=="magnify"){
+			    shrink.style.display="none";
+				magnify.style.display="block";
+			}
+		},
+		ts:function(e,w,wo,wd,h,ho,hd){
+			var ow=e.offsetWidth-wo, oh=e.offsetHeight-ho;
+			if(w!=""&&h!=""){
+				if(ow==w&&oh==h){
+				clearInterval(e.si); p.style.backgroundImage='none'; b.style.display='block'
+			}else{
+				var mobile_flag = this.isMobile();
+				if(!mobile_flag){
+					if(ow!=w){e.style.width=wd?Math.ceil(w)+'px':Math.floor(w)+'px'}
+				    if(oh!=h){e.style.height=hd?Math.ceil(h)+'px':Math.floor(h)+'px'}
+				}else{
+					if(ow!=w){e.style.width=wd?Math.ceil('90')+'%':Math.floor('90')+'%'}
+					if(oh!=h){e.style.height=hd?Math.ceil(h)+'px':Math.floor(h)+'px'}
+				}
+				 var ch=e.style.height=hd?Math.ceil(h):Math.floor(h);
+				 var hh=BOX$('systitle').offsetHeight;
+			     b.style.cssText="height:"+(ch-hh)+"px;position: relative;overflow: auto;";
+				 this.pos();			
+			}
+			}else{
+				if(ow!=w){var n=e.style.width=100+'%'}
+				if(oh!=h){var n=e.style.height=100+'%'}
+				p.style.top=(SYSBOX.page.height()/2)-(p.offsetHeight/2)+'px';
+			    p.style.left=(SYSBOX.page.width()/2)-(p.offsetWidth/2)+'px';
+			    b.style.cssText="height:100%;position: relative;overflow: auto;";
+			    return false
+			}
+			
+		},
+		dollybox:function(event){
+			var disX = dixY = 0;
+			this.style.cursor = "move";
+			var event = event || window.event;
+		    disX = event.clientX - p.offsetLeft;
+		    disY = event.clientY - p.offsetTop;
+			document.onmousemove = function (event)
+		{
+			var event = event || window.event;
+			var iL = event.clientX - disX;
+			var iT = event.clientY - disY;
+			var maxL = document.documentElement.clientWidth - p.offsetWidth;
+			var maxT = document.documentElement.clientHeight - p.offsetHeight;		
+			iL <= 0 && (iL = 0);
+			iT <= 0 && (iT = 0);
+			iL >= maxL &amp;&amp; (iL = maxL);
+			iT >= maxT &amp;&amp; (iT = maxT);
+			p.style.left = iL + "px";
+			p.style.top = iT + "px";
+			return false
+		};
+		document.onmouseup = function ()
+		{
+			document.onmousemove = null;
+			document.onmouseup = null;
+			this.releaseCapture && this.releaseCapture()
+		};
+		this.setCapture &amp;&amp; this.setCapture();
+		return false	
+		},
+	}
+}();
+
+SYSBOX.page=function(){
+	return{
+		top:function(){return document.documentElement.scrollTop||document.body.scrollTop},
+		width:function(){return self.innerWidth||document.documentElement.clientWidth||document.body.clientWidth},
+		height:function(){return self.innerHeight||document.documentElement.clientHeight||document.body.clientHeight},
+		total:function(d){
+			var b=document.body, e=document.documentElement;
+			return d?Math.max(Math.max(b.scrollHeight,e.scrollHeight),Math.max(b.clientHeight,e.clientHeight)):
+			Math.max(Math.max(b.scrollWidth,e.scrollWidth),Math.max(b.clientWidth,e.clientWidth))
+		}
+	}
+}();						
+						
+                	</pre>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
+<script>
+	$(function() {
+		$("#pagestyle").Hupage({
+			scrollbar: function(e) {
+				e.niceScroll({
+					cursorcolor: "#dddddd",
+					cursoropacitymax: 1,
+					touchbehavior: false,
+					cursorwidth: "3px",
+					cursorborder: "0",
+					cursorborderradius: "3px",
+				});
+			},
+			expand: function(thisBox, settings) {
+				settings.scrollbar(
+					$("#pluginhtml").css({
+						height: $(window).height() - $('.box-title').outerHeight() - (settings.padding * 2)
+					})
+					); //设置当前页滚动样式
+					settings.scrollbar(	
+					$("#pluginContent").css({
+						height: $(window).height() - $('.box-title').outerHeight() - (settings.padding * 2)
+					})
+				); //设置当前页滚动样式
+			}
+		})
+	});
+</script>

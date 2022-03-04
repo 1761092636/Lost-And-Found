@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<link href="css/SYSFrame.css" rel="stylesheet" type="text/css" />
+		<link href="font/iconfont.css" rel="stylesheet" type="text/css" />
+		<link href="css/module.css" rel="stylesheet" type="text/css" />
+		<link href="css/pages.css" rel="stylesheet" type="text/css" />
+		<title>登录消息</title>
+		<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+		<script src="js/jquery.cookie.js" type="text/javascript"></script>
+		<script src="js/jquery.nicescroll.js" type="text/javascript"></script>
+		<script src="js/HUpages.js" type="text/javascript"></script>
+		<script src="js/common.js" type="text/javascript"></script>
+		<script src="js/template.js" type="text/javascript"></script>
+		<!--[if lt IE 9]>
+          <script src="js/html5shiv.js" type="text/javascript"></script>
+          <script src="js/css3-mediaqueries.js"  type="text/javascript"></script>
+        <![endif]-->
+	</head>
+
+	<body id="pagestyle" class="backgrounddd">
+		<div class="bk-con-message message-section" id="iframe_box">
+			<div class="box-module height100b margin0">
+				<div class="box-title">登录消息记录</div>
+				<div class="box-content padding15">
+					<div class="Promp_plate btn-green "><b>提示：</b>如果你喜欢我的框架，不妨捐赠，无论金额大小，都非常感谢，同时也是对我努力的回报，同时会更好的完善框架。
+						<span class="iconfont PrompClose">&#xe627</span>
+					</div>
+					<div class="border-line mb15  mt15  padding0">
+						<div class="title-name">当前登录账户信息</div>
+						<div class="padding15" id="user-info">
+						</div>
+					</div>
+					<div class="clearfix ptb20" id="recordinglist">
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
+<script id="userinfoHtml" type="text/html">
+	<% for(var i = 0; i < list.length; i++) { %>
+	<ul class="clearfix info_list">
+		<li class="col-xs-4 col-md-3 content_look"><label class="label_name">用户名：</label><span class="info_data"><%=list[i].name%></span></li>
+		<li class="col-xs-4 col-md-3 content_look"><label class="label_name">账户等级：</label><span class="info_data">
+			<% for(var j = 0; j < grade.length; j++) { %>
+			<% if(list[i].grade==grade[j].id){ %>
+				<%=grade[j].name%>
+				<% } %>
+				<% } %>
+		</span></li>
+		<li class="col-xs-4 col-md-3 content_look"><label class="label_name">登录时间：</label><span class="info_data"><%=timestamp(list[i].starttime,'yyyy-MM-dd hh:mm')%></span></li>
+		<li class="col-xs-4 col-md-3 content_look"><label class="label_name">退出时间：</label><span class="info_data">
+				<% if(list[i].endtime!="") {%>
+					<%=timestamp(list[i].endtime,'yyyy-MM-dd hh:mm')%>
+				<% } else{%> 用户还在线
+				<%}%>
+		</span></li>
+		<li class="col-xs-4 col-md-3 content_look"><label class="label_name">当前状态：</label><span class="info_data">
+			<% if(list[i].status==0) {%>
+				在线
+			<%} if(list[i].status==1) {%>
+			    离线
+			<%}%>
+			</span>
+		</li>
+		<li class="col-xs-4 col-md-3 content_look"><label class="label_name">登录地点：</label><span class="info_data"><%=list[i].address%></span></li>
+		<li class="col-xs-4 col-md-3 content_look"><label class="label_name">登录IP：</label><span class="info_data"><%=list[i].ip%></span></li>
+		<li class="col-xs-4 col-md-3 content_look"><label class="label_name">在线时长：</label><span class="info_data">6小时</span></li>
+	</ul>
+	<% } %>
+</script>
+<script id="recordinghtml" type="text/html">
+	<table class="table  table_striped table-bordered border" id="tableList">
+		<thead>
+			<tr>
+				<th class="align" width="50px"><label class="checkbox relative"><input type="checkbox" class="ace" name="checkbox"><span class="lbl"></span></label></th>
+				<th class="align">登录IP</th>
+				<th class="align">登录账户</th>
+				<th class="align">登录地点</th>
+				<th width="200px" class="align">登录时间</th>
+				<th width="200px" class="align">下线时间</th>
+				<th width="150px" class="align">状态</th>
+				<th class="align">等级</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% for(var i = 0; i < list.length; i++) { %>
+			<tr>
+				<td><label class="checkbox relative"><input type="checkbox" class="ace" name="checkbox"><span class="lbl"></span></label></td>
+				<td>
+					<%=list[i].ip%>
+				</td>
+				<td>
+					<%=list[i].name%>
+				</td>
+				<td>
+					<%=list[i].address%>
+				</td>
+				<td>
+					<%=timestamp(list[i].starttime,'yyyy-MM-dd hh:mm')%>
+				</td>
+				<td>
+					<% if(list[i].endtime!="") {%>
+					<%=timestamp(list[i].endtime,'yyyy-MM-dd hh:mm')%>
+				</td>
+				<% } else{%> 用户还在线
+				<%}%>
+				<td>
+					<% if(list[i].status==0) {%>
+					<span class="btn btn-green plf10" data-id="0">在线</span>
+					<%} if(list[i].status==1) {%>
+					<span class=" btn btn-gray plf10" data-id="1">离线</span>
+					<%}%>
+				</td>
+				<td>
+					<%=list[i].grade%>
+				</td>
+			</tr>
+			<% } %>
+		</tbody>
+	</table>
+</script>
+<script>
+	$(function() {
+		$("#pagestyle").Hupage({
+			slide: '#breadcrumb',
+			scrollbar: function(e) {
+				e.niceScroll({
+					cursorcolor: "#dddddd",
+					cursoropacitymax: 1,
+					touchbehavior: false,
+					cursorwidth: "3px",
+					cursorborder: "0",
+					cursorborderradius: "3px",
+				});
+			},
+			expand: function(thisBox, settings) {
+				settings.scrollbar($(".box-content").css({
+						height: $(window).height() - $('.box-title').outerHeight() - (settings.padding*2)
+					})); //设置当前页滚动样式
+			}
+		})
+	});
+	//编辑数据
+	var defray = function(callback) {
+		$.ajax({
+			url: "json/userData.json",
+			type: "GET",
+			dataType: 'json',
+			success: function(ret) {
+				typeof callback == 'function' && callback(ret);
+			},
+		});
+	};
+	defray(function(listArr) {
+		var listhtml = $('#recordinglist');
+		var Infohtml = $("#user-info");
+		var html = template('recordinghtml', {
+			list: listArr.data
+		});
+		var userinfo = template('userinfoHtml', {
+			list: listArr.user,
+			grade: listArr.grade
+		});
+		listhtml.append(html);
+		Infohtml.html(userinfo);
+		new TableSorter("tableList", 4, 5, 6); //设置
+	});
+</script>
