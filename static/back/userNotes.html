@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<link href="css/SYSFrame.css" rel="stylesheet" type="text/css" />
+		<link href="font/iconfont.css" rel="stylesheet" type="text/css" />
+		<link href="css/module.css" rel="stylesheet" type="text/css" />
+		<link href="css/pages.css" rel="stylesheet" type="text/css" />
+		<title>便签</title>
+		<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+		<script src="js/jquery.cookie.js" type="text/javascript"></script>
+		<script type="text/javascript" src="js/layer/layer.js"></script>
+		<script src="js/jquery.nicescroll.js" type="text/javascript"></script>
+		<script src="js/HUpages.js" type="text/javascript"></script>
+	</head>
+
+	<body id="pagestyle" class="backgrounddd">
+		<div class="bk-con-message message-section" id="iframe_box">
+			<div class="box-module height100b margin0">
+				<div class="box-title">个人便签</div>
+				<div class="box-content  padding15  notesstyle">
+					<div class="Prompt">提示：添加便签后，该便签内容保存在本地，保存期限可以自定义，也可以自己删除,最多可以添加十条</div>
+					<div class="ptb15">
+						<button type="button" class="btn add_Upload bg-deep-blue padding10" id="addNotes"><i class="iconfont"></i>添加便签</button>
+						<div class="r_f"><label class="mr10">保存期限：</label>
+							<select id="deadline">
+								<option value="0">永久</option>
+								<option value="1">1天</option>
+								<option value="3">3天</option>
+								<option value="7">7天</option>
+								<option value="30">30天</option>
+							</select>
+						</div>
+					</div>
+					<div class="noteslist" id="noteslist">
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
+<script>
+	$(function() {
+		$("#pagestyle").Hupage({
+			slide: '#breadcrumb',
+			scrollbar: function(e) {
+				e.niceScroll({
+					cursorcolor: "#dddddd",
+					cursoropacitymax: 1,
+					touchbehavior: false,
+					cursorwidth: "3px",
+					cursorborder: "0",
+					cursorborderradius: "3px",
+				});
+			},
+			expand: function(thisBox, settings) {
+				settings.scrollbar(
+					$(".box-content").css({
+						height: $(window).height() - $('.box-title').outerHeight() - 30
+					})
+				);
+			}
+		})
+	});
+	$(document).ready(function() {
+		var title = "";
+		var content = "";
+		var spotMax = 11; //设置便签数量
+		//添加便签
+		$("#addNotes").on('click', function() {
+			addSpot(this, spotMax, title, content);
+		});
+		//设置数据保存时间
+		$("#deadline").change(function(e) {
+			var day = $(this).val();
+			var obj = new Object();		
+			if(day==1){
+				 obj.time=1000 * 60 * 60 * 24 * 1;
+				 obj.Days=1;
+			}else if(day==3){
+				obj.time =1000 * 60 * 60 * 24 * 3;
+				obj.Days=3;
+			}else if(day==7){
+				obj.time = 1000 * 60 * 60 * 24 * 7;
+				obj.Days=7;
+			}else if(day==30){
+				obj.time =1000 * 60 * 60 * 24 * 30;
+				obj.Days=30;
+			}			
+			obj.date = new Date().getTime();
+			window.localStorage.setItem('time', JSON.stringify(obj));
+		});
+		if(window.localStorage.getItem('time') != null) {
+				var menu = JSON.parse(window.localStorage.getItem('time'));
+				var day = menu.time;
+				var data = menu.date;
+				 $("#deadline").find("option[value = '"+menu.Days+"']").attr("selected","selected");
+				if((parseInt(day) + parseInt(data)) < new Date().getTime()) {
+					var menulist = JSON.parse(window.localStorage.getItem("menu"));
+					menulist = [];
+					localStorage.clear();
+				}
+			}
+		function addSpot(obj, sm, title, content) {
+			//设置时间
+			function p(s) {
+				return s < 10 ? '0' + s : s;
+			};
+			var myDate = new Date();
+			//获取当前年
+			var year = myDate.getFullYear();
+			//获取当前月
+			var month = myDate.getMonth() + 1;
+			//获取当前日
+			var date = myDate.getDate();
+			var h = myDate.getHours(); //获取当前小时数(0-23)
+			var m = myDate.getMinutes(); //获取当前分钟数(0-59)
+			var s = myDate.getSeconds();
+			var now = year + '-' + p(month) + "-" + p(date) + " " + p(h) + ':' + p(m) + ":" + p(s);
+			noteshtml(title, content);
+			$(".colseNotes").click(function() {
+				if($('.notescontent').size() == 1) {
+					layer.msg('请至少保留一个便签', {
+						icon: 0,
+						time: 1000
+					});
+				} else {
+					$(this).parents('.notesbox').remove();
+					$("body").find('.baglayer').remove();
+					$('#addNotes').show();
+				}
+			});
+			if($('.notescontent').size() >= sm) {
+				$(obj).hide();
+				layer.msg('已超过便签最大数量', {
+					icon: 0,
+					time: 1000
+				});
+				$("body").find('.notesbox').remove();
+				$("body").find('.baglayer').remove();
+			}
+			$("#saveNotes").on('click', function() {
+				var num = 0;
+				var str = '';
+				var addtitle = $('.addtext[name="tilte"]').val();
+				var addcontent = $('.addtextarea').val();
+				var adddate = now;
+				$(".addtext[name='tilte'],.addtextarea").each(function(n) {
+					var $el = $(this);
+					if($el.val() == "") {
+						layer.msg(str += "" + $el.attr("data-name") + "不能为空!", {
+							icon: 0,
+							time: 1000
+						});
+						num++;
+						return false;
+					}
+				})
+				if(num > 0) {
+					return false;
+				} else {
+					Storage(addtitle, addcontent, adddate);
+					$(this).parents('.notesbox').remove();
+					$("body").find('.baglayer').remove();
+				}
+			});
+			$("#modifyNotesbtn").on('click', function() {
+				var addtitle = $('.addtext[name="tilte"]').val();
+				var addcontent = $('.addtextarea').val();
+				var adddate = now;
+				var menu = JSON.parse(window.localStorage.getItem("menu"));
+				if(menu != null) {
+					for(var i = 0; i < menu.length; i++) {
+						if($(this).attr('data-name') == menu[i].title) {
+							var obj = {
+								title: addtitle,
+								content: addcontent,
+								time: adddate
+							};
+							menu.splice(i, 1, obj);
+							window.localStorage.setItem("menu", JSON.stringify(menu));
+						}
+						$(this).parents('.notesbox').remove();
+						$("body").find('.baglayer').remove();
+						$('#noteslist').html('');
+						localStorage();
+					}
+				}
+			});
+			if($('div.notescontent').size() >= spotMax) {
+				$(obj).hide();
+			}
+		}
+		//添加便签
+		function noteshtml(title, content) {
+			if(title != null && content != null) {
+				var datatitle = title;
+				var datacontent = content;
+			} else {
+				var datatitle = "";
+				var datacontent = "";
+			}
+			var btn = "";
+			if(title == "") {
+				btn = "<button type='button' class='box-flex addNotes btnbox  bg-deep-blue' id='saveNotes'>添加便签</button>"
+			} else {
+				btn = "<button type='button' class='box-flex modifyNotesbtn btnbox  bg-deep-blue' id='modifyNotesbtn' data-name='" + datatitle + "'>修改便签</button>"
+			}
+			var str = "";
+			str = "<div class='notescontent  box-module clearfix notesbox'>" +
+				"<div class='box-title'>编辑便签 <i class='iconfont colseNotes'>&#xe70a</i></div><div class='box-content  padding15'><div class='cell-item'>" +
+				"<label class='cell-left label_name'>便签标题:</label>" +
+				"<div class='cell-right'><input name='tilte' type='text' data-name='标题' value='" + datatitle + "' class='addtext width100b'></div>" +
+				"</div>" +
+				"<div class='cell-item'>" +
+				"<label class='cell-left label_name'>便签内容:</label>" +
+				"<div class='cell-right'><textarea name='content' type='text' data-name='内容' value='' class='textarea addtextarea addtext width100b'>" + datacontent + "</textarea></div>" +
+				"</div>" +
+				"</div><div class='box Notesbtn commonbtn'>" + btn +
+				"<button type='button' class='box-flex colseNotes btnbox btn-danger' id='colseNotes'>取消</button>" +
+				"</div></div> <div class='baglayer' id='colselayer'></div>";
+			$("body").append(str);
+		}
+
+		function Storage(addtitle, addcontent, adddate) {
+			if(window.localStorage.getItem("menu") != null) {
+				var sessionArr = JSON.parse(window.localStorage.getItem("menu"));
+			} else {
+				var sessionArr = [];
+			}
+			var obj = {
+				title: addtitle,
+				content: addcontent,
+				time: adddate
+			};
+			sessionArr.push(obj);
+			var jsonStr = JSON.stringify(sessionArr);
+			window.localStorage.setItem("menu", jsonStr);
+			notesshow(addtitle, addcontent, adddate);
+		}
+
+		function localStorage() {
+			var menu = JSON.parse(window.localStorage.getItem("menu"));
+			for(var i = 0; i < menu.length; i++) {
+				var title = menu[i].title;
+				var content = menu[i].content;
+				var time = menu[i].time;
+				notesshow(title, content, time);
+			}
+		}
+		if(window.localStorage.getItem("menu") != null) {
+			localStorage();
+		}
+		//便签列表
+		function notesshow(title, content, time) {
+			var html = "";
+			html = "<div class='notescontent  clearfix'><div class='notes-detailed'>" +
+				"<div class='box-title'><span class='name' data-title='" + title + "'>" + title + "<span> <i class='iconfont colseNotes' id='' data-name='" + title + "'>&#xe601</i> <i class='iconfont modifyNotes' id=''>&#xe61a;</i></div><div class='box-content  padding15'>" +
+				"<div class='detailedcontent' data-content='" + content + "'>" + content + "</div>" +
+				"<div class='notestime'>" + time + "</div>" +
+				"</div>" +
+				"</div>";
+			$('#noteslist').append(html);
+		}
+		//删除
+		$(document).on('click', '.colseNotes', function() {
+			var menu = JSON.parse(window.localStorage.getItem("menu"));
+			if(menu != null) {
+				for(var i = 0; i < menu.length; i++) {
+					if($(this).attr('data-name') == menu[i].title) {
+						$(this).parents(".notescontent").remove();
+						menu.splice(i, 1);
+						window.localStorage.setItem("menu", JSON.stringify(menu));
+					}
+				}
+			}
+
+		});
+		//修改
+		$(document).on('click', '.modifyNotes', function(e) {
+			var thisNotes = $(this).parent().parents(".notescontent");
+			var name = thisNotes.find('.name').attr("data-title");
+			var content = thisNotes.find('.detailedcontent').attr("data-content");
+			addSpot(thisNotes, spotMax, name, content);
+		});
+	})
+</script>

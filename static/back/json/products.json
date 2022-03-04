@@ -1,0 +1,1320 @@
+{
+	"data": [
+		{
+			"id": 19,
+			"sort": 1,
+			"status": 1,
+			"bid":1,
+			"Keyword": "小米,手机,全网通",
+			"defaultimg": "p_1.jpg",
+			"name": "小米 Max 全网通 高配版 3GB内存 64GB ROM 金色 移动联通电信4G手机Y",
+			"yprice": 1234,
+			"xprice": 1199,
+			"origin": "中国",
+			"slideshow":[
+			    { 
+			       "id":1,
+			       "img":"p_12.jpg"		
+			   },{ 
+			       "id":2,
+			       "img":"p_13.jpg"		
+			   },
+			   { 
+			       "id":3,
+			       "img":"p_17.jpg"		
+			   },{ 
+			       "id":4,
+			       "img":"p_15.jpg"		
+			   },{ 
+			       "id":5,
+			       "img":"p_16.jpg"		
+			   }
+			],
+			"format":[
+			    {
+				    "id":21,
+				   "name":"尺寸"				
+			    },{
+				    "id":22,
+				   "name":"颜色"				
+			    },{
+				    "id":23,
+				   "name":"内存"				
+			    },{
+				    "id":24,
+				   "name":"套餐"				
+			    }
+			],
+			"quantity": 10000,
+			"sales":9999,
+			"time": 1539519963,
+			"explain": "小米全网通手机",
+			"contents": "小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机<span><img src='images/product_img/d_1.jpg'></span>",
+			"remark": "小米商城",
+			"hot": 1
+		}, {
+			"id": 1,
+			"sort": 1,
+			"status": 1,
+			"bid":1,
+			"Keyword": "小米，手机,全网通",
+			"defaultimg": "p_2.jpg",
+			"slideshow":[
+			    { 
+			       "id":1,
+			       "img":"p_22.jpg"		
+			   },{ 
+			       "id":2,
+			       "img":"p_23.jpg"		
+			   },
+			   { 
+			       "id":3,
+			       "img":"p_25.jpg"		
+			   }
+			],"format":[
+			    {
+				    "id":21,
+				   "name":"尺寸"				
+			    },{
+				    "id":22,
+				   "name":"颜色"				
+			    }
+			],
+			"name": "WIS 隐形水润面膜【24片装】补水保湿滋润提亮亮肤舒缓玻尿酸女士男士面膜学生贴600ml",
+			"yprice": 1234,
+			"xprice": 1199,
+			"origin": "中国",
+			"quantity": 10000,
+			"sales":1167,
+			"time": 1539521963,
+			"explain": "小米全网通手机",
+			"contents": "小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机",
+			"remark": "小米商城",
+			"hot": 1
+		}, {
+			"id": 2,
+			"sort": 1,
+			"status": 1,
+			"bid":1,
+			"Keyword": "小米，手机,全网通",
+			"defaultimg": "p_2.jpg",
+			"slideshow":"",
+			"format":[
+			    {
+				    "id":21,
+				   "name":"尺寸"				
+			    },{
+				    "id":22,
+				   "name":"颜色"				
+			    }
+			],
+			"name": "WIS 隐形水润面膜【24片装】补水保湿滋润提亮亮肤舒缓玻尿酸女士男士面膜学生贴600ml",
+			"yprice": 1234,
+			"xprice": 1199,
+			"origin": "中国",
+			"quantity": 10000,
+			"sales":1167,
+			"time": 1539521963,
+			"explain": "小米全网通手机",
+			"contents": "小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机",
+			"remark": "小米商城",
+			"hot": 1
+		}, {
+			"id": 3,
+			"sort": 1,
+			"status": 1,
+			"bid":1,
+			"Keyword": "小米，手机,全网通",
+			"defaultimg": "p_3.jpg",
+			"slideshow":"",
+			"format":"",
+			"name": "好奇 Huggies 铂金装 超薄透气 纸尿裤 NB84片 新生儿尿不湿 【0-5kg】",
+			"yprice": 1234,
+			"xprice": 1199,
+			"origin": "中国",
+			"quantity": 10000,
+			"sales":890,
+			"time": 1539521963,
+			"explain": "小米全网通手机",
+			"contents": "小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机",
+			"remark": "小米商城",
+			"hot": 1
+		}, {
+			"id": 5,
+			"sort": 2,
+			"status": 1,
+			"bid":2,
+			"Keyword": "小米，手机,全网通",
+			"defaultimg": "p_4.jpg",
+			"slideshow":"",
+			"format":"",
+			"name": "魅芭琪雪纺衫女长袖2018秋装新品韩版宽松型胖mm假两件大码中年妈妈装中长款碎花打底衫女",
+			"yprice": 1234,
+			"xprice": 1199,
+			"origin": "中国",
+			"quantity": 10000,
+			"sales":1981,
+			"time": 1539532963,
+			"explain": "小米全网通手机",
+			"contents": "小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机",
+			"remark": "小米商城",
+			"hot": 0
+		}, {
+			"id": 6,
+			"sort": 2,
+			"status": 1,
+			"bid":2,
+			"Keyword": "小米，手机,全网通",
+			"defaultimg": "p_5.jpg",
+			"slideshow":"",
+			"format":"",
+			"name": "魅芭琪雪纺衫女长袖2018秋装新品韩版宽松型胖mm假两件大码中年妈妈装中长款碎花打底衫女",
+			"yprice": 1234,
+			"xprice": 1199,
+			"origin": "中国",
+			"quantity": 10000,
+			"sales":1100,
+			"time": 1539542963,
+			"explain": "小米全网通手机",
+			"contents": "小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机",
+			"remark": "小米商城",
+			"hot": 0
+		}, {
+			"id": 7,
+			"sort": 2,
+			"status": 1,
+			"bid":3,
+			"Keyword": "小米，手机,全网通",
+			"defaultimg": "p_6.jpg",
+			"slideshow":"",
+			"format":"",
+			"name": "意大利袋鼠（L'ALPINA）单肩包女韩版潮包包女百搭链条包小鹿头五金斜挎包女小方包 子夜黑674031037",
+			"yprice": 1234,
+			"xprice": 1199,
+			"origin": "中国",
+			"quantity": 10000,
+			"sales":167,
+			"time": 1539535963,
+			"explain": "小米全网通手机",
+			"contents": "小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机",
+			"remark": "小米商城",
+			"hot": 0
+		}, {
+			"id": 8,
+			"sort": 2,
+			"status": 0,
+			"bid":2,
+			"Keyword": "小米，手机,全网通",
+			"defaultimg": "p_7.jpg",
+			"slideshow":"",
+			"format":"",
+			"name": "康夫8925专业发廊级电吹风机大功率2200W 冷热风理发店家用吹风筒正品 发廊推荐黑色",
+			"yprice": 1234,
+			"xprice": 1199,
+			"origin": "中国",
+			"quantity": 10000,
+			"sales":9717,
+			"time": 1539552963,
+			"explain": "小米全网通手机",
+			"contents": "小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机",
+			"remark": "小米商城",
+			"hot": 0
+		}, {
+			"id": 9,
+			"sort": 2,
+			"status": 0,
+			"bid":4,
+			"Keyword": "小米，手机,全网通",
+			"defaultimg": "p_8.jpg",
+			"slideshow":"",
+			"format":"",
+			"name": "康夫8925专业发廊级电吹风机大功率2200W 冷热风理发店家用吹风筒正品 发廊推荐黑色",
+			"yprice": 1234,
+			"xprice": 1199,
+			"origin": "中国",
+			"quantity": 10000,
+			"sales":2317,
+			"time": 1539552963,
+			"explain": "小米全网通手机",
+			"contents": "小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机",
+			"remark": "小米商城",
+			"hot": 0
+		}, {
+			"id": 10,
+			"sort": 2,
+			"status": 0,
+			"bid":"",
+			"Keyword": "小米，手机,全网通",
+			"defaultimg": "p_9.jpg",
+			"slideshow":"",
+			"format":"",
+			"name": "康夫8925专业发廊级电吹风机大功率2200W 冷热风理发店家用吹风筒正品 发廊推荐黑色",
+			"yprice": 1234,
+			"xprice": 1199,
+			"origin": "中国",
+			"quantity": 10000,
+			"sales":6317,
+			"time": 1539552963,
+			"explain": "小米全网通手机",
+			"contents": "小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机",
+			"remark": "小米商城",
+			"hot": 0
+		},{
+			"id": 11,
+			"sort": 2,
+			"status": 0,
+			"bid":"",
+			"Keyword": "小米，手机,全网通",
+			"defaultimg": "p_22.jpg",
+			"slideshow":"",
+			"format":"",
+			"name": "桂格早餐谷物 膳食纤维 即食燕麦片袋装1000g（新老包装随机发货）",
+			"yprice": 1234,
+			"xprice": 1199,
+			"origin": "中国",
+			"quantity": 10000,
+			"sales":6317,
+			"time": 1539552963,
+			"explain": "小米全网通手机",
+			"contents": "小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机",
+			"remark": "小米商城",
+			"hot": 0
+		},{
+			"id": 12,
+			"sort": 2,
+			"status": 0,
+			"bid":"",
+			"Keyword": "三只松鼠，休闲零食,全网通",
+			"defaultimg": "p_25.jpg",
+			"slideshow":"",
+			"format":"",
+			"name": "满199减120三只松鼠 芒果干116g休闲零食特产蜜饯果脯水果干 ",
+			"yprice": 94,
+			"xprice": 69.9,
+			"origin": "中国",
+			"quantity": 10000,
+			"sales":6317,
+			"time": 1539552963,
+			"explain": "小米全网通手机",
+			"contents": "小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机",
+			"remark": "小米商城",
+			"hot": 0
+		},{
+			"id": 13,
+			"sort": 5,
+			"status": 1,
+			"bid":"",
+			"Keyword": "小米，手机,全网通",
+			"defaultimg": "p_25.jpg",
+			"slideshow":"",
+			"format":"",
+			"name": "美的（Midea）电压力锅 一锅双胆 七段调压 收汁入味 WQC50A5 5L高压锅 ",
+			"yprice": 23.4,
+			"xprice": 19.9,
+			"origin": "中国",
+			"quantity": 10000,
+			"sales":6317,
+			"time": 1539552963,
+			"explain": "小米全网通手机",
+			"contents": "小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机",
+			"remark": "小米商城",
+			"hot": 0
+		},{
+			"id": 14,
+			"sort": 4,
+			"status": 1,
+			"bid":"",
+			"Keyword": "小米，手机,全网通",
+			"defaultimg": "p_35.jpg",
+			"slideshow":"",
+			"format":"",
+			"name": "好想你 干果零食 新疆特产 阿克苏灰枣 免洗红枣子 玛瑙红500g/袋 ",
+			"yprice": 134,
+			"xprice": 99,
+			"origin": "中国",
+			"quantity": 10000,
+			"sales":6317,
+			"time": 1539552963,
+			"explain": "小米全网通手机",
+			"contents": "小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机",
+			"remark": "小米商城",
+			"hot": 0
+		},{
+			"id": 15,
+			"sort": 2,
+			"status": 1,
+			"bid":"",
+			"Keyword": "小米，手机,全网通",
+			"defaultimg": "p_55.jpg",
+			"slideshow":"",
+			"format":"",
+			"name": "飘柔发膜300ml免蒸倒膜精纯焗油膏 柔润滋养 顺滑亮泽 护发 ",
+			"yprice": 134,
+			"xprice": 69.5,
+			"origin": "中国",
+			"quantity": 10000,
+			"sales":6317,
+			"time": 1539552963,
+			"explain": "小米全网通手机",
+			"contents": "小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机",
+			"remark": "小米商城",
+			"hot": 0
+		},{
+			"id": 16,
+			"sort": 4,
+			"status": 1,
+			"bid":"",
+			"Keyword": "小米，手机,全网通",
+			"defaultimg": "p_65.jpg",
+			"slideshow":"",
+			"format":"",
+			"name": "蒂梵森男包单肩斜挎包男士胸包2018新款时尚休闲帆布斜跨背包 1889 单品限量抢|标准版黑配黄 ",
+			"yprice": 234,
+			"xprice": 169.5,
+			"origin": "中国",
+			"quantity": 10000,
+			"sales":4317,
+			"time": 1539552963,
+			"explain": "小米全网通手机",
+			"contents": "小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机",
+			"remark": "小米商城",
+			"hot": 0
+		},{
+			"id": 17,
+			"sort": 4,
+			"status": 1,
+			"bid":"",
+			"Keyword": "小米，手机,运动鞋",
+			"defaultimg": "p_10.jpg",
+			"slideshow":"",
+			"format":"",
+			"name": "YELEPAI松糕鞋女厚底学生小白鞋网面软底休闲鞋女透气韩版运动鞋 粉色 #35 ",
+			"yprice": 234,
+			"xprice": 209.5,
+			"origin": "中国",
+			"quantity": 10000,
+			"sales":5317,
+			"time": 1539554563,
+			"explain": "小米全网通手机",
+			"contents": "小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机小米全网通手机",
+			"remark": "小米商城",
+			"hot": 0
+		}
+	],
+	"sort": [
+		{
+			"id": 1,
+			"status": 1,
+			"grade":1,
+			"classify": [
+				{
+					"id": 0,
+					"grade":2,
+					"name": "手机",
+					"quantity": 145
+				}
+				, {
+					"id": 1,
+					"grade":2,
+					"name": "移动电源",
+					"quantity": 245
+				}, {
+					"id": 2,
+					"grade":2,
+					"name": "U盘",
+					"quantity": 245
+				}, {
+					"id": 3,
+					"grade":2,
+					"name": "耳机",
+					"quantity": 245
+				}, {
+					"id": 4,
+					"grade":2,
+					"name": "硬盘",
+					"quantity": 245
+				}, {
+					"id": 5,
+					"grade":2,
+					"name": "照相机",
+					"quantity": 245
+				}, {
+					"id":6,
+					"grade":2,
+					"name": "路由器",
+					"quantity": 245
+				}
+			],
+			"name": "手机数码",
+			"quantity": 10000,
+			"sales":"187",
+			"color":"#87CEEB",
+			"img": ""
+		}, {
+			"id": 2,
+			"status": 1,
+			"grade":1,
+			"classify": [
+				{
+					"id": 1,
+					"grade":2,
+					"name": "笔记本电脑",
+					"quantity": 245
+				}, {
+					"id": 2,
+					"grade":2,
+					"name": "一体机电脑",
+					"quantity": 245
+				}, {
+					"id": 3,
+					"grade":2,
+					"name": "台式机电脑",
+					"quantity": 745
+				}, {
+					"id": 4,
+					"grade":2,
+					"name": "打印复印一体机",
+					"quantity": 145
+				}
+			],
+			"name": "电脑办公",
+			"quantity": 10000,
+			"sales":"867",
+			"color":"#87B87F",
+			"img": ""
+		}, {
+			"id": 3,
+			"status":0,
+			"grade":1,
+			"classify": [
+				{
+					"id": 1,
+					"grade":2,
+					"name": "冰箱",
+					"quantity": 245
+				}, {
+					"id": 2,
+					"grade":2,
+					"name": "洗衣机",
+					"quantity": 245
+				}, {
+					"id": 3,
+					"grade":2,
+					"name": "空调",
+					"quantity": 745
+				}, {
+					"id": 4,
+					"grade":2,
+					"name": "热水器",
+					"quantity": 145
+				}, {
+					"id": 5,
+					"grade":2,
+					"name": "微波炉",
+					"quantity": 145
+				}
+			],
+			"name": "家用电器",
+			"quantity": 1345,
+			"sales":"867",
+			"color":"#2ab023",
+			"img": ""
+		}, {
+			"id": 4,
+			"status": 1,
+			"grade":1,
+			"classify": "",
+			"name": "服装鞋帽",
+			"quantity": 345,
+			"sales":"267",
+			"color":"#1e3ae6",
+			"img": ""
+		}, {
+			"id": 5,
+			"status": 0,
+			"grade":1,
+			"classify": "",
+			"name": "食品保健",
+			"quantity": 425,
+			"sales":"167",
+			"color":"#87B87F",
+			"img": ""
+		}, {
+			"id": 6,
+			"status": 1,
+			"grade":1,
+			"classify": "",
+			"name": "厨卫用品",
+			"quantity": 3312,
+			"sales":"920",
+			"color":"#13a9e1",
+			"img": ""
+		}, {
+			"id": 7,
+			"status": 0,
+			"grade":1,
+			"classify": "",
+			"name": "家用百货",
+			"quantity": 315,
+			"sales":"210",
+			"color":"#c316a9",
+			"img": ""
+		}, {
+			"id": 8,
+			"status": 1,
+			"grade":1,
+			"classify": "",
+			"name": "图书影像",
+			"quantity": 145,
+			"sales":"110",
+			"color":"#2ab023",
+			"img": ""
+		}, {
+			"id": 9,
+			"status": 1,
+			"grade":1,
+			"classify": "",
+			"name": "美妆护肤",
+			"quantity": 145,
+			"sales":"110",
+			"color":"#ff6600",
+			"img": ""
+		}, {
+			"id": 10,
+			"status": 1,
+			"grade":1,
+			"classify": "",
+			"name": "运动户外",
+			"quantity": 11145,
+			"sales":"1100",
+			"color":"#d63116",
+			"img": ""
+		}
+	],"order":[
+	{
+	   "id":0,
+	   "status":1,
+	   "kuidi":"",
+	   "kuidinumber":"",
+	   "address":1,
+	   "ordernumber":54532434432423,
+	   "commodity":[{
+	   	  "id":0,
+	   	  "img":"p_70.jpg",
+	   	  "name":"Apple iPhone XS Max (A2104) 64GB 金色 移动联通电信4G手机 双卡双待",
+	   	  "price":7231,
+	   	  "format":"4G+64G+全网通+黑色",
+	   	  "quantity":1
+	   },{
+	   	  "id":1,
+	   	  "img":"p_69.jpg",
+	   	  "name":"十月玫瑰牛仔半身裙秋短裙韩版2018春秋季新品高腰a字裙女包臀一步裙 黑色配皮带 S",
+	   	  "price":108,
+	   	  "format":"颜色：黑色+尺码:XL+款式：女款连体裙",
+	   	  "quantity":1
+	   }
+	   ],
+	   "quantity":2,
+	   "Totalprice":5643,
+	   "ordertime":1552552963,
+	   "Paymenttime":1552562963,
+	   "Deliverytime":1552652963,
+	   "remark":"开心一刻"
+	   },{
+	   "id":1,
+	   "status":5,
+	   "kuidi":"申通",
+	   "kuidinumber":"465564654",
+	   "address":1,
+	   "ordernumber":201810161234564567,
+	   "commodity":[{
+	   	  "id":0,
+	   	  "img":"p_56.jpg",
+	   	  "name":"【新疆供销馆】 西域果园 新疆特产树上干杏 伊犁原味杏干吊死干 360g*2袋送葡萄干",
+	   	  "price":231,
+	   	  "format":"4G+64G+全网通+黑色",
+	   	  "quantity":1
+	   }
+	   ],
+	   "quantity":1,
+	   "Totalprice":231,
+	   "ordertime":1551152963,
+	   "Paymenttime":1551262963,
+	   "Deliverytime":1552652963,
+	   "remark":"开心一刻"
+	   },{
+	   "id":2,
+	   "status":3,
+	   "kuidi":"申通",
+	   "kuidinumber":"465564654",
+	   "address":1,
+	   "ordernumber":201810161234564567,
+	   "commodity":[{
+	   	  "id":0,
+	   	  "img":"p_52.jpg",
+	   	  "name":"【新疆供销馆】 西域果园 新疆特产树上干杏 伊犁原味杏干吊死干 360g*2袋送葡萄干",
+	   	  "price":231,
+	   	  "format":"4G+64G+全网通+黑色",
+	   	  "quantity":1
+	   }
+	   ],
+	   "quantity":1,
+	   "Totalprice":231,
+	   "ordertime":1551152963,
+	   "Paymenttime":1551262963,
+	   "Deliverytime":1552652963,
+	   "remark":"开心一刻"
+	   },{
+	   "id":3,
+	   "status":4,
+	   "kuidi":"申通",
+	   "kuidinumber":"465564654",
+	   "address":1,
+	   "ordernumber":2018101617876664567,
+	   "commodity":[{
+	   	  "id":0,
+	   	  "img":"p_58.jpg",
+	   	  "name":"【新疆供销馆】 西域果园 新疆特产树上干杏 伊犁原味杏干吊死干 360g*2袋送葡萄干",
+	   	  "price":31,
+	   	  "format":"4G+64G+全网通+黑色",
+	   	  "quantity":1
+	   }
+	   ],
+	   "quantity":1,
+	   "Totalprice":31,
+	   "ordertime":1545152963,
+	   "Paymenttime":1545155963,
+	   "Deliverytime":1552652963,
+	   "remark":"开心一刻"
+	   },{
+	   "id":4,
+	   "status":3,
+	   "kuidi":"申通",
+	   "kuidinumber":"465564654",
+	   "address":1,
+	   "ordernumber":2018101617876664567,
+	   "commodity":[{
+	   	  "id":0,
+	   	  "img":"p_42.jpg",
+	   	  "name":"【新疆供销馆】 西域果园 新疆特产树上干杏 伊犁原味杏干吊死干 360g*2袋送葡萄干",
+	   	  "price":31,
+	   	  "format":"4G+64G+全网通+黑色",
+	   	  "quantity":1
+	   }
+	   ],
+	   "quantity":1,
+	   "Totalprice":31,
+	   "ordertime":1545152963,
+	   "Paymenttime":1545155963,
+	   "Deliverytime":1552652963,
+	   "remark":"开心一刻"
+	   },{
+	   "id":5,
+	   "status":2,
+	   "kuidi":"申通",
+	   "kuidinumber":"465564654",
+	   "address":1,
+	   "ordernumber":2018101617876664567,
+	   "commodity":[{
+	   	  "id":0,
+	   	  "img":"p_33.jpg",
+	   	  "name":"【新疆供销馆】 西域果园 新疆特产树上干杏 伊犁原味杏干吊死干 360g*2袋送葡萄干",
+	   	  "price":31,
+	   	  "format":"4G+64G+全网通+黑色",
+	   	  "quantity":1
+	   },{
+	   	  "id":1,
+	   	  "img":"p_32.jpg",
+	   	  "name":"西麦 冲饮谷物 营养早餐 即食 家庭分享装 燕麦片1480g（新老包装替换中） ",
+	   	  "price":33,
+	   	  "format":"4G+64G+全网通+黑色",
+	   	  "quantity":1
+	   },{
+	   	  "id":2,
+	   	  "img":"p_31.jpg",
+	   	  "name":"乌苏啤酒（wusu） 新疆特产红色夺命大乌苏啤酒大冰书推620ml/瓶破损包赔多省包邮 9瓶装",
+	   	  "price":28,
+	   	  "format":"4G+64G+全网通+黑色",
+	   	  "quantity":1
+	   }
+	   ],
+	   "quantity":3,
+	   "Totalprice":121,
+	   "ordertime":1545152963,
+	   "Paymenttime":1545155963,
+	   "Deliverytime":1552652963,
+	   "remark":"开心一刻"
+	   },{
+	   "id":6,
+	   "status":5,
+	   "kuidi":"圆通",
+	   "kuidinumber":"5654545454",
+	   "address":1,
+	   "ordernumber":201810161787687675,
+	   "commodity":[{
+	   	  "id":0,
+	   	  "img":"p_22.jpg",
+	   	  "name":"GK 【京东好货】苹果x/xsMax钢化膜 iphoneXS/XR全屏6D高清覆盖后背膜防指纹手机膜 iPhoneX/XS通用【玻璃一体膜☆高清版】前膜",
+	   	  "price":31,
+	   	  "format":"4G+64G+全网通+黑色",
+	   	  "quantity":1
+	   },{
+	   	  "id":1,
+	   	  "img":"p_34.jpg",
+	   	  "name":"福临门 东北大米 水晶米 中粮出品 大米5kg ",
+	   	  "price":33,
+	   	  "format":"4G+64G+全网通+黑色",
+	   	  "quantity":1
+	   }],
+	   "quantity":2,
+	   "Totalprice":121,
+	   "ordertime":1545152963,
+	   "Paymenttime":1545155963,
+	   "Deliverytime":1552452963,
+	   "remark":"开心一刻"
+	   },{
+	   "id":7,
+	   "status":2,
+	   "kuidi":"圆通",
+	   "kuidinumber":"5654545454",
+	   "address":1,
+	   "ordernumber":201810161787687675,
+	   "commodity":[{
+	   	  "id":0,
+	   	  "img":"p_22.jpg",
+	   	  "name":"GK 【京东好货】苹果x/xsMax钢化膜 iphoneXS/XR全屏6D高清覆盖后背膜防指纹手机膜 iPhoneX/XS通用【玻璃一体膜☆高清版】前膜",
+	   	  "price":31,
+	   	  "format":"4G+64G+全网通+黑色",
+	   	  "quantity":1
+	   },{
+	   	  "id":1,
+	   	  "img":"p_34.jpg",
+	   	  "name":"福临门 东北大米 水晶米 中粮出品 大米5kg ",
+	   	  "price":33,
+	   	  "format":"4G+64G+全网通+黑色",
+	   	  "quantity":1
+	   }
+	   ],
+	   "quantity":2,
+	   "Totalprice":121,
+	   "ordertime":1545152963,
+	   "Paymenttime":1545155963,
+	   "Deliverytime":1552452963,
+	   "remark":"开心一刻"
+	   },{
+	   "id":8,
+	   "status":2,
+	   "kuidi":"圆通",
+	   "kuidinumber":"5654545454",
+	   "address":1,
+	   "ordernumber":201810161787687675,
+	   "commodity":[{
+	   	  "id":0,
+	   	  "img":"p_22.jpg",
+	   	  "name":"GK 【京东好货】苹果x/xsMax钢化膜 iphoneXS/XR全屏6D高清覆盖后背膜防指纹手机膜 iPhoneX/XS通用【玻璃一体膜☆高清版】前膜",
+	   	  "price":31,
+	   	  "format":"4G+64G+全网通+黑色",
+	   	  "quantity":1
+	   }],
+	   "quantity":1,
+	   "Totalprice":121,
+	   "ordertime":1545152963,
+	   "Paymenttime":1545155963,
+	   "Deliverytime":1552452963,
+	   "remark":"开心一刻"
+	   },{
+	   "id":9,
+	   "status":2,
+	   "kuidi":"圆通",
+	   "kuidinumber":"5654545454",
+	   "address":1,
+	   "ordernumber":201810161787687675,
+	   "commodity":[{
+	   	  "id":0,
+	   	  "img":"p_22.jpg",
+	   	  "name":"日本原装进口 卡乐比Calbee 早餐谷物冲饮燕麦片 北海道富果乐水果早餐麦片700g",
+	   	  "price":31,
+	   	  "format":"4G+64G+全网通+黑色",
+	   	  "quantity":1
+	   }],
+	   "quantity":2,
+	   "Totalprice":121,
+	   "ordertime":1545152963,
+	   "Paymenttime":1545155963,
+	   "Deliverytime":1552452963,
+	   "remark":"开心一刻"
+	   },{
+	   "id":10,
+	   "status":5,
+	   "kuidi":"中通",
+	   "kuidinumber":"432545454",
+	   "address":1,
+	   "ordernumber":2018101617876674,
+	   "commodity":[{
+	   	  "id":0,
+	   	  "img":"p_29.jpg",
+	   	  "name":" 韩国进口 全南 蜂蜜柚子茶1000g",
+	   	  "price":31,
+	   	  "format":"4G+64G+全网通+黑色",
+	   	  "quantity":1
+	   }
+	   ],
+	   "quantity":1,
+	   "Totalprice":121,
+	   "ordertime":1545152963,
+	   "Paymenttime":1545155963,
+	   "Deliverytime":1552452963,
+	   "remark":"开心一刻"
+	   },{
+	   "id":11,
+	   "status":5,
+	   "kuidi":"中通",
+	   "kuidinumber":"432545454",
+	   "address":1,
+	   "ordernumber":2018101617876674,
+	   "commodity":[{
+	   	  "id":0,
+	   	  "img":"p_29.jpg",
+	   	  "name":" 韩国进口 全南 蜂蜜柚子茶1000g",
+	   	  "price":31,
+	   	  "format":"4G+64G+全网通+黑色",
+	   	  "quantity":1
+	   }
+	   ],
+	   "quantity":1,
+	   "Totalprice":121,
+	   "ordertime":1545152963,
+	   "Paymenttime":1545155963,
+	   "Deliverytime":1552452963,
+	   "remark":"开心一刻"
+	   },{
+	   "id":12,
+	   "status":5,
+	   "kuidi":"中通",
+	   "kuidinumber":"432545454",
+	   "address":1,
+	   "ordernumber":2018101617876674,
+	   "commodity":[{
+	   	  "id":0,
+	   	  "img":"p_68.jpg",
+	   	  "name":" 小米8屏幕指纹版 8GB+128GB 暮光金 全网通4G 双卡双待 全面屏拍照游戏智能手机",
+	   	  "price":31,
+	   	  "format":"4G+64G+全网通+黑色",
+	   	  "quantity":1
+	   }
+	   ],
+	   "quantity":1,
+	   "Totalprice":2121,
+	   "ordertime":1545152963,
+	   "Paymenttime":1545155963,
+	   "Deliverytime":1552452963,
+	   "remark":"开心一刻"
+	   },{
+	   "id":13,
+	   "status":5,
+	   "kuidi":"中通",
+	   "kuidinumber":"432545454",
+	   "address":1,
+	   "ordernumber":2018101617876674,
+	   "commodity":[{
+	   	  "id":0,
+	   	  "img":"p_67.jpg",
+	   	  "name":"华为（HUAWEI） 华为P20 Pro 手机 宝石蓝 6G+128G返100话费",
+	   	  "price":31,
+	   	  "format":"4G+64G+全网通+黑色",
+	   	  "quantity":1
+	   }
+	   ],
+	   "quantity":1,
+	   "Totalprice":2499,
+	   "ordertime":1545152963,
+	   "Paymenttime":1545155963,
+	   "Deliverytime":1552452963,
+	   "remark":"开心一刻"
+	   },{
+	   "id":14,
+	   "status":5,
+	   "kuidi":"中通",
+	   "kuidinumber":"432545454",
+	   "address":1,
+	   "ordernumber":2018101617876674,
+	   "commodity":[{
+	   	  "id":0,
+	   	  "img":"p_19.jpg",
+	   	  "name":"【钜惠疯抢！1元抢10片装玻尿酸原液面膜】玻尿酸补水原液面膜√男女通用√补水保湿√清爽控油√净透亮肤 ",
+	   	  "price":31,
+	   	  "format":"4G+64G+全网通+黑色",
+	   	  "quantity":1
+	   }
+	   ],
+	   "quantity":1,
+	   "Totalprice":121,
+	   "ordertime":1545152963,
+	   "Paymenttime":1545155963,
+	   "Deliverytime":1552452963,
+	   "remark":"开心一刻"
+	   },{
+	   "id":15,
+	   "status":5,
+	   "kuidi":"中通",
+	   "kuidinumber":"432545454",
+	   "address":1,
+	   "ordernumber":2018101617876674,
+	   "commodity":[{
+	   	  "id":0,
+	   	  "img":"p_17.jpg",
+	   	  "name":"满199减120三只松鼠 夏威夷果160g 零食坚果炒货孕妇坚果每日坚果干果休闲零食办公室奶油味送开 160g",
+	   	  "price":31,
+	   	  "format":"4G+64G+全网通+黑色",
+	   	  "quantity":1
+	   }
+	   ],
+	   "quantity":1,
+	   "Totalprice":121,
+	   "ordertime":1545152963,
+	   "Paymenttime":1545155963,
+	   "Deliverytime":1552452963,
+	   "remark":"开心一刻"
+	   },{
+	   "id":16,
+	   "status":3,
+	   "kuidi":"中通",
+	   "kuidinumber":"432545454",
+	   "address":1,
+	   "ordernumber":2018101617876674,
+	   "commodity":[{
+	   	  "id":0,
+	   	  "img":"p_15.jpg",
+	   	  "name":" 韩国进口 全南 蜂蜜柚子茶1000g",
+	   	  "price":31,
+	   	  "format":"4G+64G+全网通+黑色",
+	   	  "quantity":1
+	   }
+	   ],
+	   "quantity":1,
+	   "Totalprice":121,
+	   "ordertime":1545152963,
+	   "Paymenttime":1545155963,
+	   "Deliverytime":1552452963,
+	   "remark":"开心一刻"
+	   },{
+	   "id":17,
+	   "status":1,
+	   "kuidi":"",
+	   "kuidinumber":"",
+	   "address":1,
+	   "ordernumber":2018101617876674,
+	   "commodity":[{
+	   	  "id":0,
+	   	  "img":"p_12.jpg",
+	   	  "name":" 韩国进口 全南 蜂蜜柚子茶1000g",
+	   	  "price":31,
+	   	  "format":"4G+64G+全网通+黑色",
+	   	  "quantity":1
+	   }
+	   ],
+	   "quantity":1,
+	   "Totalprice":121,
+	   "ordertime":1545152963,
+	   "Paymenttime":1545155963,
+	   "Deliverytime":1552452963,
+	   "remark":"开心一刻"
+	   },{
+	   "id":18,
+	   "status":2,
+	   "kuidi":"顺丰",
+	   "kuidinumber":"567878776",
+	   "address":1,
+	   "ordernumber":2018101617875644,
+	   "commodity":[{
+	   	  "id":0,
+	   	  "img":"p_35.jpg",
+	   	  "name":"飞科(FLYCO)电吹风机家用FH6251负离子可折叠吹风筒 1600W ",
+	   	  "price":31,
+	   	  "format":"4G+64G+全网通+黑色",
+	   	  "quantity":1
+	   }
+	   ],
+	   "quantity":1,
+	   "Totalprice":121,
+	   "ordertime":1545152963,
+	   "Paymenttime":1545166763,
+	   "Deliverytime":155267763,
+	   "remark":"开心一刻"
+	   },{
+	   "id":19,
+	   "status":4,
+	   "kuidi":"顺丰",
+	   "kuidinumber":"567877665",
+	   "address":1,
+	   "ordernumber":2018101767655644,
+	   "commodity":[{
+	   	  "id":0,
+	   	  "img":"p_31.jpg",
+	   	  "name":" 韩国进口 全南 蜂蜜柚子茶1000g",
+	   	  "price":31,
+	   	  "format":"4G+64G+全网通+黑色",
+	   	  "quantity":2
+	   }
+	   ],
+	   "quantity":2,
+	   "Totalprice":421,
+	   "ordertime":1545521963,
+	   "Paymenttime":1545346763,
+	   "Deliverytime":155347763,
+	   "remark":"开心一刻"
+	   }
+	],"orderstatus":[
+	{
+	 "id":1,
+	 "name":"待发货"	
+	},{
+	 "id":2,
+	 "name":"待收货"	
+	},{
+	 "id":3,
+	 "name":"待付款"	
+	},{
+	 "id":4,
+	 "name":"退货中"	
+	},{
+	 "id":5,
+	 "name":"已完成"	
+	},{
+	 "id":6,
+	 "name":"已退款"	
+	}
+	],"address":[
+	{
+		"id":1,
+		"name":"张小泉",
+		"phone":18934545676,
+		"detailsaddress":"江苏南京市雨花台区郁金香软件大厦3懂3单元302室",
+		"Postalcode":345678		
+	},{
+		"id":2,
+		"name":"黄天师",
+		"phone":13934545342,
+		"detailsaddress":"江苏南京市建邺区相册科技园软件大厦3懂3单元302室",
+		"Postalcode":345678		
+	}
+	
+	],"brandlist": [
+		{
+			"id": 1,
+			"Numbering":"H3432",
+			"sort": 1,
+			"status": 0,
+			"logoImg": "156.jpg",
+			"quantity": 14,
+			"name": "玉兰油OLAY",
+			"area":"法国",
+			"pid":1,
+			"addtime":1539747700,
+			"content":"玉兰油OLAY，是宝洁公司全球著名的护肤品牌，是中国区最大护肤品牌，在大陆已持续十年呈两位数增长。OLAY以全球高科技护肤研发技术为后盾，在深入了解中国女性对护肤和美的需要的基础上，不断扩大产品范围，目前已经涵盖了护肤和沐浴系列，真正帮助女性全面周到地呵护自己的肌肤。玉兰油全球销售额近十亿美金，成为世界上最大、最著名的护肤品牌之一。卓越的护肤功效获得世界爱美女性肯定，迅速畅销150多个国家。玉兰油OLAY，是宝洁公司全球著名的护肤品牌，是中国区最大护肤品牌，在大陆已持续十年呈两位数增长。OLAY以全球高科技护肤研发技术为后盾，在深入了解中国女性对护肤和美的需要的基础上，不断扩大产品范围，目前已经涵盖了护肤和沐浴系列，真正帮助女性全面周到地呵护自己的肌肤。玉兰油全球销售额近十亿美金，成为世界上最大、最著名的护肤品牌之一。卓越的护肤功效获得世界爱美女性肯定，迅速畅销150多个国家。"
+		}, {
+			"id": 2,
+			"Numbering":"H3434",
+			"sort": 1,
+			"status": 1,
+			"logoImg": "34.jpg",
+			"quantity": 21,
+			"name": "比克度",
+			"area":"中国",
+			"pid":2,
+			"addtime":1539748700,
+			"content":"比度克是广州市中通生化制品有限公司旗下品牌。国际知名药妆品牌，针对痘痘、痘印、粉刺、黑头等普遍出现的皮肤问题，专门解决问题肌肤的品牌。"
+		}, {
+			"id": 3,
+			"Numbering":"H346",
+			"sort": 1,
+			"status": 0,
+			"logoImg": "42.jpg",
+			"quantity": 11,
+			"name": "欧莱雅",
+			"area":"法国",
+			"pid":3,
+			"addtime":1539754700,
+			"content":"巴黎欧莱雅（L'OREAL PARIS）是欧莱雅集团里知名度最高、历史最悠久的大众化妆品品牌之一，主要生产染发护发、彩妆及护肤产品，其出众的品质一直倍受全球爱美女性的青睐。巴黎欧莱雅拥有一流的药学试验室和皮肤学中心，还有遍布全球的研究..."
+		}, {
+			"id": 4,
+			"Numbering":"H3437",
+			"sort": 1,
+			"status": 1,
+			"pid":4,
+			"logoImg": "152.jpg",
+			"quantity": 21,
+			"name": "丝塔芙"
+		}, {
+			"id": 5,
+			"Numbering":"H3438",
+			"sort": 4,
+			"status": 1,
+			"logoImg": "1.jpg",
+			"quantity": 66,
+			"name": "华为"
+		}, {
+			"id": 6,
+			"Numbering":"H3439",
+			"sort": 3,
+			"status": 1,
+			"logoImg": "199.jpg",
+			"quantity": 124,
+			"name": "辉子"
+		}, {
+			"id": 7,
+			"Numbering":"H3442",
+			"sort": 2,
+			"status": 1,
+			"logoImg": "245.jpg",
+			"quantity": 24,
+			"name": "御泥坊"
+		}, {
+			"id": 10,
+			"Numbering":"H3444",
+			"sort": 2,
+			"status": 1,
+			"logoImg": "644.jpg",
+			"quantity": 24,
+			"name": "凡茜"
+		}, {
+			"id": 11,
+			"Numbering":"H3447",
+			"sort": 2,
+			"status": 1,
+			"logoImg": "740.jpg",
+			"quantity": 24,
+			"name": "麦秀雷顿"
+		}, {
+			"id": 12,
+			"Numbering":"H3445",
+			"sort": 2,
+			"status": 1,
+			"logoImg": "741.png",
+			"quantity": 24,
+			"name": "水密码"
+		}, {
+			"id": 13,
+			"Numbering":"H3472",
+			"sort": 2,
+			"status": 1,
+			"logoImg": "1396.jpg",
+			"quantity": 24,
+			"name": "美肤宝"
+		}, {
+			"id": 14,
+			"Numbering":"H3482",
+			"sort": 2,
+			"status": 1,
+			"logoImg": "1663.jpg",
+			"quantity": 24,
+			"name": "雪肤晶"
+		}, {
+			"id": 15,
+			"Numbering":"H3492",
+			"sort": 2,
+			"status": 1,
+			"logoImg": "1309.jpg",
+			"quantity": 24,
+			"name": "水密码"
+		}, {
+			"id": 16,
+			"Numbering":"H3232",
+			"sort": 4,
+			"status": 1,
+			"logoImg": "618.jpg",
+			"quantity": 24,
+			"name": "高夫"
+		}, {
+			"id": 17,
+			"Numbering":"H3132",
+			"sort": 4,
+			"status": 1,
+			"logoImg": "1089.jpg",
+			"quantity": 24,
+			"name": "高夫"
+		}, {
+			"id": 18,
+			"Numbering":"H3233",
+			"sort": 4,
+			"status": 1,
+			"logoImg": "2.jpg",
+			"quantity": 24,
+			"name": "小米"
+		}
+	],"kuaidi":[
+{
+  "id":1,
+  "name":"中通",
+  "code":456,
+  "rzma":"zt4566765655454343",
+  "logoimg":"kd_logo_14.png",
+  "content":"中通中通中通中通中通中通中通中通中通中通中通中通中通",
+  "status":1	
+},{
+  "id":2,
+  "name":"圆通",
+  "code":236,
+  "rzma":"yt4566765655454343",
+  "logoimg":"kd_logo_12.png",
+  "content":"",
+  "status":1	
+},{
+  "id":3,
+  "name":"申通",
+  "rzma":"st4566765655454343",
+  "code":346,
+  "logoimg":"kd_logo_10.png",
+  "content":"申通快递品牌初创于1993年，公司致力于民族品牌的建设和发展，不断完善终端网络、中转运输网络和信息网络三网一体的立体运行体系，立足传统快递业务，全面进入电子商务领域，以专业的服务和严格的质量管理推动中国快递行业的发展。",
+  "status":1	
+},{
+  "id":4,
+  "name":"天天快递",
+  "rzma":"tt4566765655454343",
+  "code":216,
+  "logoimg":"kd_logo_16.png",
+  "content":"",
+  "status":0	
+},{
+  "id":5,
+  "name":"韵达快递",
+  "rzma":"yd4566765655454343",
+  "code":563,
+  "logoimg":"kd_logo_07.png",
+  "content":"",
+  "status":1	
+},{
+  "id":6,
+  "name":"顺丰",
+  "code":225,
+  "rzma":"sf4566765655454343",
+  "logoimg":"kd_logo_03.png",
+  "content":"",
+  "status":1	
+},{
+  "id":7,
+  "name":"百世汇通",
+  "rzma":"bsht4566765655454343",
+  "code":564,
+  "logoimg":"kd_logo_05.png",
+  "content":"",
+  "status":1	
+},{
+  "id":8,
+  "name":"优速物流",
+  "rzma":"bsht4566765655454343",
+  "code":112,
+  "logoimg":"kd_logo_04.png",
+  "content":"",
+  "status":1	
+},{
+  "id":9,
+  "name":"邮政EMS",
+  "rzma":"bsht4566765655454343",
+  "code":116,
+  "logoimg":"kd_logo_06.png",
+  "content":"EMS（即“Express Mail Service”）是邮政特快专递服务，由万国邮联管理下的国际邮件快递服务，在中国境内是由中国邮政提供的一种快递服务。该业务在海关、航空等部门均享有优先处理权，它以高质量为用户传递国际、国内紧急信函、文件资料、金融票据、商品货样等各类文件资料和物品。",
+  "status":1	
+}
+]
+}

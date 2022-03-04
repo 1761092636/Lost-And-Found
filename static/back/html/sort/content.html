@@ -1,0 +1,49 @@
+<div class="add_content clearfix mt15">
+    <% if(content!=""){%>
+    	    <% var name=content[0].name; var id=content[0].id; var grade=content[0].grade; var quantity=content[0].quantity;  %> 
+    	<% } else{%>
+    		  <% var name=""; var id=""; var grade=""; var quantity="0" %> 		
+    		<% } %>
+	<ul class="info_list" id="VerifyTips">  
+	<li class=" clearfix content_look mb15">
+		<label class="label_name"><em style="color:Red;">*</em>分类名称：</label>
+		<span class="info_data"><input data-name="分类名称" type="text" name="Required" value="<%=name%>" class="text_input col-sm-9" data-verify="verify" /></span>
+	</li>
+	<li class=" clearfix content_look mb15">
+		<label class="label_name">排序：</label>
+		<span class="info_data"><input data-name="排序" type="text"  value="<%=id%>" class="text_input col-sm-4" data-verify="verify" /></span>
+	</li>
+	<li class=" clearfix content_look mb15">
+		<label class="label_name">产品数量：</label>
+		<span class="info_data"><%=quantity%></span>
+	</li>
+	<li class=" clearfix content_look mb15">
+		<label class="label_name">状态：</label>
+		<span class="info_data">
+		<label class="radio relative"><input name="statusradio" type="radio" data-id="1" class="ace"><span class="lbl">启用</span></label>&nbsp;&nbsp;
+		<label class="radio relative"><input name="statusradio" type="radio" data-id="0" class="ace"><span class="lbl">关闭</span></label>&nbsp;&nbsp;
+		</span>
+	</li>
+	<li class=" clearfix content_look mb15">
+		<label class="label_name"><em style="color:Red;">*</em>级别：</label>
+		<span class="info_data">
+			<% if(grade!=""){%>
+			<% if(content[0].grade==1){%>
+				一级分类
+			<%}else if(content[0].grade==2){%> 
+				二级分类
+			<% } else if(content[0].grade==3) {%>
+				三级分类	
+		     <% }%>
+			<%} else{ %>
+			  <select class="select col-sm-5">
+			    <option value="1">一级分类</option>
+			    <option value="2">二级分类</option>
+			    <option value="3">三级分类</option>
+			  </select>
+			<% }%>
+			
+		</span>
+	</li>
+	</ul>
+</div>

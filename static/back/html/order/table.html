@@ -1,0 +1,68 @@
+<table class="table  table_striped table-bordered border" id="tableList">
+	<thead>
+		<tr>
+			<th class="align" width="5%"><label class="checkbox relative"><input type="checkbox" class="ace" ><span class="lbl"></span></label></th>
+			<th class="align" width="10%">订单号</th>
+			<th class="align" width="25%">商品</th>
+			<th class="align" width="5%">总价</th>
+			<th width="5%" class="align">数量</th>
+			<th width="10%" class="align">购买时间</th>
+			<th width="10%" class="align">付款时间</th>
+			<th class="align" width="5%">状态</th>
+			<th class="align" width="20%">操作</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% for(var i = 0; i < pagenumber; i++) { %>
+			<% var num = (page - 1) * pagenum + i; %>
+		<tr>
+			<td><label class="checkbox relative"><input type="checkbox" class="ace" name="checkbox" ><span class="lbl"></span></label></td>
+			<td>
+				<%=order[num].ordernumber%>
+			</td>
+			<td class="padding0">
+				<table class="table table_striped producttable">
+					<% for(var j = 0; j < order[num].commodity.length; j++) { %>
+					<tr>
+						<td>
+							<img src="images/product_img/<%=order[num].commodity[j].img%>" class="tableimg">
+							<span class="tabletitle"><%=order[num].commodity[j].name%></span>
+						</td>
+					</tr>
+					<% } %>
+				</table>
+			</td>
+			<td>
+				<%=order[num].Totalprice%>
+			</td>
+			<td>
+				<%=order[num].quantity%>
+			</td>
+			<td>
+				<%=timestamp(order[num].ordertime,'yyyy-MM-dd hh:mm')%>
+			</td>
+			<td>
+				<%=timestamp(order[num].Paymenttime,'yyyy-MM-dd hh:mm')%>
+			</td>
+			<td>
+				<% for(var j = 0; j < status.length; j++) { %>
+				<% if(order[num].status==status[j].id){ %>
+				<%=status[j].name%>
+				<% } %>
+				<% } %>
+
+			</td>
+			<td>
+				<% if(order[num].status==1){ %>
+				<button type="buttom" class="btn btn-blue padding10" onclick="fahuobtn(this,<%=order[num].id%>)">发货</button>
+				<% } else if(order[num].status==5) {%>
+				<button type="buttom" class="btn btn-danger padding10" onclick="pingjiabtn(this,<%=order[num].id%>)">评价</button>
+				<%}%>
+				<button type="buttom" class="btn btn-green padding10" data-url="order_detailed.html?detailsid=<%=order[num].id%>" onclick="editorbtn(this)">详细</button>
+				<button type="buttom" class="btn btn-info padding10" onclick="deletebtn(this,<%=order[num].id%>)">删除</buttom>
+    			
+    		</td>
+    	    </tr>
+    	<% } %>
+    </tbody>
+</table>
