@@ -1,0 +1,64 @@
+
+	<div class="operation  mb15 clearfix relative">
+		<button class="btn button_btn btn-danger" type="button" onclick=""><i class="iconfont">&#xe6b4</i>&nbsp;批量删除</button>
+		<span class="sumQuantity">合计：<em id="quantity"></em>条</span>
+</div>
+<table class="gallery table table_list table_striped table-bordered border " id="tableList">
+	<thead>
+		<tr>
+			<th width="50px"><label class="checkbox relative"><input type="checkbox" class="ace" name="checkbox"><span class="lbl"></span></label></th>
+			<th>等级</th>
+			<th>状态</th>
+			<th>用户名</th>
+			<th>性别</th>
+			<th>电话</th>
+			<th>邮箱</th>
+			<th>地址</th>
+			<th>注册时间</th>
+			<th>操作</th>
+		</tr>
+	</thead>
+	<tbody>
+        <%if(list!=""){ %>	
+		<% for(var i = 0; i < list.length; i++) { %>
+		<tr class="relative">
+			<td><label class="checkbox relative"><input type="checkbox" class="ace" name="checkbox"><span class="lbl"></span></label></td>
+			<td>
+				<% for(var s = 0; s < grade.length; s++) { %>
+				<% if(grade[s].id==list[i].grade) {%>
+				<%=grade[s].name%>
+				<% } %>
+			    <% } %>
+			</td>
+			<td>
+			<% if(list[i].status==0) {%>
+			<span class="name_status  plf10 btn btn-gray" data-id="0">关闭</span>
+			<%} if(list[i].status==1) {%>
+			<span class="name_status  plf10 btn btn-green" data-id="1">启用</span>
+			<%}%>
+			</td>
+			<td><a href="javascript:void(0)" class="colorred" onclick="memberinfo(this,<%=list[i].id%>)"><%=list[i].name%></a></td>
+			<td>
+			<% if(list[i].sex==0) {%>
+				  保密
+			<%} else if(list[i].sex==1) {%>
+		                    男
+			<%} else if(list[i].sex==2){%>
+			            女
+			<% }%>
+			</td>
+			<td><%=list[i].mobilephone%></td>
+			<td><%=list[i].mailbox %> </td>
+			<td><%=list[i].province%><%=list[i].city%><%=list[i].county%><%=list[i].address%></td>
+			<td><%=timestamp(list[i].regtime,'yyyy-MM-dd hh:mm')%></td>
+			<td>
+				<button class="btn btn-danger padding5" onclick="">删除</button>
+			<button class="btn btn-blue padding5" onclick="memberinfo(this,<%=list[i].id%>)">编辑</button>
+			</td>
+		</tr>
+		<% } %>
+		<% } else{%>
+			  <tr><td colspan="9">暂时还没有该等级的会员</td></tr>
+			<% } %>
+	</tbody>
+</table>

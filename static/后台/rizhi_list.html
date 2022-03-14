@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<link href="css/SYSFrame.css" rel="stylesheet" type="text/css" />
+		<link href="font/iconfont.css" rel="stylesheet" type="text/css" />
+		<link href="css/module.css" rel="stylesheet" type="text/css" />
+		<link href="css/pages.css" rel="stylesheet" type="text/css" />
+		<title>系统日志</title>
+		<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+		<script src="js/jquery.cookie.js" type="text/javascript"></script>
+		<script src="js/jquery.nicescroll.js" type="text/javascript"></script>
+		<script src="js/HUpages.js" type="text/javascript"></script>
+		<!--[if lt IE 9]>
+          <script src="js/html5shiv.js" type="text/javascript"></script>
+          <script src="js/css3-mediaqueries.js"  type="text/javascript"></script>
+        <![endif]-->
+        <style type="text/css">
+        	.icon_lists li {
+    float: left;
+    width: 97px;
+    height: 180px;
+    text-align: center;
+    list-style: none !important;
+}
+.icon_lists .icon {
+    font-size: 42px;
+    line-height: 100px;
+    margin: 10px 0;
+    color: #333;
+    -webkit-transition: font-size 0.25s ease-out 0s;
+    -moz-transition: font-size 0.25s ease-out 0s;
+    transition: font-size 0.25s ease-out 0s;
+}
+        </style>
+	</head>
+	<body id="pagestyle" class="backgroundf0">
+		<div class="bk-con-message message-section" id="iframe_box">
+			<div class="box-module height100b margin0">
+				<div class="box-title">字体库</div>
+				<div class="box-content padding15">
+					<ul class="icon_lists clear">
+            
+                <li>
+                <i class="icon iconfont">&#xe6b4;</i>
+                    <div class="name">delete</div>
+                    <div class="code">&amp;#xe6b4;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe653;</i>
+                    <div class="name">全屏</div>
+                    <div class="code">&amp;#xe653;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe654;</i>
+                    <div class="name">全屏返回</div>
+                    <div class="code">&amp;#xe654;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe69b;</i>
+                    <div class="name">服务</div>
+                    <div class="code">&amp;#xe69b;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe8b9;</i>
+                    <div class="name">user-tie</div>
+                    <div class="code">&amp;#xe8b9;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe603;</i>
+                    <div class="name">红包</div>
+                    <div class="code">&amp;#xe603;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe697;</i>
+                    <div class="name">搜索</div>
+                    <div class="code">&amp;#xe697;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe626;</i>
+                    <div class="name">home</div>
+                    <div class="code">&amp;#xe626;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe619;</i>
+                    <div class="name">错误</div>
+                    <div class="code">&amp;#xe619;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe624;</i>
+                    <div class="name">验证码</div>
+                    <div class="code">&amp;#xe624;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe612;</i>
+                    <div class="name">工作时间</div>
+                    <div class="code">&amp;#xe612;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe60e;</i>
+                    <div class="name">搜索</div>
+                    <div class="code">&amp;#xe60e;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe604;</i>
+                    <div class="name">电话</div>
+                    <div class="code">&amp;#xe604;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe61d;</i>
+                    <div class="name">添加</div>
+                    <div class="code">&amp;#xe61d;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe7a7;</i>
+                    <div class="name">相机</div>
+                    <div class="code">&amp;#xe7a7;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe611;</i>
+                    <div class="name">确认</div>
+                    <div class="code">&amp;#xe611;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe613;</i>
+                    <div class="name">项目管理</div>
+                    <div class="code">&amp;#xe613;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe622;</i>
+                    <div class="name">所属职位</div>
+                    <div class="code">&amp;#xe622;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe630;</i>
+                    <div class="name">上箭头</div>
+                    <div class="code">&amp;#xe630;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe70a;</i>
+                    <div class="name">删除</div>
+                    <div class="code">&amp;#xe70a;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe614;</i>
+                    <div class="name">减号</div>
+                    <div class="code">&amp;#xe614;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe61f;</i>
+                    <div class="name">提示</div>
+                    <div class="code">&amp;#xe61f;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe81b;</i>
+                    <div class="name">添加</div>
+                    <div class="code">&amp;#xe81b;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe62f;</i>
+                    <div class="name">多语言</div>
+                    <div class="code">&amp;#xe62f;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe623;</i>
+                    <div class="name">提示</div>
+                    <div class="code">&amp;#xe623;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe616;</i>
+                    <div class="name">消息</div>
+                    <div class="code">&amp;#xe616;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe628;</i>
+                    <div class="name">红包</div>
+                    <div class="code">&amp;#xe628;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe64f;</i>
+                    <div class="name">退出 (4)</div>
+                    <div class="code">&amp;#xe64f;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe658;</i>
+                    <div class="name">分类</div>
+                    <div class="code">&amp;#xe658;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe62d;</i>
+                    <div class="name">积分</div>
+                    <div class="code">&amp;#xe62d;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe602;</i>
+                    <div class="name">箭头_下</div>
+                    <div class="code">&amp;#xe602;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe655;</i>
+                    <div class="name">银行卡</div>
+                    <div class="code">&amp;#xe655;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe61e;</i>
+                    <div class="name">箭头_上</div>
+                    <div class="code">&amp;#xe61e;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe712;</i>
+                    <div class="name">对勾</div>
+                    <div class="code">&amp;#xe712;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe618;</i>
+                    <div class="name">菜单</div>
+                    <div class="code">&amp;#xe618;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe634;</i>
+                    <div class="name">身份证</div>
+                    <div class="code">&amp;#xe634;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe667;</i>
+                    <div class="name">i-休息</div>
+                    <div class="code">&amp;#xe667;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe641;</i>
+                    <div class="name">地址</div>
+                    <div class="code">&amp;#xe641;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe6c3;</i>
+                    <div class="name">返回</div>
+                    <div class="code">&amp;#xe6c3;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe621;</i>
+                    <div class="name">商品_p</div>
+                    <div class="code">&amp;#xe621;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe69a;</i>
+                    <div class="name">电话</div>
+                    <div class="code">&amp;#xe69a;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe629;</i>
+                    <div class="name">department</div>
+                    <div class="code">&amp;#xe629;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe61b;</i>
+                    <div class="name">系统消息</div>
+                    <div class="code">&amp;#xe61b;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe61a;</i>
+                    <div class="name">Modify</div>
+                    <div class="code">&amp;#xe61a;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe6c9;</i>
+                    <div class="name">右双箭头</div>
+                    <div class="code">&amp;#xe6c9;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe6d0;</i>
+                    <div class="name">左双箭头</div>
+                    <div class="code">&amp;#xe6d0;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe6df;</i>
+                    <div class="name">部门</div>
+                    <div class="code">&amp;#xe6df;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe625;</i>
+                    <div class="name">密码</div>
+                    <div class="code">&amp;#xe625;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe6a9;</i>
+                    <div class="name">管理2</div>
+                    <div class="code">&amp;#xe6a9;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe6ba;</i>
+                    <div class="name">user-group </div>
+                    <div class="code">&amp;#xe6ba;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe647;</i>
+                    <div class="name">邮件 (2)</div>
+                    <div class="code">&amp;#xe647;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe62e;</i>
+                    <div class="name">users</div>
+                    <div class="code">&amp;#xe62e;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe67a;</i>
+                    <div class="name">消息</div>
+                    <div class="code">&amp;#xe67a;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe615;</i>
+                    <div class="name">35_向下箭头</div>
+                    <div class="code">&amp;#xe615;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe61c;</i>
+                    <div class="name">皮肤设置</div>
+                    <div class="code">&amp;#xe61c;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe627;</i>
+                    <div class="name">017操作_错误</div>
+                    <div class="code">&amp;#xe627;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe60c;</i>
+                    <div class="name">向左箭头</div>
+                    <div class="code">&amp;#xe60c;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe617;</i>
+                    <div class="name">删除</div>
+                    <div class="code">&amp;#xe617;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe63f;</i>
+                    <div class="name">图片</div>
+                    <div class="code">&amp;#xe63f;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe642;</i>
+                    <div class="name">右箭头</div>
+                    <div class="code">&amp;#xe642;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe66e;</i>
+                    <div class="name">用户管理</div>
+                    <div class="code">&amp;#xe66e;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe6a0;</i>
+                    <div class="name">add</div>
+                    <div class="code">&amp;#xe6a0;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe70d;</i>
+                    <div class="name">calendar</div>
+                    <div class="code">&amp;#xe70d;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe60f;</i>
+                    <div class="name">文件夹</div>
+                    <div class="code">&amp;#xe60f;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe610;</i>
+                    <div class="name">文件夹模板</div>
+                    <div class="code">&amp;#xe610;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe63e;</i>
+                    <div class="name">消息</div>
+                    <div class="code">&amp;#xe63e;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe696;</i>
+                    <div class="name">管理员</div>
+                    <div class="code">&amp;#xe696;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe899;</i>
+                    <div class="name"> 订单 已成功</div>
+                    <div class="code">&amp;#xe899;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe62a;</i>
+                    <div class="name">积分</div>
+                    <div class="code">&amp;#xe62a;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe60d;</i>
+                    <div class="name">系统</div>
+                    <div class="code">&amp;#xe60d;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe67d;</i>
+                    <div class="name">文章</div>
+                    <div class="code">&amp;#xe67d;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe63b;</i>
+                    <div class="name">消息</div>
+                    <div class="code">&amp;#xe63b;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe855;</i>
+                    <div class="name">报表</div>
+                    <div class="code">&amp;#xe855;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe685;</i>
+                    <div class="name">编辑</div>
+                    <div class="code">&amp;#xe685;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe65c;</i>
+                    <div class="name">订单</div>
+                    <div class="code">&amp;#xe65c;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe745;</i>
+                    <div class="name">消息</div>
+                    <div class="code">&amp;#xe745;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe620;</i>
+                    <div class="name">用户</div>
+                    <div class="code">&amp;#xe620;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe600;</i>
+                    <div class="name">邮件</div>
+                    <div class="code">&amp;#xe600;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe601;</i>
+                    <div class="name">删除</div>
+                    <div class="code">&amp;#xe601;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe62b;</i>
+                    <div class="name">银行卡管理</div>
+                    <div class="code">&amp;#xe62b;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe65d;</i>
+                    <div class="name">广告</div>
+                    <div class="code">&amp;#xe65d;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe606;</i>
+                    <div class="name">详细信息</div>
+                    <div class="code">&amp;#xe606;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe631;</i>
+                    <div class="name">图片</div>
+                    <div class="code">&amp;#xe631;</div>
+                </li>
+            
+                <li>
+                <i class="icon iconfont">&#xe62c;</i>
+                    <div class="name">银行卡2</div>
+                    <div class="code">&amp;#xe62c;</div>
+                </li>
+            
+        </ul>
+					
+					
+				</div>
+			</div>
+	   </div>
+	</body>
+</html>
+<script>
+	//内页框架
+	$(function() {
+		$("#pagestyle").Hupage({
+			slide: '#breadcrumb',
+			padding:15,
+			scrollbar:function(e){
+				e.niceScroll({
+					      cursorcolor: "#dddddd",
+					      cursoropacitymax: 1,
+					      touchbehavior: false,
+					      cursorwidth: "3px",
+					      cursorborder: "0",
+					      cursorborderradius: "3px",
+				 });						
+			},
+			expand: function(thisBox, settings) {
+				settings.scrollbar(
+					$(".box-content").css({
+						height: $(window).height() - $('.box-title').outerHeight() - (settings.padding*2)
+					})
+				); //设置当前页滚动样式
+			}
+		})
+	})
+</script>

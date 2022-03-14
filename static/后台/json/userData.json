@@ -1,0 +1,285 @@
+{
+	"data": [
+		{
+			"id": 0,
+			"ip": "192.168.0.123",
+			"address": "南京",
+			"status": 1,
+			"starttime": 1539621963,
+			"name": "化海天堂",
+			"endtime": 1539922163,
+			"grade": "超级管理员"
+		}, {
+			"id": 1,
+			"ip": "192.168.0.126",
+			"address": "南京",
+			"status": 1,
+			"starttime": 1539621963,
+			"name": "化海天堂",
+			"endtime": 1539922163,
+			"grade": "超级管理员"
+		}, {
+			"id": 2,
+			"ip": "192.168.0.127",
+			"address": "南京",
+			"status": 1,
+			"starttime": 1539621963,
+			"name": "化海天堂",
+			"endtime": 1539922163,
+			"grade": "超级管理员"
+		}, {
+			"id": 3,
+			"ip": "192.168.0.223",
+			"address": "南京",
+			"status": 1,
+			"starttime": 1531921963,
+			"name": "化海天堂",
+			"endtime": 1538922163,
+			"grade": "超级管理员"
+		}, {
+			"id": 4,
+			"ip": "42.168.6.56",
+			"address": "南京",
+			"status": 1,
+			"starttime": 1535621963,
+			"name": "化海天堂",
+			"endtime": 1538922163,
+			"grade": "普通管理员"
+		}, {
+			"id": 5,
+			"ip": "42.168.6.56",
+			"address": "南京",
+			"status": 1,
+			"starttime": 1535621963,
+			"name": "化海天堂",
+			"endtime": 1538922163,
+			"grade": "普通管理员"
+		}, {
+			"id": 6,
+			"ip": "42.168.6.56",
+			"address": "南京",
+			"status": 1,
+			"starttime": 1535621963,
+			"name": "化海天堂",
+			"endtime": 1538922163,
+			"grade": "普通管理员"
+		}, {
+			"id": 7,
+			"ip": "42.168.6.56",
+			"address": "南京",
+			"status": 1,
+			"starttime": 1535621963,
+			"name": "小布什",
+			"endtime": 1538922163,
+			"grade": "普通管理员"
+		}, {
+			"id": 8,
+			"ip": "42.168.6.56",
+			"address": "南京",
+			"status": 0,
+			"starttime": 1535621963,
+			"name": "化海天堂",
+			"endtime": "",
+			"grade": "普通管理员"
+		}, {
+			"id": 9,
+			"ip": "42.168.6.56",
+			"address": "南京",
+			"status": 0,
+			"starttime": 1535641963,
+			"name": "小布什",
+			"endtime": "" ,
+			"grade": "普通管理员"
+		}
+		, {
+			"id": 10,
+			"ip": "48.168.6.56",
+			"address": "上海",
+			"status": 1,
+			"starttime": 1535625963,
+			"name": "小布什",
+			"endtime": 1538922163,
+			"grade": "普通管理员"
+		}
+	],
+	"user": [
+		{
+			"id": 0,
+			"ip": "48.168.6.56",
+			"address": "上海",
+			"status": 0,
+			"starttime": 1539211963,
+			"name": "小布什",
+			"endtime":"",
+			"grade": 1,
+			"sex":"男",
+			"age":28,
+			"Avatar":"",
+			"Phone":"18923456789",
+			"mailbox":"lux.23454543@xinlian.com",
+			"content":"注意安全操作",
+			"department":"技术部",
+			"position":"经理",
+			"password":123456789
+		}
+	],"grade":[
+	{
+		"id":1,
+		"name":"总经办"			
+	},{
+		"id":2,
+		"name":"普通管理员"			
+	},{
+		"id":3,
+		"name":"超级管理员"			
+	}],"administrator":[
+	{
+		    "id": 0,
+			"ip": "48.168.6.56",
+			"address": "上海",
+			"status": 0,
+			"statushut": 1,
+			"starttime": 1539211963,
+			"name": "小布什",
+			"registeredtime":1519111963,
+			"endtime":"",
+			"grade": 1,
+			"sex":1,
+			"age":28,
+			"Avatar":"",
+			"Phone":"18923456789",
+			"mailbox":"lux.23454543@xinlian.com",
+			"content":"注意安全操作",
+			"department":"技术部",
+			"position":"经理",
+			"password":123456789
+		
+	},{
+		    "id": 1,
+			"ip": "48.168.6.56",
+			"address": "上海",
+			"status": 0,
+			"statushut": 1,
+			"starttime": 1539211963,
+			"name": "胡海天堂",
+			"registeredtime":1536111963,
+			"endtime":"",
+			"grade": 2,
+			"sex":1,
+			"age":28,
+			"Avatar":"",
+			"Phone":"18923456789",
+			"mailbox":"lux.23454543@xinlian.com",
+			"content":"注意安全操作",
+			"department":"技术部",
+			"position":"经理",
+			"password":123456789
+		
+	},{
+		    "id": 2,
+			"ip": "48.168.6.56",
+			"address": "上海",
+			"status": 0,
+			"statushut": 1,
+			"starttime": 1539211963,
+			"name": "天堂",
+			"registeredtime":1519234963,
+			"endtime":"",
+			"grade": 3,
+			"sex":1,
+			"age":28,
+			"Avatar":"",
+			"Phone":"18923456789",
+			"mailbox":"lux.23454543@xinlian.com",
+			"content":"注意安全操作",
+			"department":"技术部",
+			"position":"技术",
+			"password":123456789
+		
+	},{
+		    "id": 3,
+			"ip": "48.168.6.56",
+			"address": "上海",
+			"status": 0,
+			"statushut": 1,
+			"starttime": 1539211963,
+			"name": "天堂",
+			"registeredtime":1519234963,
+			"endtime":"",
+			"grade": 3,
+			"sex":1,
+			"age":28,
+			"Avatar":"",
+			"Phone":"18923456789",
+			"mailbox":"lux.23454543@xinlian.com",
+			"content":"注意安全操作",
+			"department":"技术部",
+			"position":"技术",
+			"password":123456789
+		
+	},{
+		    "id": 4,
+			"ip": "48.168.6.56",
+			"address": "上海",
+			"status": 0,
+			"statushut": 1,
+			"starttime": 1539211963,
+			"name": "天堂",
+			"registeredtime":1519234963,
+			"endtime":"",
+			"grade": 3,
+			"sex":1,
+			"age":28,
+			"Avatar":"",
+			"Phone":"18923456789",
+			"mailbox":"lux.23454543@xinlian.com",
+			"content":"注意安全操作",
+			"department":"技术部",
+			"position":"技术",
+			"password":123456789
+		
+	},{
+		    "id": 5,
+			"ip": "48.168.6.56",
+			"address": "上海",
+			"status": 0,
+			"statushut": 1,
+			"starttime": 1539611963,
+			"name": "支付宝",
+			"registeredtime":1549234963,
+			"endtime":"",
+			"grade": 2,
+			"sex":1,
+			"age":28,
+			"Avatar":"",
+			"Phone":"18923456789",
+			"mailbox":"lux.23454543@xinlian.com",
+			"content":"注意安全操作",
+			"department":"技术部",
+			"position":"技术",
+			"password":123456789
+		
+	},{
+		    "id": 6,
+			"ip": "48.168.6.56",
+			"address": "上海",
+			"status": 1,
+			"statushut": 0,
+			"starttime": 1545511963,
+			"name": "测试数据",
+			"registeredtime":1515534963,
+			"endtime":"",
+			"grade": 1,
+			"sex":1,
+			"age":28,
+			"Avatar":"",
+			"Phone":"18923456789",
+			"mailbox":"lux.23454543@xinlian.com",
+			"content":"注意安全操作",
+			"department":"技术部",
+			"position":"技术",
+			"password":123456789
+		
+	}
+	]
+}

@@ -1,0 +1,307 @@
+{"data":[{
+			"id": 2,
+			"pid": 0,
+			"url": "index_home.html", 
+			"icon": "iconfont icon-home",
+			"name": "系统首页"
+		},{
+			"id": 1,
+			"pid": 0,
+			"url": "",
+			"icon": "iconfont icon-iconsp2",
+			"name": "产品管理"
+		},{
+			"id":3,
+			"pid":0,
+			"url": "",
+			"icon": "iconfont icon-suoshuzhiwei",
+			"name": "交易管理"
+		},
+		{
+			"id": 4,
+			"pid": 0,
+			"url": "",
+			"icon": "iconfont icon-xiangmuguanli",
+			"name": "支付管理"
+		},
+		{
+			"id": 5,
+			"pid": 0,
+			"url": "",
+			"icon": "iconfont icon-yonghuguanli",
+			"name": "系统管理"
+		},
+		{
+			"id": 6,
+			"pid": 0,
+			"url": "",
+			"icon": "iconfont icon-wenzhang",
+			"name": "文章管理"
+		},
+		{
+			"id": 7,
+			"pid": 0,
+			"url": "",
+			"icon": "iconfont icon-usergroup",
+			"name": "会员管理"
+		},
+		{
+			"id": 8,
+			"pid": 0,
+			"url": "",
+			"icon": "iconfont icon-xiaoxi1",
+			"name": "管理员"
+		},{
+			"id": 9,
+			"pid": 0,
+			"url": "",
+			"icon": "iconfont icon-guanggao",
+			"name": "广告管理"
+		},{
+			"id": 10,
+			"pid": 0,
+			"url": "",
+			"icon": "iconfont icon-system-copy",
+			"name": "框架说明"
+		},{
+			"id": 11,
+			"pid": 0,
+			"url": "",
+			"icon": "iconfont icon-department",
+			"name": "统计分析"
+		},{
+			"id": 12,
+			"pid": 0,
+			"url": "",
+			"icon": "iconfont icon-chajian",
+			"name": "插件管理"
+		},{
+			"id": 13,
+			"pid": 0,
+			"url": "",
+			"icon": "iconfont icon-dianpu",
+			"name": "店铺管理"
+		},
+		{
+			"id": 15,
+			"pid": 1,
+			"icon": "",
+			"url": "product_Manage.html?id=0",
+			"name": "商品管理"
+
+		}, {
+			"id": 16,
+			"pid": 1,
+			"icon": "",
+			"url": "Brand_Manage.html",
+			"name": "品牌管理"
+		}, {
+			"id": 17,
+			"pid": 1,
+			"icon": "",
+			"url": "product_statistics.html",
+			"name": "产品统计"
+
+		},{
+			"id": 18,
+			"pid": 1,
+			"icon": "",
+			"url": "classify.html",
+			"name": "分类管理"
+
+		},
+		{
+			"id": 19,
+			"pid": 9,
+			"icon": "",
+			"url": "advertise.html",
+			"name": "广告管理"
+
+		},
+		{
+			"id": 22,
+			"pid": 3,
+			"icon": "",
+			"url": "order_list.html",
+			"name": "订单列表"
+
+		},
+		{
+			"id": 23,
+			"pid": 3,
+			"icon": "",
+			"url": "delivery_list.html",
+			"name": "发货管理"
+
+		},{
+			"id": 24,
+			"pid": 3,
+			"icon": "",
+			"url": "wuliu.html",
+			"name": "快递物流"
+
+		},
+		{
+			"id": 26,
+			"pid": 6,
+			"icon": "",
+			"url": "pages.html",
+			"name": "文章设置"
+
+		},{
+			"id": 30,
+			"pid": 4,
+			"icon": "",
+			"url": "defray.html",
+			"name": "支付设置"
+
+		},{
+			"id": 31,
+			"pid": 4,
+			"icon": "",
+			"url": "defray_type.html",
+			"name": "支付类型"
+
+		},{
+			"id": 40,
+			"pid": 7,
+			"icon": "",
+			"url": "member.html",
+			"name": "会员列表"
+
+		},{
+			"id": 41,
+			"pid": 7,
+			"icon": "",
+			"url": "member.html",
+			"name": "会员等级"
+
+		}, {
+			"id": 46,
+			"pid": 5,
+			"icon": "",
+			"url": "system_info.html",
+			"name": "系统设置"
+
+		}, {
+			"id": 47,
+			"pid": 5,
+			"icon": "",
+			"url": "administrator.html",
+			"name": "系统用户"
+
+		},
+		{
+			"id": 47,
+			"pid": 10,
+			"icon": "",
+			"url": "rizhi_list.html",
+			"name": "字体库"
+
+		},
+		{
+			"id": 60,
+			"pid":10,
+			"icon": "",
+			"url": "explanation.html",
+			"name": "结构说明"
+
+		}
+		,
+		{
+			"id": 70,
+			"pid":10,
+			"icon": "",
+			"url": "module.html",
+			"name": "模块说明"
+
+		},
+		{
+			"id": 71,
+			"pid":10,
+			"icon": "",
+			"url": "user.html",
+			"name": "捐赠"
+
+		}
+		,
+		{
+			"id": 110,
+			"pid":8,
+			"icon": "",
+			"url": "userinfo.html?userid=1",
+			"name": "个人信息"
+
+		},
+		{
+			"id": 111,
+			"pid":8,
+			"icon": "",
+			"url": "administrators.html",
+			"name": "登录记录"
+
+		},
+		{
+			"id": 112,
+			"pid":8,
+			"icon": "",
+			"url": "competence.html",
+			"name": "权限设置"
+
+		},
+		{
+			"id": 113,
+			"pid":8,
+			"icon": "",
+			"url": "userNotes.html",
+			"name": "个人便签"
+
+		},{
+			"id": 121,
+			"pid":13,
+			"icon": "",
+			"url": "shopinfo.html",
+			"name": "店铺信息"
+
+		},		
+		{
+			"id": 200,
+			"pid":12,
+			"icon":"" ,
+			"url": "Plugin/Plugin1.html",
+			"name": "文本字数限制"
+
+		},	
+		{
+			"id": 201,
+			"pid":12,
+			"icon": "",
+			"url": "Plugin/Plugin2.html",
+			"name": "table表格"
+
+		},	
+		{
+			"id": 203,
+			"pid":12,
+			"icon":"",
+			"url": "Plugin/Plugin3.html",
+			"name": "表单验证"
+
+		},	
+		{
+			"id": 204,
+			"pid":12,
+			"icon":"",
+			"url": "Plugin/Plugin4.html",
+			"name": "table表单分页"
+
+		},	
+		{
+			"id": 205,
+			"pid":12,
+			"icon":"",
+			"url": "Plugin/Plugin5.html",
+			"name": "原生弹框（支持移动pc）"
+
+		}
+	]}

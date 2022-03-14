@@ -1,0 +1,165 @@
+<div class="box-module">
+	<div class="box-title">商品基本信息</div>
+	<div class="box-content padding15">
+		<div class="editinfo">
+			<ul class="info_list product_info" id="VerifyTips">
+				<% if(content!=""){%>
+				<% var name=content[0].name , explain=content[0].explain ,defaultimg=content[0].defaultimg ,pid=content[0].id,Keyword=content[0].Keyword,origin=content[0].origin , quantity=content[0].quantity , yprice=content[0].yprice ,xprice=content[0].xprice ,remark=content[0].remark , slideshow=content[0].slideshow %>
+
+				<% } else{%>
+				<% var name="",explain="",defaultimg="",pid="",Keyword="",origin="",quantity="",yprice="",xprice="" ,remark="" ,slideshow="" %>
+				<% } %>
+				<li class="clearfix content_look mb15">
+					<label class="label_name">默认商品图：</label>
+					<span class="info_data">
+			<div class="gradeimg-style">
+				<div class="Upload-screenshot" >
+					<img class="addImg" src="" onerror="this.src='images/zjbg_03.png',this.onerror=null">
+						<input name="url" type="file" class="upload_input" accept="image/*">
+						<input type="hidden" id="img" name="img">
+						<div class="preBlock">
+							    <% if(pid==id){ %>
+									 <% var img="images/product_img/"+content[0].defaultimg+""; %>
+								<% } else{%>
+									<%  var img=""; %>
+								<% } %> 
+							<img class="preview" alt="" name="pic" data-src="<%=defaultimg%>" src="<%=img%>"  onerror="this.src='images/zjbg_03.png',this.onerror=null">
+						</div>
+						<img class="delete" src="images/delete.png">
+				</div>
+			</div>
+		</span>
+				</li>
+				<li class=" clearfix content_look mb15">
+					<label class="label_name"><em style="color:Red;">*</em>商品名称：</label>
+					<span class="info_data"><input data-name="商品名称" type="text" name="Required" value="<%=name%>" class="text_input col-sm-7" data-verify="verify" /></span>
+				</li>
+				<li class=" clearfix content_look mb15">
+					<label class="label_name"><em style="color:Red;">*</em>简要说明：</label>
+					<span class="info_data"><input data-name="简要说明" type="text" id="summary" name="Required" value="<%=explain%>" class="text_input col-sm-6" data-verify="verify" /></span>
+				</li>
+				<li class=" clearfix content_look mb15">
+					<label class="label_name"><em style="color:Red;">*</em>关键字：</label>
+					<span class="info_data"><input data-name="关键字" type="text" name="Required" value="<%=Keyword%>" class="text_input col-sm-6" data-verify="verify" /><span class="prompt">请用","分隔关键字</span></span>
+				</li>
+				<li class=" clearfix content_look mb15">
+					<label class="label_name"><em style="color:Red;">*</em>所属品牌：</label>
+					<span class="info_data">
+		            </span>
+				</li>
+				<li class=" clearfix content_look mb15">
+					<label class="label_name"><em style="color:Red;">*</em>所属分类：</label>
+					<span class="info_data">
+		            </span>
+				</li>
+				<li class=" clearfix content_look mb15">
+					<div class="relative col-xs-6 col-md-3 mb15">
+						<label class="label_name"><em style="color:Red;">*</em>产地/地区：</label>
+						<span class="info_data">
+			<input data-name="产地/地区" type="text" name="Required" value="<%=origin%>" class="text_input col-sm-9 col-xs-6" data-verify="verify" />
+		</span>
+					</div>
+					<div class="relative col-xs-6 col-md-3 mb15">
+						<label class="label_name"><em style="color:Red;">*</em>商品数量：</label>
+						<span class="info_data">
+			<input data-name="商品数量" type="text" name="Required" value="<%=quantity%>" class="text_input col-sm-9 col-xs-6" data-verify="verify" />
+		</span>
+					</div>
+					<div class="relative col-xs-6 col-md-3 mb15">
+						<label class="label_name"><em style="color:Red;">*</em>商品原价：</label>
+						<span class="info_data">
+			<input data-name="商品原价" type="text" name="Required" value="<%=yprice%>" class="text_input col-sm-9 col-xs-6" data-verify="verify" /><span class="ml15">元</span>
+						</span>
+					</div>
+					<div class="relative col-xs-6 col-md-3 mb15">
+						<label class="label_name"><em style="color:Red;">*</em>商城价：</label>
+						<span class="info_data">
+			<input data-name="商城价" type="text" name="Required" value="<%=xprice%>" class="text_input col-sm-9 col-xs-6" data-verify="verify" /><span class="ml15">元</span>
+						</span>
+					</div>
+				</li>
+				<li class=" clearfix content_look mb15">
+					<label class="label_name"><em style="color:Red;">*</em>是否显示：</label>
+					<span class="info_data">
+			<label class="radio relative"><input name="statusradio" type="radio" data-id="1" class="ace"><span class="lbl">启用</span></label>&nbsp;&nbsp;
+					<label class="radio relative"><input name="statusradio" type="radio" data-id="0" class="ace"><span class="lbl">关闭</span></label>&nbsp;&nbsp;
+					</span>
+				</li>
+				<li class=" clearfix content_look mb15">
+					<label class="label_name">备注：</label>
+					<span class="info_data">
+			           <textarea data-name="备注" name="Required" class="form-textarea textarea-info" id="form_textarea" placeholder=""><%=remark%></textarea>
+		            </span>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="box-module">
+	<div class="box-title">商品幻灯片</div>
+	<div class="box-content padding15">
+		<div id="" class="product_info">
+			<% if(slideshow!=""){%>
+			<% for(var j = 0; j < slideshow.length; j++) { %>
+			<div class="gradeimg-style l_f ml15">
+				<div class="Upload-screenshot">
+					<img class="addImg" src="" onerror="this.src='images/zjbg_03.png',this.onerror=null">
+					<input name="url" type="file" class="upload_input" accept="image/*">
+					<input type="hidden" id="img" name="img">
+					<div class="preBlock">
+						<img class="preview" alt="" name="pic" data-src="<%=slideshow[j].img%>" src="images/product_img/<%=slideshow[j].img%>" onerror="this.src='images/zjbg_03.png',this.onerror=null">
+					</div>
+					<img class="delete" src="images/delete.png">
+				</div>
+			</div>
+			<% }%>
+			<% } else{ %>
+			<div class="gradeimg-style l_f ml15">
+				<div class="Upload-screenshot">
+					<img class="addImg" src="" onerror="this.src='images/zjbg_03.png',this.onerror=null">
+					<input name="url" type="file" class="upload_input" accept="image/*">
+					<input type="hidden" id="img" name="img">
+					<div class="preBlock">
+						<img class="preview" alt="" name="pic" data-src="" src="" onerror="this.src='images/zjbg_03.png',this.onerror=null">
+					</div> 
+					<img class="delete" src="images/delete.png">
+				</div>
+			</div>
+			<% } %>
+		</div>
+	</div>
+</div>
+<div class="box-module">
+	<div class="box-title">编辑商品规格</div>
+	<div class="box-content padding15">
+		<div class="formatinfo">
+			
+			
+		</div>
+	</div>
+</div>
+<script>
+	var api = ""; //调用的api接口
+	var type = 5; //类型
+	//调用图片上传
+	imgUpload(api, type);
+	new Wordcount("summary", 50);
+	new Wordcount("form_textarea", 150);
+	var logo = document.getElementsByClassName("preview");
+	var classname = document.getElementsByClassName("addImg");
+	var preBlock = document.getElementsByClassName("preBlock");
+	var deletes = document.getElementsByClassName("delete");
+	for(var i = 0; i < logo.length; i++) {
+
+		if(logo[i].dataset.src != "") {
+			classname[i].style.display = 'none';
+			deletes[i].style.display = 'block';
+			preBlock[i].style.zIndex = '1';
+		} else {
+			classname[i].style.display = 'block';
+			deletes[i].style.display = 'none';
+			preBlock[i].style.zIndex = '-1';
+		}
+	}
+	//提交操作
+</script>

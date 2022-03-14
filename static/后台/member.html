@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<link href="css/SYSFrame.css" rel="stylesheet" type="text/css" />
+		<link href="font/iconfont.css" rel="stylesheet" type="text/css" />
+		<link href="css/module.css" rel="stylesheet" type="text/css" />
+		<link href="css/pages.css" rel="stylesheet" type="text/css" />
+		<title>会员信息</title>
+		<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+		<script src="js/jquery.nicescroll.js" type="text/javascript"></script>
+		<script src="js/HUpages.js" type="text/javascript"></script>
+		<script src="js/template.js" type="text/javascript"></script>
+		<!--[if lt IE 9]>
+          <script src="js/html5shiv.js" type="text/javascript"></script>
+          <script src="js/css3-mediaqueries.js"  type="text/javascript"></script>
+        <![endif]-->
+	</head>
+
+	<body id="pagestyle">
+		<!--左侧菜单栏-->
+		<div class="bk-con-menu " id="bk-con-menu">
+			<div class="menubtn">
+				<span class="close_btn samebtn"><i>隐藏</i></span>
+				<span class="show_btn samebtn"><i>显示</i></span>
+			</div>
+			<div class="title-menu">等级分类</div>
+			<div class="breadcrumb" id="breadcrumb">
+				<ul class="clearfix gradeList menulist" id="gradeList">
+
+				</ul>
+			</div>
+		</div>
+		<!--右侧内容-->
+		<div class="bk-con-message message-section" id="iframe_box">
+			<div class="page_content clearfix padding15" id="memberList">
+			</div>
+		</div>
+	</body>
+
+</html>
+<script id="gradehtml" type="text/html">
+	<li class="sortstyle relative " onclick="gradelink(this,0)" ischek="true">
+		<a href="javascript:void(0)" class="block sortname clickBombbox selected">全部</a>
+	</li>
+	<% for(var i = 0; i < grade.length; i++) { %>
+	<li onclick="gradelink(this,<%=grade[i].id%>)" class="sortstyle relative" data-id="<%=grade[i].id%>" ischek="false">
+		<a href="javascript:void(0)" class="block sortname clickBombbox">
+			<%=grade[i].name%> (
+			<%=grade[i].quantity %> )</a>
+	</li>
+	<% } %>
+</script>
+<script>
+	$(function() {
+		//内页框架结构编辑
+		$("#pagestyle").Hupage({
+			slide: '#breadcrumb',
+			padding: 15,
+			clickBombbox:'.menulist',
+			menuModule: '#bk-con-menu', //菜单模块
+			pagecontent: '.page_content', //自定义属性
+			operation: '.operation', //自定义属性
+			scrollbar: function(e) {
+				e.niceScroll({
+					cursorcolor: "#dddddd",
+					cursoropacitymax: 1,
+					touchbehavior: false,
+					cursorwidth: "3px",
+					cursorborder: "0",
+					cursorborderradius: "3px",
+				});
+			},
+			expand: function(thisBox, settings) {
+				var pc = "";
+				$(settings.pagecontent).css("margin-bottom") != null ? pc = parseInt($(settings.pagecontent).css("margin-bottom").replace("px", "")) : '';
+				$(settings.pagecontent).css({
+					height: $(window).height() - $(settings.operation).outerHeight() - pc - (settings.padding * 2)
+				})
+				settings.scrollbar($(settings.slide) && $(settings.pagecontent));
+			} //自定义方法
+		});
+	});
+	//等级列表数据
+	var memberdata = function(callback) {
+		$.ajax({
+			url: "json/member.json",
+			type: "GET",
+			dataType: 'json',
+			success: function(ret) {
+				typeof callback == 'function' && callback(ret);
+			},
+		});
+	};
+	memberdata(function(dataArr) {
+		var gradehtml = $('#gradeList');
+		var html = template('gradehtml', {
+			grade: dataArr.grade
+		});
+		gradehtml.html(html);
+		$("#gradehtml").remove();
+		var data = null;
+		var id = 0;
+		memberList(dataArr, data, id)
+	});
+	//会员显示列表
+	function memberList(dataArr, data, id) {
+		if(data == null) {
+			var data = dataArr.data;
+		}
+		$.ajax({
+			url: "html/member/index.html",
+			type: "GET",
+			dataType: "html",
+			success: function(result) {
+				$('body').append("<script id='memberhtml' type='text/html'>" + result + "</script\>");
+				var memberlist = $('#memberList');
+				var html = template('memberhtml', {
+					id: id,
+					list: data,
+					grade: dataArr.grade
+				});
+				memberlist.html('');
+				memberlist.html(html);
+				new TableSorter("tableList", 1, 2, 8); //设置
+				$("#memberhtml").remove(); //加载完毕删除模版路径	
+			    $("#quantity").html(data.length);//数据数量
+				
+			}
+		});
+	}
+	//筛选分类用户信息数据
+	function gradelink(obj, id) {
+		var listdata = function(callback) {
+			$.ajax({
+				url: "json/member.json",
+				type: "GET",
+				dataType: 'json',
+				success: function(ret) {
+					typeof callback == 'function' && callback(ret);
+				},
+			});
+		};
+		listdata(function(dataArr) {
+			if(id == 0) {
+				var data = null;
+			} else {
+				var data = dataArr.data.filter(function(e) {
+					return e.grade == id;
+				});
+			}
+			memberList(dataArr, data, id);
+		});
+	}
+	//查看用户信息
+	function memberinfo(obj, id) {
+		var content = function(callback) {
+			$.ajax({
+				url: "json/member.json",
+				type: "GET",
+				dataType: 'json',
+				success: function(ret) {
+					typeof callback == 'function' && callback(ret);
+				},
+			});
+		};
+		content(function(dataArr) {
+			var data = dataArr.data.filter(function(e) {
+				return e.id == id;
+			});
+			$.ajax({
+				url: "html/member/content.html",
+				type: "GET",
+				dataType: "html",
+				success: function(result) {
+					$('body').append("<script id='contenthtml' type='text/html'>" + result + "</script\>");
+					var contentname = $('#memberList');
+					var html = template('contenthtml', {
+						id:id,
+						info: data,
+						grades: dataArr.grade
+					});
+					contentname.html('');
+					contentname.html(html);
+					$("#contenthtml").remove(); //加载完毕删除模版路径	
+					var radios = document.getElementsByName("statusradio");
+					for(var i = 0; i < radios.length; i++) {
+						var radioid = radios[i].dataset.id;
+						radios[0].checked = true;
+						if(data[0].status == radioid) {
+							radios[i].checked = true;
+						} else {
+							radios[i].checked = false;
+						}
+					};
+					 var sexradios=document.getElementsByName("sexradio");
+					 for(var s = 0; s < sexradios.length; s++) {
+						var sexid = sexradios[s].dataset.id;
+						sexradios[0].checked = true;
+						if(data[0].sex == sexid) {
+							sexradios[s].checked = true;
+							return;
+						} else {
+							sexradios[s].checked = false;
+						}
+					};
+				}
+			});
+		});
+	};
+</script>
+<script type="text/javascript" src="js/common.js"></script>

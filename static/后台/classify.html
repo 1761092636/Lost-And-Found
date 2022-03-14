@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<link href="css/SYSFrame.css" rel="stylesheet" type="text/css" />
+		<link href="font/iconfont.css" rel="stylesheet" type="text/css" />
+		<link href="css/module.css" rel="stylesheet" type="text/css" />
+		<link href="css/pages.css" rel="stylesheet" type="text/css" />
+		<title>分类管理</title>
+		<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+		<script src="js/jquery.cookie.js" type="text/javascript"></script>
+		<script src="js/jquery.nicescroll.js" type="text/javascript"></script>
+		<script src="js/HUpages.js" type="text/javascript"></script>
+		<script src="js/layer/layer.js" type="text/javascript"></script>
+		<script src="js/template.js" type="text/javascript"></script>
+		<!--[if lt IE 9]>
+          <script src="js/html5shiv.js" type="text/javascript"></script>
+          <script src="js/css3-mediaqueries.js"  type="text/javascript"></script>
+        <![endif]-->
+	</head>
+
+	<body id="pagestyle" class="backgroundf0">
+		<div class="box-module">
+			<div class="box-title">当前分类(最多添加20个分类)</div>
+			<div class="box-content padding15">
+				<div id="sort_list" class="sortList brandlist"></div>
+			</div>
+		</div>
+	<!--添加修改分类-->
+		<div id="sortcontent" class="" style="display: none;"></div>
+	</body>
+</html>
+<script id="sorthtml" type="text/html">
+	<% for(var i = 0; i < list.length; i++) { %>
+	<div class="brand-info">
+		<div class="brand_operating">
+
+			<% if(list[i].status==0) {%>
+			<span class="name_status  btn-danger plf10" data-id="0" onclick="clickstatus(this)">关闭</span>
+			<%} if(list[i].status==1) {%>
+			<span class="name_status btn-green  plf10" data-id="1" onclick="clickstatus(this)">启用</span>
+			<%}%>
+			<span class="l_f sortname"><%=list[i].name%></span>		
+			<a href="javascript:void(0)" class="iconfont deletebtn brand_operat" title="删除分类" onclick="deleteBrand(this,<%=list[i].id%>)">&#xe6b4</a>
+			<a href="javascript:void(0)" class="iconfont brand_operat modifybtn" id="modifyN" title="修改分类" onclick="modifyBrand(this,<%=list[i].id%>)">&#xe61a</a>
+			<a href="javascript:void(0)" title="添加分类" class="iconfont deletebtn brand_operat" onclick="addsort(this,<%=list[i].id%>)">&#xe61d</a>
+		</div>
+		<div class="clearfix brand_border padding0">
+			<div class="sortQuantity scroll_cont">
+				<% if(list[i].classify!=""){%>
+				<% for(var j = 0; j < list[i].classify.length; j++) { %>
+				<a href="javascript:void()" class="sortblock btn btn-blue padding5 mb10 " onclick="">
+					<%=list[i].classify[j].name%> (
+					<%=list[i].classify[j].quantity %> )
+					<em class="deletesort iconfont" onclick="deletesort(this,<%=list[i].id%>)">&#xe70a</em>
+				</a>
+				<%}%>
+				<% }else { %>
+				<div class="text-center">该分类下还没有子栏目	</div>
+				<%}%>
+			</div>
+			<div class="brand_content">
+				<h5 class="brand_title">
+					<span class="l_f ml15">商品数量：<%=list[i].quantity%></span>
+					<span class="r_f mr15">共有：<%=list[i].classify.length%>个子分类</span>
+				</h5>
+			</div>
+		</div>
+	</div>
+	<% } %>
+	<% if(list.length<=20) {%>
+	<div class="brand-info addkuaidi">
+		<a href="javascript:void(0)" class="iconfont" onclick="addkuaidi('',0)">
+			&#xe61d
+		</a>
+	</div>
+	<% } %>
+
+</script>
+<script>
+	$(function() {
+		$("#pagestyle").Hupage({
+			scroll_cont: ".scroll_cont",
+			scrollbar: function(e) {
+				e.niceScroll({
+					cursorcolor: "#dddddd",
+					cursoropacitymax: 1,
+					touchbehavior: false,
+					cursorwidth: "3px",
+					cursorborder: "0",
+					cursorborderradius: "3px",
+				});
+			},
+			expand: function(thisBox, settings) {
+				settings.scrollbar(thisBox); //设置当前页滚动
+				//数据加载
+				var wuliu = function(callback) {
+					$.ajax({
+						url: "json/products.json",
+						type: "GET",
+						dataType: 'json',
+						success: function(ret) {
+							typeof callback == 'function' && callback(ret);
+						},
+					});
+				};
+				wuliu(function(listArr) {
+					var id = "";
+					var sortname = $('#sort_list');
+					var html = template('sorthtml', {
+						list: listArr.sort
+					});
+					sortname.html(html);
+					$("#sorthtml").remove();
+					data = "";
+					edithtml(listArr,data, id);
+					settings.scrollbar($(settings.scroll_cont));//设置需要滚动的区域
+				});
+			}
+		});
+	});
+	//内容方法
+	function edithtml(dataArr,data, id) {	
+            $.ajax({
+			url: "html/sort/content.html",
+			type: "GET",
+			dataType: "html",
+			success: function(result) {
+				$('body').append("<script id='contenthtml' type='text/html'>" + result + "</script\>");
+				var content = $('#sortcontent');
+				var htmls = template('contenthtml', {
+					id: id,
+					content: data,
+					list:dataArr.sort
+				});
+				content.html('');
+				content.html(htmls);
+                var radios = document.getElementsByName("statusradio");
+				for(var i = 0; i < radios.length; i++) {
+					var radioid = radios[i].dataset.id;
+					radios[0].checked=true;
+					if(data!=""){
+						if(data[0].status==radioid) {
+                              radios[i].checked=true;
+					} else {
+                              radios[i].checked=false;
+					}
+					}
+				};
+				$("#contenthtml").remove(); //加载完毕删除模版路径	
+			}
+		});
+	}
+	//添加分类
+	function addkuaidi(data,id){
+		layer.open({
+			type: 1,
+			title: '添加分类',
+			maxmin: true,
+			shadeClose: false, //点击遮罩关闭层
+			area: ['500px', '400px'],
+			content: $('#sortcontent'),
+			btn: ['确认添加', '取消'],
+			yes: function(index, layero) {
+
+			}
+		});
+		var listdata = function(callback) {
+			$.ajax({
+				url: "json/products.json",
+				type: "GET",
+				dataType: 'json',
+				success: function(ret) {
+					typeof callback == 'function' && callback(ret);
+				},
+			});
+		};
+		listdata(function(dataArr) {			
+			edithtml(dataArr,data, id)	
+		})		
+	}
+	//修改分类
+	function modifyBrand(obj,id){
+		var listdata = function(callback) {
+			$.ajax({
+				url: "json/products.json",
+				type: "GET",
+				dataType: 'json',
+				success: function(ret) {
+					typeof callback == 'function' && callback(ret);
+				},
+			});
+		};
+		listdata(function(dataArr) {
+			if(id == 0) {
+				var data = null;
+			} else {
+				var data = dataArr.sort.filter(function(e) {
+					return e.id == id;
+				});
+			}
+			layer.open({
+			type: 1,
+			title: '修改分类',
+			maxmin: true,
+			shadeClose: false, //点击遮罩关闭层
+			area: ['500px', '400px'],
+			content: $('#sortcontent'),
+			btn: ['确认修改', '取消'],
+			yes: function(index, layero) {
+
+			}
+		});
+			edithtml(dataArr,data, id);
+		});
+		
+		
+	}
+</script>
+<script type="text/javascript" src="js/common.js"></script>

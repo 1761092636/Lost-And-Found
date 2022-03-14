@@ -1,0 +1,100 @@
+<ul class="info_list clearfix" id="VerifyTips">
+	<li class="clearfix content_look mb15">
+		<label class="label_name">品牌LOGO：</label>
+		<span class="info_data">
+					<div class="gradeimg-style">
+						<div class="Upload-screenshot" >
+							<img class="addImg" src="" onerror="this.src='images/zjbg_03.png',this.onerror=null">
+							<input name="url" type="file" class="upload_input" accept="image/*">
+							<input type="hidden" id="img" name="img">
+							<div class="preBlock">
+								<% if(brand.id==id){ %>
+									 <% var img="images/logo/"+brand.logoImg+""; %>
+								<% } else{%>
+									<% var img=""; %>
+								<% } %> 
+								<img class="preview" alt="" name="pic" data-src="<%=brand.logoImg%>" src="<%=img%>"  onerror="this.src='images/zjbg_03.png',this.onerror=null">
+							</div>
+							<img class="delete" src="images/delete.png">
+						</div>
+					</div>
+			    </span>
+	</li>
+	<li class=" clearfix content_look mb15">
+		<label class="label_name"><em style="color:Red;">*</em>品牌名称：</label>
+		<span class="info_data"><input data-name="快递公司" type="text" value="<%=brand.name%>" name="Required" class="text_input col-sm-4" data-verify="verify"/></span>
+	</li>
+	<li class=" clearfix content_look mb15">
+		<label class="label_name"><em style="color:Red;">*</em>品牌编号：</label>
+		<span class="info_data"><input data-name="认证码" name="Required" value="<%=brand.Numbering%>"  type="text"class="text_input col-sm-4" data-verify="verify"/></span>
+	</li>
+	<% if(id!=0){%>
+	<li class=" clearfix content_look mb15">
+		<label class="label_name">商品数量：</label>
+		<span class="info_data"><%=brand.quantity%></span>
+	</li>
+	<% }%>
+	<li class=" clearfix content_look mb15">
+		<label class="label_name"><em style="color:Red;">*</em>所属国家地区：</label>
+		<span class="info_data">
+						<input data-name="快递号" name="Required" value="<%=brand.area%>"  type="text"class="text_input col-sm-4" data-verify="verify"/>
+					</span>
+	</li>
+	<li class=" clearfix content_look mb15">
+		<label class="label_name"><em style="color:Red;">*</em>所属分类：</label>
+		<span class="info_data">
+			<select class="select Competence_sort col-sm-4 col-xs-12" data-name="角色" name="Required" size="1" id="Competence_sort" data-verify="verify">
+				 <option value="0">--所属分类--</option>
+	 	            <% for(var j = 0; j < sort.length; j++) { %>	     
+				     <option value=" <%=sort[j].id%>"> <%=sort[j].name%></option>
+				    <% } %>
+				</select>
+			</span>
+	</li>
+	<li class=" clearfix content_look mb15">
+		<label class="label_name"><em style="color:Red;">*</em>加入商品：</label>
+		<span class="info_data"><button type="button" class="btn padding10 bg-deep-blue" onclick="addproducts(<%=brand.pid%>)">添加商品</button></span>
+	</li>
+	<li class=" clearfix content_look mb15">
+		<label class="label_name">状态：</label>
+		<span class="info_data">
+				    <label class="radio relative"><input name="statusradio" type="radio" data-id="1" class="ace"><span class="lbl">启用</span></label>&nbsp;&nbsp;
+		<label class="radio relative"><input name="statusradio" type="radio" data-id="0" class="ace"><span class="lbl">关闭</span></label>&nbsp;&nbsp;
+		</span>
+	</li>
+	<li class=" clearfix content_look mb15">
+		<label class="label_name">说明：</label>
+		<span class="info_data">
+			<textarea data-name="说明" name="Required" class="form-textarea textarea textarea-info" style="height: 300px;" id="form_textarea" placeholder="" ><%=brand.content%></textarea><span class="word_count">剩余字数：<em class="sy" style="color:Red"></em>字</span>
+		</span>
+	</li>
+</ul>
+<div class="buttonstyle">
+	<% if(id!=0){%>
+	<button type="button" class="btn padding10  btn-green" onclick="modifybtn(<%=id%>)">提交修改</button>
+	<% } else{%>
+	<button type="button" class="btn padding10 bg-deep-blue" onclick="addbtn()">添加品牌</button>
+	<% }%>
+</div>
+<script>
+	var api = ""; //调用的api接口
+	var type = 1; //类型
+	//调用图片上传
+	imgUpload(api, type);
+	new Wordcount("form_textarea", 1200);
+	var logo = document.getElementsByClassName("preview");
+	var classname = document.getElementsByClassName("addImg");
+	var preBlock = document.getElementsByClassName("preBlock");
+	var deletes = document.getElementsByClassName("delete");
+	if(logo[0].dataset.src != "") {
+		classname[0].style.display = 'none';
+		deletes[0].style.display = 'block';
+		preBlock[0].style.zIndex = '1';
+	} else {
+		classname[0].style.display = 'block';
+		deletes[0].style.display = 'none';
+		preBlock[0].style.zIndex = '-1';
+	}
+
+	//提交操作
+</script>

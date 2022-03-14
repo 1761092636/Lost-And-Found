@@ -1,0 +1,71 @@
+<table class="gallery table table_list table_striped table-bordered " id="tableList">
+						<thead>
+							<tr>
+								<th width="50px"><label class="checkbox relative"><input type="checkbox" class="ace" name="checkbox"><span class="lbl"></span></label></th>
+								<th>分类</th>
+								<th width="70">图片</th>
+								<th width="350">产品名称</th>
+								<th width="100">原价/元</th>
+								<th width="100">商城价/元</th>
+								<th>产地</th>
+								<th width="100">数量</th>
+								<th>状态</th>
+								<th>加入时间</th>
+								<th>操作</th>
+							</tr> 
+						</thead>
+						<tbody>
+<% for(var i = 0; i < list.length; i++) { %>
+	<% if(list[i].bid==id){%>  
+	<tr class="relative">
+		<td><label class="checkbox relative"><input type="checkbox" class="ace" name="checkbox"><span class="lbl"></span></label></td>
+		<td>
+			<% for(var s = 0; s < sorts.length; s++) { %>
+			<% if(sorts[s].id==list[i].sort) {%>
+			<%=sorts[s].name%>
+			<%}%>
+			<% } %>
+		</td>
+		<td><img src="images/product_img/<%=list[i].defaultimg%>" width="60px" height="60px" /></td>
+		<td>
+			<%=list[i].name%>
+		</td>
+		<td>
+			<%=list[i].yprice%>
+		</td>
+		<td>
+			<%=list[i].xprice%>
+		</td>
+		<td>
+			<%=list[i].origin%>
+		</td>
+			<% if(list[i].quantity - list[i].sales < sy){%>
+				<td class="pro-prompt">
+				请及时补充货源
+				</td>
+				<%}else{%>
+				<td >
+			   <%=list[i].quantity%>	
+			  </td>
+			<%}%>
+			
+		
+		<td>
+			<% if(list[i].status==0) {%>
+			<span class="name_status  plf10 btn btn-gray" data-id="0">下架</span>
+			<%} if(list[i].status==1) {%>
+			<span class="name_status  plf10 btn btn-green" data-id="1">上架</span>
+			<%}%>
+		</td>
+		<td>
+			<%=timestamp(list[i].time,'yyyy-MM-dd hh:mm')%>
+		</td>
+		<td>
+			<button class="btn btn-danger padding5" onclick="">删除</button>
+			<button class="btn btn-blue padding5" onclick="">编辑</button>
+		</td>
+	</tr>
+	 	<%}%>
+	<% } %>
+	</tbody>
+</table>

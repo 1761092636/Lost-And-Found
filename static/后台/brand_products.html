@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<link href="css/SYSFrame.css" rel="stylesheet" type="text/css" />
+		<link href="font/iconfont.css" rel="stylesheet" type="text/css" />
+		<link href="css/module.css" rel="stylesheet" type="text/css" />
+		<link href="css/pages.css" rel="stylesheet" type="text/css" />
+		<title>品牌列表</title>
+		<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+		<script src="js/jquery.cookie.js" type="text/javascript"></script>
+		<script src="js/jquery.nicescroll.js" type="text/javascript"></script>
+		<script src="js/HUpages.js" type="text/javascript"></script>
+		<script src="js/template.js" type="text/javascript"></script>
+		<!--[if lt IE 9]>
+          <script src="js/html5shiv.js" type="text/javascript"></script>
+          <script src="js/css3-mediaqueries.js"  type="text/javascript"></script>
+        <![endif]-->
+	</head>
+
+	<body id="pagestyle" class="padding15">
+		<div class="operation mb20">
+			<button type="button" onclick="javascript:history.back(-1);" class="btn button_btn btn-danger" onclick=""><i class="iconfont">&#xe6c3</i>&nbsp;返回上一步</button>
+		</div>
+		<!--品牌介绍-->
+		<div id="brandInfo" class="mb15">
+
+		</div>
+		<div class="operation  mb15">
+			<button class="btn button_btn btn-blue" type="button" onclick=""><i class="iconfont">&#xe61d</i>&nbsp;添加商品</button>
+					<button class="btn button_btn btn-danger" type="button" onclick=""><i class="iconfont">&#xe601</i>&nbsp;批量删除</button>
+				</div>
+		<!--品牌商品列表-->
+		<div id="brandProduct" class="page_content mb15">
+
+		</div>
+	</body>
+
+</html>
+<!--品牌介绍-->
+<script id="brandinfohtml" type="text/html">
+	<% for(var i = 0; i < list.length; i++) { %>
+	<% if(list[i].id==id){%>
+	<div class="brand_detailed">
+		<div class="brand_info clearfix">
+			<div class="title_brand">品牌信息</div>
+			<form>
+				<ul class="Info_style clearfix">
+					<li><label class="label_name">品牌名称：</label> <span class="name"><%=list[i].name%></span></li>
+					<li><label class="label_name">添加时间：</label><span class="name"><%=timestamp(list[i].addtime,'yyyy-MM-dd hh:mm')%></span></li>
+					<li><label class="label_name">商品数量：</label><span class="name"><%=list[i].quantity%></span></li>
+					<li><label class="label_name">所属国家/地区：</label><span class="name"><%=list[i].area %></span></li>
+					<li><label class="label_name">品牌编号：</label><span class="name"><%=list[i].Numbering %></span></li>
+					<li><label class="label_name">状&nbsp;&nbsp;&nbsp;&nbsp;态：</label>
+						<span class="name">
+							<% if(list[i].status==0) {%>
+		                                                 关闭
+		                    <%} if(list[i].status==1) {%>
+		                                                启用
+		                   <%}%>
+						</span></li>
+					<li class="b_Introduce"><label class="label_name">品牌介绍：</label><span class="name"><%=list[i].content%></span></li>
+				</ul>
+				<div class="brand_logo">
+					<img src="images/logo/<%=list[i].logoImg%>" width="120px" height="60px">
+					<p class="name">
+						<%=list[i].name%>
+					</p>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<% } %>
+	<% } %>
+</script>
+<script>
+	$(function() {
+		$("#pagestyle").Hupage({
+			scrollbar: function(e) {
+				e.niceScroll({
+					cursorcolor: "#dddddd",
+					cursoropacitymax: 1,
+					touchbehavior: false,
+					cursorwidth: "3px",
+					cursorborder: "0",
+					cursorborderradius: "3px",
+				});
+			},
+			expand: function(thisBox, settings) {
+				settings.scrollbar(thisBox); //设置当前页滚动
+			}
+		});
+	});
+	(function($) {
+		$.getUrlParam = function(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+			var r = window.location.search.substr(1).match(reg);
+			if(r != null) return unescape(r[2]);
+			return null;
+		}
+	})(jQuery); //获取设置url
+
+	var brandid = $.getUrlParam('brandid'); //获取其中的参数值
+//品牌信息介绍
+	var branddata = function(callback) {
+		$.ajax({
+			url: "json/brand.json",
+			type: "GET",
+			dataType: 'json',
+			success: function(ret) {
+				typeof callback == 'function' && callback(ret);
+			},
+		});
+	};
+	branddata(function(listArr) {
+		var brandInfo = $('#brandInfo');
+		var html = template('brandinfohtml', {
+			id: brandid,
+			list: listArr.brandlist,
+			sort: listArr.brandSort
+		});
+		brandInfo.html(html);
+		$("#brandinfohtml").remove();
+	});
+	//获取产品列表数据操作
+	var products= function(callback) {
+		$.ajax({
+			url: "json/products.json",
+			type: "GET",
+			dataType: 'json',
+			success: function(ret) {
+				typeof callback == 'function' && callback(ret);
+			},
+		});		
+	}
+	products(function(listArr){	
+		$.ajax({
+			url: "html/brand/index.html",
+			type: "GET",
+			dataType: "html",
+			success: function(result) {
+				$('body').append("<script id='productslisthtml' type='text/html'>" + result + "</script\>");
+				var listhtml = $('#brandProduct');
+				var sy=500;
+				var html = template('productslisthtml', {
+					sy:sy,
+					id:brandid,
+					list: listArr.data,
+				    sorts: listArr.sort
+				});
+				listhtml.append(html);
+
+				new TableSorter("tableList", 3, 4, 5, 6); //设置   
+				$("#productslisthtml").remove(); //加载完毕删除模版路径
+			}
+		});
+	})
+</script>
+<script src="js/common.js" type="text/javascript"></script>

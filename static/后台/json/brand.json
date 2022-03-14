@@ -1,0 +1,192 @@
+{
+	"brandlist": [
+		{
+			"id": 1,
+			"Numbering":"H3432",
+			"sort": 1,
+			"status": 0,
+			"logoImg": "156.jpg",
+			"quantity": 14,
+			"name": "玉兰油OLAY",
+			"area":"法国",
+			"pid":1,
+			"addtime":1539747700,
+			"content":"玉兰油OLAY，是宝洁公司全球著名的护肤品牌，是中国区最大护肤品牌，在大陆已持续十年呈两位数增长。OLAY以全球高科技护肤研发技术为后盾，在深入了解中国女性对护肤和美的需要的基础上，不断扩大产品范围，目前已经涵盖了护肤和沐浴系列，真正帮助女性全面周到地呵护自己的肌肤。玉兰油全球销售额近十亿美金，成为世界上最大、最著名的护肤品牌之一。卓越的护肤功效获得世界爱美女性肯定，迅速畅销150多个国家。玉兰油OLAY，是宝洁公司全球著名的护肤品牌，是中国区最大护肤品牌，在大陆已持续十年呈两位数增长。OLAY以全球高科技护肤研发技术为后盾，在深入了解中国女性对护肤和美的需要的基础上，不断扩大产品范围，目前已经涵盖了护肤和沐浴系列，真正帮助女性全面周到地呵护自己的肌肤。玉兰油全球销售额近十亿美金，成为世界上最大、最著名的护肤品牌之一。卓越的护肤功效获得世界爱美女性肯定，迅速畅销150多个国家。"
+		}, {
+			"id": 2,
+			"Numbering":"H3434",
+			"sort": 1,
+			"status": 1,
+			"logoImg": "34.jpg",
+			"quantity": 21,
+			"name": "比克度",
+			"area":"中国",
+			"pid":2,
+			"addtime":1539748700,
+			"content":"比度克是广州市中通生化制品有限公司旗下品牌。国际知名药妆品牌，针对痘痘、痘印、粉刺、黑头等普遍出现的皮肤问题，专门解决问题肌肤的品牌。"
+		}, {
+			"id": 3,
+			"Numbering":"H346",
+			"sort": 1,
+			"status": 0,
+			"logoImg": "42.jpg",
+			"quantity": 11,
+			"name": "欧莱雅",
+			"area":"法国",
+			"pid":3,
+			"addtime":1539754700,
+			"content":"巴黎欧莱雅（L'OREAL PARIS）是欧莱雅集团里知名度最高、历史最悠久的大众化妆品品牌之一，主要生产染发护发、彩妆及护肤产品，其出众的品质一直倍受全球爱美女性的青睐。巴黎欧莱雅拥有一流的药学试验室和皮肤学中心，还有遍布全球的研究..."
+		}, {
+			"id": 4,
+			"Numbering":"H3437",
+			"sort": 1,
+			"status": 1,
+			"pid":4,
+			"logoImg": "152.jpg",
+			"quantity": 21,
+			"name": "丝塔芙"
+		}, {
+			"id": 5,
+			"Numbering":"H3438",
+			"sort": 4,
+			"status": 1,
+			"logoImg": "1.jpg",
+			"quantity": 66,
+			"name": "华为"
+		}, {
+			"id": 6,
+			"Numbering":"H3439",
+			"sort": 3,
+			"status": 1,
+			"logoImg": "199.jpg",
+			"quantity": 124,
+			"name": "辉子"
+		}, {
+			"id": 7,
+			"Numbering":"H3442",
+			"sort": 2,
+			"status": 1,
+			"logoImg": "245.jpg",
+			"quantity": 24,
+			"name": "御泥坊"
+		}, {
+			"id": 10,
+			"Numbering":"H3444",
+			"sort": 2,
+			"status": 1,
+			"logoImg": "644.jpg",
+			"quantity": 24,
+			"name": "凡茜"
+		}, {
+			"id": 11,
+			"Numbering":"H3447",
+			"sort": 2,
+			"status": 1,
+			"logoImg": "740.jpg",
+			"quantity": 24,
+			"name": "麦秀雷顿"
+		}, {
+			"id": 12,
+			"Numbering":"H3445",
+			"sort": 2,
+			"status": 1,
+			"logoImg": "741.png",
+			"quantity": 24,
+			"name": "水密码"
+		}, {
+			"id": 13,
+			"Numbering":"H3472",
+			"sort": 2,
+			"status": 1,
+			"logoImg": "1396.jpg",
+			"quantity": 24,
+			"name": "美肤宝"
+		}, {
+			"id": 14,
+			"Numbering":"H3482",
+			"sort": 2,
+			"status": 1,
+			"logoImg": "1663.jpg",
+			"quantity": 24,
+			"name": "雪肤晶"
+		}, {
+			"id": 15,
+			"Numbering":"H3492",
+			"sort": 2,
+			"status": 1,
+			"logoImg": "1309.jpg",
+			"quantity": 24,
+			"name": "水密码"
+		}, {
+			"id": 16,
+			"Numbering":"H3232",
+			"sort": 4,
+			"status": 1,
+			"logoImg": "618.jpg",
+			"quantity": 24,
+			"name": "高夫"
+		}, {
+			"id": 17,
+			"Numbering":"H3132",
+			"sort": 4,
+			"status": 1,
+			"logoImg": "1089.jpg",
+			"quantity": 24,
+			"name": "高夫"
+		}, {
+			"id": 18,
+			"Numbering":"H3233",
+			"sort": 4,
+			"status": 1,
+			"logoImg": "2.jpg",
+			"quantity": 24,
+			"name": "小米"
+		}
+	],
+	"brandSort": [
+		{
+			"id": 1,
+			"name":"化妆品",
+			"quantity": 24
+		},
+		{
+			"id": 2,
+			"name": "家电",
+			"quantity": 14
+		},{
+			"id": 3,
+			"name": "电脑",
+			"quantity": 12
+		},
+		{
+			"id": 4,
+			"name": "手机",
+			"quantity":12
+		},
+		{
+			"id": 5,
+			"name": "数码配件",
+			"quantity": 44
+		},
+		{
+			"id": 6,
+			"name": "服装",
+			"quantity": 54
+		},
+		{
+			"id": 7,
+			"name": "鞋帽/装饰",
+			"quantity": 63
+		},
+		{
+			"id": 8,
+			"name": "卫浴",
+			"quantity":45
+		},
+		{
+			"id": 9,
+			"name": "小家电",
+			"quantity": 67
+		}
+	]
+}

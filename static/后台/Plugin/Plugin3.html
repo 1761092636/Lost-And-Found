@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<link href="../css/SYSFrame.css" rel="stylesheet" type="text/css" />
+		<link href="../font/iconfont.css" rel="stylesheet" type="text/css" />
+		<link href="../css/module.css" rel="stylesheet" type="text/css" />
+		<link href="../css/pages.css" rel="stylesheet" type="text/css" />
+		<link href="../js/built/built-editor.css" type="text/css" rel="stylesheet">
+		<script src="../js/jquery-1.9.1.min.js" type="text/javascript"></script>
+		<script src="../js/jquery.nicescroll.js" type="text/javascript"></script>
+		<script src="../js/HUpages.js" type="text/javascript"></script>
+		<script src="../js/common.js" type="text/javascript"></script>
+		<script src="../js/template.js" type="text/javascript"></script>
+		<!--[if lt IE 9]>
+          <script src="../js/html5shiv.js" type="text/javascript"></script>
+          <script src="../js/css3-mediaqueries.js"  type="text/javascript"></script>
+        <![endif]-->
+		<script src="../js/built/built-editor.min.js"></script>
+		<script>
+			require(["orion/editor/edit"], function(edit) {
+				edit({
+					className: "editor"
+				});
+			});
+		</script>
+	</head>
+
+	<body id="pagestyle" class="backgroundf0">
+		<div class="box-module margin15">
+			<div class="box-title">文本框验证<b class="colorgreen">(原生js)</b></div>
+			<div class="box-content ">
+				<div class="col-lg-6 col-sm-6 height100b">
+					<div class="title-name text-left">示例代码</div>
+					<div id="pluginContent">
+					<ul class="info_list clearfix padding15" id="VerifyTips">
+						<li class=" clearfix content_look mb15">
+								<label class="label_name"><em style="color:Red;">*</em>用户名：</label>
+								<span class="info_data"><input data-name="用户名" type="text" name="Required" class="text_input col-sm-4" data-verify="verify" /></span>
+							</li>
+							<li class=" clearfix content_look mb15">
+								<label class="label_name"><em style="color:Red;">*</em>密码：</label>
+								<span class="info_data"><input data-name="密码" type="password" name="Required"  class="text_input col-sm-4" data-prompt="password" data-verify="verify"/>
+			        			<span style="color:#999999; margin-left: 10px;" class="prompt iconfont">(密码由字母开头，长度在6-18之间，只能包含字符、数字和下划线)</span>
+								</span>
+							</li>
+							<li class=" clearfix content_look mb15">
+								<label class="label_name"><em style="color:Red;">*</em>再次确认密码：</label>
+								<span class="info_data"><input data-name="确认密码" type="password" name="Required"  class="text_input col-sm-4" data-prompt="confirm" data-verify="verify"/>
+			        			
+			        			</span>
+							</li>
+							<li class=" clearfix content_look mb15">
+								<label class="label_name"><em style="color:Red;">*</em>角色：</label>
+								<span class="info_data">
+									<select class="select Competence_sort col-sm-4 col-xs-12" data-name="角色" name="Required" size="1" id="Competence_sort" data-verify="verify">
+										<option value="0">--选择分类--</option>
+										<option value="1">超级管理员</option>
+										<option value="2">普通管理员</option>
+										<option value="3">技术管理</option>
+										<option value="4">编辑</option>
+										<option value="5">总经办</option>
+									</select>
+								</span>
+							</li>
+						<li class=" clearfix content_look mb15">
+							<label class="label_name">说明：</label>
+							<span class="info_data">
+								<textarea data-name="说明" name="Required" class="form-textarea col-sm-6 textarea height100" id="form_textarea" placeholder=""></textarea>
+							</span>
+						</li>
+						<li class=" clearfix content_look mb15">
+							<label class="label_name"><em style="color:Red;">*</em>简介：</label>
+							<span class="info_data">
+							  <input data-name="简介" name="Required" type="text" id="addjianjie"  class="text_input col-sm-6" data-verify="verify"/>
+							</span>
+					</li>			
+				    </ul>
+					<div class="buttonstyle"><button type="button" class="btn padding10 bg-deep-blue" onclick="modifybtn()">添加用户</button></div>
+					</div>
+					<textarea class="textareahtml" id="textareaContent">
+						
+						
+					</textarea>
+				</div>
+					<script>
+						function modifybtn() {new huprompt("VerifyTips");}
+						new Wordcount("form_textarea",200);
+					    new Wordcount("addjianjie",50);
+					    var html=document.getElementById("textareaContent");
+					    var content=document.getElementById("pluginContent").innerHTML;
+					    html.innerHTML=content;
+					    
+					</script>
+				<div class="col-lg-6 col-sm-6 height100b">
+					<pre class="editor" data-editor-lang="js" data-editor-show-annotation-ruler="false" data-editor-show-overview-ruler="false" data-editor-show-folding-ruler="false">
+/*
+ *************************提示验证代码支持移动端需改变样式属性*********************************
+ *提示：该提示图标使用iconfont字体库图标
+*/
+//提示验证文本
+function huprompt(ul) {
+	this.Verify = this.$(ul);
+	del_space(this.Verify); //调用清理空格的函数
+	if(this.Verify.children.length <= 1) {
+		return;
+	}
+	this.Init(arguments);
+}
+// 简写document.getElementById方法. 
+huprompt.prototype.$ = function(element) {
+	return document.getElementById(element);
+}
+
+// 初始化的信息和操作. 
+huprompt.prototype.Init = function(args) {
+	var conttext = document.getElementsByName("Required");
+	for(var i = 0; i < conttext.length; i++) {
+		if(conttext[i].dataset.verify === "verify") {
+			var Hints = conttext[i].dataset.name;
+			var promptname = conttext[i].dataset.prompt;
+			var prompt = conttext[i].parentNode.querySelector(".prompt");
+
+			function newprompt(name) {
+				var newspan = document.createElement("span");
+				if(!prompt) {
+					conttext[i].parentNode.appendChild(newspan).className = "prompt iconfont";
+					newspan.innerHTML = "&amp;#xe617 " + Hints + name;//&amp;#xe617 为字体库名
+					return false;
+				} else {
+					prompt.innerHTML = "&amp;#xe617 " + Hints + name;
+				}
+			}
+
+			function prompthtml() {
+				if(prompt) {
+					var prompthtml = conttext[i].parentNode.removeChild(prompt);
+				}
+			}
+			if(conttext[i].value == "") {
+				var textname = "不能为空！";
+				newprompt(textname);
+			} else {
+				if(promptname == "phone") {
+					var expression = /^[1][3,4,5,7,8][0-9]{9}$/;
+				} else if(promptname == "mailbox") {
+					var expression = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+				} else if(promptname == "password") {
+					var expression = /^[a-zA-Z]\w{5,17}$/;
+					var p = conttext[i].value;
+				}
+				var v = conttext[i].value;
+				var selects = huprompt.prototype.$("Competence_sort");
+				if(expression != null) {
+					if(promptname == "confirm") {
+						if(p != v) {
+							var textname = "不一致,请从新输入。";
+							newprompt(textname);
+							return
+						}
+					}
+					if(expression.test(v)) {
+						prompthtml();
+					} else {
+						var textname = "不正确，请确认编辑格式。";
+						newprompt(textname);
+					}
+				}else if(conttext[i] == selects){
+					var index = conttext[i].selectedIndex; // 选中索引
+					var selectname= conttext[i].options[index].value ;					
+					if(selectname == "0") {
+					var textname = "不能为空！";
+					newprompt(textname);	 
+				}else{
+					prompthtml();
+				}
+				} else {
+				prompthtml();
+				}
+			}
+			
+		}
+	}
+}
+/*
+ * 调用方法(标签名称使用介绍)
+ */
+function modifybtn() { //提交事件
+new huprompt("VerifyTips");//判断验证
+}
+data-verify="verify"//只要是文本编辑框都加
+
+data-name;//需要验证的名称(指填名称)
+
+name="Required"//是否支持提示(需要必填的信息)
+
+data-prompt=""//验证类型格式
+
+data-prompt="confirm"//验证重复密码
+
+                	</pre>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
+<script>
+	$(function() {
+		$("#pagestyle").Hupage({
+			scrollbar: function(e) {
+				e.niceScroll({
+					cursorcolor: "#dddddd",
+					cursoropacitymax: 1,
+					touchbehavior: false,
+					cursorwidth: "3px",
+					cursorborder: "0",
+					cursorborderradius: "3px",
+				});
+			},
+			expand: function(thisBox, settings) {
+				settings.scrollbar(
+					$(".box-content").css({
+						height: $(window).height() - $('.box-title').outerHeight() - (settings.padding * 2)
+					})); //设置当前页滚动样式
+			}
+		})
+	});
+</script>

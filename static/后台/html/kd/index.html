@@ -1,0 +1,81 @@
+
+				<ul class="info_list clearfix" id="VerifyTips">
+				<li class="clearfix content_look mb15">
+				<label class="label_name">快递LOGO：</label>
+				<span class="info_data">
+					<div class="gradeimg-style">
+						<div class="Upload-screenshot" >
+							<img class="addImg" src="" onerror="this.src='images/zjbg_03.png',this.onerror=null">
+							<input name="url" type="file" class="upload_input" accept="image/*">
+							<input type="hidden" id="img" name="img">
+							<div class="preBlock">
+								<% if(list.id==id){ %>
+									 <% var img="images/kd/"+list.logoimg+""; %>
+								<% } else{%>
+									<% var img=""; %>
+								<% } %> 
+								<img class="preview" alt="" name="pic" data-src="<%=list.logoimg%>" src="<%=img%>"  onerror="this.src='images/zjbg_03.png',this.onerror=null">
+							</div>
+							<img class="delete" src="images/delete.png">
+						</div>
+					</div>
+			    </span>
+				</li>
+				<li class=" clearfix content_look mb15">
+					<label class="label_name"><em style="color:Red;">*</em>快递公司名称：</label>
+					<span class="info_data"><input data-name="快递公司" type="text" value="<%=list.name%>" name="Required" class="text_input col-sm-4" data-verify="verify"/></span>
+				</li>
+				<li class=" clearfix content_look mb15">
+					<label class="label_name"><em style="color:Red;">*</em>快递认证码：</label>
+					<span class="info_data"><input data-name="认证码" name="Required" value="<%=list.rzma%>"  type="text"class="text_input col-sm-4" data-verify="verify"/></span>
+				</li>
+				<li class=" clearfix content_look mb15">
+					<label class="label_name"><em style="color:Red;">*</em>快递号：</label>
+					<span class="info_data">
+						<input data-name="快递号" name="Required" value="<%=list.code%>"  type="text"class="text_input col-sm-4" data-verify="verify"/>
+						<span class="prompt iconfont">(指快递单号的前3位数字，用于识别所属快递公司)</span>
+					</span>
+				</li>
+				<li class=" clearfix content_look mb15">
+					<label class="label_name"><em style="color:Red;">*</em>状态：</label>
+					<span class="info_data">
+				    <label class="radio relative"><input name="statusradio" type="radio" data-id="1" class="ace"><span class="lbl">启用</span></label>&nbsp;&nbsp;
+					<label class="radio relative"><input name="statusradio" type="radio" data-id="0" class="ace"><span class="lbl">关闭</span></label>&nbsp;&nbsp;
+					</span>
+				</li>
+				<li class=" clearfix content_look mb15">
+					<label class="label_name">说明：</label>
+					<span class="info_data">
+						<textarea data-name="说明" name="Required" class="form-textarea textarea-info" id="form_textarea" placeholder="" ><%=list.content%></textarea><span class="word_count">剩余字数：<em class="sy" style="color:Red"></em>字</span>
+					</span>
+				</li>
+				</ul> 	
+				<div class="buttonstyle">
+					<% if(id!=""){%>
+						<button type="button" class="btn padding10  btn-green" onclick="modifybtn(<%=id%>)">提交修改</button>
+					<% } else{%>
+						<button type="button" class="btn padding10 bg-deep-blue" onclick="addbtn()">添加快递</button>
+						<% }%>
+				</div>			
+<script>
+	var api = ""; //调用的api接口
+	var type = 1; //类型
+	//调用图片上传
+	imgUpload(api, type);
+	 new Wordcount("form_textarea",300);
+	 var logo=document.getElementsByClassName("preview");
+	 var classname=document.getElementsByClassName("addImg");
+	 var preBlock=document.getElementsByClassName("preBlock");
+	 var deletes=document.getElementsByClassName("delete");
+	if(logo[0].dataset.src!=""){
+	    classname[0].style.display = 'none'; 
+	    deletes[0].style.display = 'block';
+	    preBlock[0].style.zIndex='1';
+	}else{
+		classname[0].style.display = 'block';
+		deletes[0].style.display = 'none';
+		preBlock[0].style.zIndex='-1';
+	}
+
+	//提交操作
+</script>

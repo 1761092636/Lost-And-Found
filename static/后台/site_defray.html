@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<link href="css/SYSFrame.css" rel="stylesheet" type="text/css" />
+		<link href="font/iconfont.css" rel="stylesheet" type="text/css" />
+		<link href="css/module.css" rel="stylesheet" type="text/css" />
+		<link href="css/pages.css" rel="stylesheet" type="text/css" />
+		<title>支付设置</title>
+		<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+		<script src="js/layer/layer.js" type="text/javascript"></script>
+		<script src="js/jquery.nicescroll.js" type="text/javascript"></script>
+		<script src="js/HUpages.js" type="text/javascript"></script>
+		<script src="js/template.js" type="text/javascript"></script>
+		<!--[if lt IE 9]>
+          <script src="js/html5shiv.js" type="text/javascript"></script>
+          <script src="js/css3-mediaqueries.js"  type="text/javascript"></script>
+        <![endif]-->
+	</head>
+
+	<body id="pagestyle" class="padding15">
+		<div class="operation mb20">
+			<button class="btn button_btn btn-danger" type="button" onclick="">返回上一页</button>
+		</div>
+		<div class="Payment_details " id="Payment_details">
+			<div class="bank_style clearfix" id="Bank_operations">
+			</div>
+		</div>
+	</body>
+
+</html>
+<script id="Paymenthtml" type="text/html">
+	<% for(var i = 0; i < list.length; i++) { %>
+	<% if(list[i].id==id){%>
+	<div class="brand_detailed">
+		<div class="brand_info clearfix">
+			<div class="title_brand">支付信息</div>
+			<form>
+				<ul class="Info_style clearfix">
+					<li><label class="label_name">支付名称：</label> <span class="name"><%=list[i].name%></span></li>
+					<li><label class="label_name">开通时间：</label><span class="name"><%=timestamp(list[i].time,'yyyy-MM-dd hh:mm')%></span></li>
+					<li><label class="label_name">结束时间：</label><span class="name"><%=timestamp(list[i].endtime,'yyyy-MM-dd hh:mm')%></span></li>
+					<li><label class="label_name">所属国家：</label><span class="name"><%=list[i].country %></span></li>
+					<li><label class="label_name">结算方式：</label><span class="name"><%=list[i].Settlement %></span></li>
+					<li><label class="label_name">状&nbsp;&nbsp;&nbsp;&nbsp;态：</label>
+						<span class="name">
+							<% if(list[i].status==0) {%>
+		                                                 关闭
+		                    <%} if(list[i].status==1) {%>
+		                                                启用
+		                   <%}%>
+						</span></li>
+					<li class="b_Introduce"><label class="label_name">支付介绍：</label><span class="name"><%=list[i].content%></span></li>
+				</ul>
+				<div class="brand_logo">
+					<img src="images/black/<%=list[i].img%>" width="120px" height="60px">
+					<p class="name">
+						<%=list[i].name%>
+					</p>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="bank_style clearfix" id="Bank_operations">
+		<div class="title_name">支持银行</div>
+		<div class="operating">
+			<a href="javascript:void(0)" onclick="modify(this)" class="btn button_btns btn-danger btn_delete mr10"><i class="iconfont">&#xe6b4</i>&nbsp;删除操作</a>
+			<a href="javascript:void(0)" onclick="Add_Bank()" class="btn button_btns bg-deep-blue"><i class="iconfont"></i>&nbsp;添加银行</a>
+		</div>
+		<div class="bank_list clearfix">
+			<ul class="bank_logo clearfix">
+				<% if(list[i].bank!="") {%>
+				<% for(var j = 0; j < list[i].bank.length; j++) { %>
+				<li>
+					<div class="delete_bank">
+						<a href="javascript:void(0)" onclick="bank_del(this,'<%=list[i].bank[j].id%>')" class="iconfont">&#xe70a</a>
+					</div>
+					<label>
+						<input name="form-field-checkbox" type="checkbox" class="ace">
+					    <span class="lbl"><img src="images/black/<%=list[i].bank[j].img%>" width="160px;" alt="<%=list[i].bank[j].name%>"/></span>
+					</label>
+				</li>
+				<% } %>
+				<% } else{%>
+				<li class="bare_prompt">还没有相关银行，请尽快添加相关支付银行</li>
+				<% } %>
+			</ul>
+			<div class="Push_button"> </div>
+		</div>
+	</div>
+	<% } %>
+	<% } %>
+</script>
+<script>
+	//内页框架
+	$(function() {
+		$("#pagestyle").Hupage({
+			scrollbar: function(e) {
+				e.niceScroll({
+					cursorcolor: "#dddddd",
+					cursoropacitymax: 1,
+					touchbehavior: false,
+					cursorwidth: "3px",
+					cursorborder: "0",
+					cursorborderradius: "3px",
+				});
+			},
+			expand: function(thisBox, settings) {
+				settings.scrollbar(thisBox); //设置当前页滚动样式
+			}
+		});
+		(function($) {
+			$.getUrlParam = function(name) {
+				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+				var r = window.location.search.substr(1).match(reg);
+				if(r != null) return unescape(r[2]);
+				return null;
+			}
+		})(jQuery); //获取设置url
+
+		var siteid = $.getUrlParam('site');//获取其中的参数值
+		//编辑数据
+		var defray = function(callback) {
+			$.ajax({
+				url: "json/defray.json",
+				type: "GET",
+				dataType: 'json',
+				success: function(ret) {
+					typeof callback == 'function' && callback(ret);
+				},
+			});
+		};
+		defray(function(listArr) {
+			var listhtml = $('#Payment_details');
+			var html = template('Paymenthtml', {
+				id: siteid,
+				list: listArr.data
+			});
+			listhtml.html(html);
+		});
+		//日期转换
+		template.defaults.imports.timestamp = function(date, format) {
+			if(typeof date === "string") {
+				var mts = date.match(/(\/Date(\d+)\/)/);
+				if(mts && mts.length >= 3) {
+					date = parseInt(mts[2]);
+				}
+			}
+			date = new Date(parseInt(date * 1000));
+			if(!date || date.toUTCString() == "Invalid Date") {
+				return "";
+			}
+			var map = {
+				"M": date.getMonth() + 1, //月份
+				"d": date.getDate(), //日
+				"h": date.getHours(), //小时
+				"m": date.getMinutes(), //分
+				"s": date.getSeconds(), //秒
+				"q": Math.floor((date.getMonth() + 3) / 3), //季度
+				"S": date.getMilliseconds() //毫秒
+			};
+			format = format.replace(/([yMdhmsqS])+/g, function(all, t) {
+				var v = map[t];
+				if(v !== undefined) {
+					if(all.length > 1) {
+						v = '0' + v;
+						v = v.substr(v.length - 2);
+					}
+					return v;
+				} else if(t === 'y') {
+					return(date.getFullYear() + '').substr(4 - all.length);
+				}
+				return all;
+			});
+			return format;
+		};
+	});
+	//按钮点击事件
+	var banks = $("#Bank_operations")
+	function modify(e) {
+		var name = $(e).parents(banks);
+		$('.ace').attr("disabled", false);
+		$('.ace').addClass("add");
+		name.find('.bank_logo').addClass("delete");
+		name.find('.Push_button').addClass("btn_delete");
+		name.find('.operating .btn_delete').hide();
+		name.find('.Push_button').html('<buttom style="text-decoration:none" class="btn button_btns btn-danger deleteBank" onClick="bank_complete(this,id)">确认删除</buttom><label class="relative"><input name="checkbox" type="checkbox" class="ace" onClick="selectall(this)"><span class="lbl">全选</span></label>');
+	};
+	/**全选**/
+	function selectall(e){
+		var that = $(e);
+			that.closest('.bank_list').find('li input:checkbox').each(function(){
+			$(this).checked = that.checked;
+			$(this).closest('li').toggleClass('selected');
+		});
+	}
+		
+	/*确认操作*/
+	function bank_complete(obj, id) {
+		var checkbox = $('input[name="form-field-checkbox"]');
+		if(checkbox.length) {
+			for(var i = 0; i < checkbox.length; i++) {
+				if(checkbox[i].checked) {
+					layer.alert('删除成功！', {
+						title: '提示框',
+						icon: 0,
+					})
+					break;
+				} else {
+					$('.ace').removeClass("add");
+					$('#Bank_operations').find('.Push_button').removeClass("btn_delete");
+					$('#Bank_operations').find('.bank_logo').removeClass("delete");
+					$('#Bank_operations').find('.Push_button .Button').empty();
+					$('#Bank_operations').find('.operating .btn_delete').show();
+
+				}
+			}
+		}
+		if($('input[name="checkbox"]').prop("checked")) {
+			layer.alert('是否删除全部银行！', {
+				title: '提示框',
+				icon: 0,
+				btn: ['确定', '取消'],
+				yes: function(index) {
+					$('#Bank_operations').find('.bank_logo').empty();
+					$('#Bank_operations').find('.Push_button').empty();
+					layer.close(index);
+				}
+			})
+		}
+	}
+	/*银行-删除*/
+function bank_del(obj,id){
+	layer.confirm('确认要删除该银行吗？',function(index){
+		$(obj).parents("li").remove();
+		layer.msg('已删除!',{icon:1,time:1000});
+	});
+}
+</script>
