@@ -32,7 +32,7 @@ document.writeln("                      <li class=\'rd-nav-item\'><a class=\'rd-
 document.writeln("                        <ul class=\'rd-menu rd-navbar-dropdown\'>");
 document.writeln("                          <li class=\'rd-dropdown-item \'><a class=\'rd-dropdown-link\' href=\'news.html\'>行业新闻</a>");
 document.writeln("                          </li>");
-document.writeln("                          <li class=\'rd-dropdown-item\'><a class=\'rd-dropdown-link\' href=\'news.html\'>区块链</a>");
+document.writeln("                          <li class=\'rd-dropdown-item\'><a class=\'rd-dropdown-link\' href=\'single-post.html\'>安全科普</a>");
 document.writeln("                         ");
 document.writeln("                        </ul>");
 document.writeln("                      </li>");
@@ -42,7 +42,6 @@ document.writeln("                          <li class=\'rd-nav-item\'><a class=\
 document.writeln("                            <ul class=\'rd-menu rd-navbar-dropdown\'>");
 document.writeln("                              <li class=\'rd-dropdown-item\'><a class=\'rd-dropdown-link\' href=\'about-us.html\'>CDC简介</a>");
 document.writeln("                              </li>");
-document.writeln("                              <li class=\'rd-dropdown-item\'><a class=\'rd-dropdown-link\' href=\'news.html\'>区块链</a>");
 document.writeln("                             ");
 document.writeln("                       </ul>");
 document.writeln("                  </ul> ");
