@@ -1,0 +1,118 @@
+@charset "utf-8";
+
+#main{
+    padding: 30px 0px;
+}
+
+#cart{
+    background: #FFFFFF;
+    padding: 40px;
+}
+
+#cart h1{
+    line-height: 40px;
+    padding: 0px 0px 10px 0px;
+}
+
+table.form{
+    border-collapse: collapse;
+    empty-cells: show;
+    margin: 20px 0px;
+    padding: 0px;
+    table-layout: fixed;
+    width: 100%;
+}
+
+table.form th,
+table.form td{
+    border-bottom: 1px solid #DDDDDD;
+    padding: 15px 10px;
+    text-align: left;
+}
+
+table.form{
+    border-top: 3px solid #DDDDDD;
+}
+
+.goods .goods-image img{
+    border: 1px solid #DDDDDD;
+    float: left;
+    height: 100px;
+    margin: 0px 20px 0px 0px;
+}
+
+.goods .goods-information{
+    float: left;
+}
+
+.goods .goods-information ul{
+    color: #666666;
+    font-size: 12px;
+    line-height: 20px;
+    margin:10px 0px 0px 0px;
+}
+
+.price,
+.amount,
+#total-amount{
+    color: #E00000;
+}
+
+#total-amount{
+    font-size: 22px;
+}
+
+.price em,
+.amount em,
+#total-amount em{
+    font-style: normal;
+}
+
+.combo .combo-minus,
+.combo .combo-value,
+.combo .combo-plus{
+    background: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    color: #333333;
+    float: left;
+    font-weight: bold;
+    margin: 0px;
+    outline: none;
+    text-align: center;
+}
+
+.combo .combo-minus,
+.combo .combo-plus{
+    font-size: 16px;
+    height: 26px;
+    line-height: 26px;
+    padding: 0px;
+    width: 24px;
+}
+
+.combo .combo-value{
+    border-left: none;
+    border-right: none;
+    height: 20px;
+    line-height: 20px;
+    padding: 2px;
+    width: 40px;
+}
+
+#cart-delete{
+    margin-left: 20px;
+}
+
+#settlement{
+    background: #E00000;
+    border: none;
+    color: #FFFFFF;
+    float: right;
+    font-size: 16px;
+    height: 40px;
+    line-height: 40px;
+    margin: 0px;
+    outline: none;
+    padding: 0px;
+    width: 160px;
+}

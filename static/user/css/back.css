@@ -1,0 +1,54 @@
+.kele:before {
+  position: absolute;
+  content: " ";
+  border: transparent 14px solid;
+  border-width: 13px 8px;
+  border-right-color: #ccc;
+  top: 1px;
+  left: -16px;
+  height: 0;
+  width: 0;
+}
+.kele {
+  position: relative;
+  width: 40px;
+  height: 28px;
+  background: #eee;
+  border-radius: 5px;
+  margin: 10px;
+  text-align: center;
+  line-height: 28px;
+  color: #999;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  display: none;
+}
+.kele:after {
+  position: absolute;
+  content: " ";
+  border: transparent 13px solid;
+  border-width: 12px 8px;
+  border-right-color: #eee;
+  top: 2px;
+  left: -15px;
+  height: 0;
+  width: 0;
+}
+
+
+@media (max-width: 767px) {
+  .kele {
+    display: block !important;
+  }
+}
+
+.l {
+    position: absolute;
+    right: 0;
+    top: 10px;
+    width: 40px;
+    height: 40px;
+    border-right: 1px solid #999;
+    border-bottom: 1px solid #999;
+    -webkit-transform: rotate(135deg);
+}

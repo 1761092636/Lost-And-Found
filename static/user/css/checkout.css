@@ -1,0 +1,44 @@
+.divAll{ 
+    width:800px; 
+    font-family:'黑体'; 
+    margin:50px auto; 
+    } 
+
+  #contents{ 
+     margin-top:20px; 
+     background:#FFF9F3; 
+     border:1px solid #CCC;; 
+     } 
+
+ 
+  
+   .default{ 
+     width:200px; 
+     height:32px; 
+     line-height:32px; 
+     color:#999; 
+     } 
+    .error{ 
+     height:32px; 
+     line-height:32px; 
+     color:#F00; 
+     } 
+   .success{ 
+     height:32px; 
+     line-height:32px; 
+     color:#096; 
+     }  
+   .divBtn{ 
+     margin-top:20px; 
+     margin-left:346px; 
+     width:120px; 
+     height:38px; 
+     line-height:32px; 
+     background-color:#F93; 
+     margin-bottom:10px; 
+     color:#ffffff; 
+     font-weight:bold; 
+     border:none; 
+     } 
+   
+    

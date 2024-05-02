@@ -454,7 +454,7 @@ h2 + p,
 .section-lg,
 .section-xl,
 .section-xxl {
-	padding: 80px 0;
+	padding: 10px 0;
 }
 
 @media (min-width: 768px) {
@@ -1251,6 +1251,7 @@ h2 + p,
 .bg-default:not([style*="background-"]) + .bg-default:not([style*="background-"]) {
 	padding-top: 0;
 }
+
 
 .bg-gray-100 {
 	background-color: #f7f7f7;
@@ -2630,9 +2631,9 @@ input:-webkit-autofill ~ .form-validation {
 	position: relative;
 }
 
-.form-wrap.has-error .form-input {
+/* .form-wrap.has-error .form-input {
 	border-color: #f5543f;
-}
+} */
 
 .form-wrap.has-focus .form-input {
 	border-color: #8EB360;
@@ -2657,6 +2658,7 @@ input:-webkit-autofill ~ .form-validation {
 	-webkit-appearance: none;
 	transition: .3s ease-in-out;
 	border: 1px solid #f7f7f7;
+
 }
 
 .form-input:focus {
@@ -5209,11 +5211,22 @@ h4 + .review {
 
 .post-classic-text {
 	margin-top: 12px;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+
 }
 
 @media (min-width: 1200px) {
 	.post-classic-text {
 		font-size: 18px;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+
 	}
 }
 
@@ -12570,3 +12583,65 @@ html:not(.ie-11):not(.ios) .parallax-disabled {
 	pointer-events: none;
 	opacity: .5;
 }
+.custom-card {
+	background-color: #f8f9fa; /* 设置背景色 */
+	border-radius: 10px; /* 设置圆角边框 */
+	padding: 20px; /* 添加内边距 */
+  }
+
+  /* 对话框容器 */  
+.dialog-container {  
+    position: fixed; /* 悬浮定位 */  
+    top: 50%; /* 垂直居中 */  
+    left: 50%; /* 水平居中 */  
+    transform: translate(-50%, -50%); /* 使用transform调整位置 */  
+    display: none; /* 默认隐藏 */  
+    z-index: 1000; /* 确保对话框在其它元素之上 */  
+    background-color: #fff; /* 背景色 */  
+    border-radius: 5px; /* 圆角 */  
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 阴影 */  
+    padding: 20px; /* 内边距 */  
+    overflow: hidden; /* 防止内容溢出 */  
+}  
+  
+/* 对话框标题 */  
+.dialog-title {  
+    margin-bottom: 15px; /* 标题与输入框之间的间距 */  
+}  
+  
+/* 输入框和按钮 */  
+#inputField {  
+    width: 100%; /* 宽度占满对话框 */  
+    padding: 5px; /* 内边距 */  
+    margin-bottom: 10px; /* 与按钮之间的间距 */  
+}  
+  
+#confirmButton, #cancelButton {  
+    padding: 5px 10px; /* 内边距 */  
+    margin-right: 5px; /* 右边距，用于分隔按钮 */  
+}
+
+#message-container {  
+	width: 100%; /* 宽度设置为100%，使其占据整个容器宽度 */  
+	max-width: 600px; /* 最大宽度为600px，防止过宽 */  
+	margin-bottom: 20px; /* 底部外边距 */  
+	border: 1px solid #ccc; /* 边框 */  
+	border-radius: 5px; /* 边框圆角 */  
+	padding: 10px; /* 内边距 */  
+	background-color: #f9f9f9; /* 背景色 */  
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 阴影效果 */  
+	overflow-y: auto; /* 允许垂直滚动 */  
+}  
+  
+#message-container div {  
+	margin-bottom: 5px; /* 每条消息之间的间距 */  
+	padding: 5px 10px; /* 内边距，使消息文本与容器边缘有一定距离 */  
+	border-radius: 5px; /* 圆角 */  
+	background-color: #fff; /* 背景色 */  
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* 阴影效果 */  
+}  
+  
+/* 可选：为最后一条消息添加样式，比如高亮 */  
+#message-container div:last-child {  
+	background-color: #f0f0f0; /* 最后一条消息的背景色 */  
+}  

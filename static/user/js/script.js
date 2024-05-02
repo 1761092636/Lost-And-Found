@@ -465,7 +465,7 @@
 			let regularConstraintsMessages = [
 				{
 					type:       regula.Constraint.Required,
-					newMessage: "The text field is required."
+					newMessage: "内容不能为空"
 				},
 				{
 					type:       regula.Constraint.Email,
@@ -473,7 +473,7 @@
 				},
 				{
 					type:       regula.Constraint.Numeric,
-					newMessage: "Only numbers are required"
+					newMessage: "请输入溯源号进行查询"
 				},
 				{
 					type:       regula.Constraint.Selected,

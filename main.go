@@ -1,18 +1,19 @@
 package main
 
 import (
-	"CDC/CDC-/config"
-	"CDC/CDC-/db"
-	"CDC/CDC-/handler"
+	"Lost_and_Found/config"
+	"Lost_and_Found/db"
+	"Lost_and_Found/eth"
+	"Lost_and_Found/handler"
 	"fmt"
 	"os"
 )
 
 func main() {
-	var err error
-	//eth.Ect()
-	// 载入配置文件
 
+	var err error
+	eth.InitEth()
+	// 载入配置文件
 	if len(os.Args) != 2 {
 		fmt.Printf("usage: %v config-file\n", os.Args[0])
 		return
@@ -32,7 +33,6 @@ func main() {
 	}
 
 	//开启web服务器
-
 	err = handler.Start(fmt.Sprintf("%s:%s", c.Host, c.Port), c.WebDir)
 	fmt.Println(c.WebDir)
 	if err != nil {
